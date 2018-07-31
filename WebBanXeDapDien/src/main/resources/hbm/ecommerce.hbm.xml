@@ -1,0 +1,217 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="app.model">
+
+    <class name="AccountEntity" table="account">
+        <id name="id">
+            <column name="id" precision="4"/>
+            <generator class="identity"/>
+        </id>
+        <property name="email">
+            <column name="Email" not-null="true" length="30"/>
+        </property>
+        <property name="passWord">
+            <column name="PassWord" not-null="true" length="20"/>
+        </property>
+        <property name="phoneNumber">
+            <column name="Phone_Number" not-null="false" length="15"/>
+        </property>
+
+        <many-to-one name="roleEntity" column="Role_id"
+                     class="RoleEntity" not-null="true"/>
+    </class>
+
+    <class name="RoleEntity" table="Role">
+        <id name="roleId">
+            <column name="Role_id" precision="4"/>
+            <generator class="identity"/>
+        </id>
+        <property name="roleName">
+            <column name="Role_name" not-null="true" length="10"/>
+        </property>
+    </class>
+
+
+    <class name="OrdersEntity" table="Orders">
+        <id name="id">
+            <column name="Id" precision="10"/>
+            <generator class="identity"/>
+        </id>
+        <property name="customerName">
+            <column name="Customer_Name" length="50"/>
+        </property>
+        <property name="customerAdress">
+            <column name="Customer_Adress" length="50"/>
+        </property>
+        <property name="customerPhoneNumber">
+            <column name="Customer_PhoneNumber" length="15"/>
+        </property>
+        <property name="customerNote">
+            <column name="Customer_Note" not-null="false"/>
+        </property>
+        <property name="status">
+            <column name="Status" length="30"/>
+        </property>
+        <property name="createdAt">
+            <column name="Created_At" precision="-1"/>
+        </property>
+        <property name="updatedAt">
+            <column name="Updated_At" not-null="false" precision="-1"/>
+        </property>
+        <many-to-one name="accountByUserId" column="User_id"
+                     class="AccountEntity" not-null="false"/>
+        <many-to-one name="accountByShipperId" column="Shipper_id"
+                     class="AccountEntity" not-null="false"/>
+
+        <set name="ordersDetails" lazy="false" cascade="all">
+            <key column="order_Id"></key>
+            <one-to-many class="OrdersDetailsEntity"/>
+        </set>
+
+    </class>
+
+    <class name="SuppliersEntity" table="Suppliers">
+        <id name="id">
+            <column name="Id" precision="5"/>
+            <generator class="identity"/>
+        </id>
+        <property name="name">
+            <column name="Name" length="50"/>
+        </property>
+        <property name="adress">
+            <column name="adress" length="50"/>
+        </property>
+        <property name="phoneNumber">
+            <column name="PhoneNumber" not-null="false" length="15"/>
+        </property>
+        <set name="productsEntities" inverse="true" cascade="all">
+            <key column="Supplier_Id"/>
+            <one-to-many class="ProductsEntity"/>
+        </set>
+    </class>
+
+
+    <class name="ImagesEntity" table="Images">
+        <id name="id">
+            <column name="Id" precision="10"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one name="productsEntity" column="Product_Id" class="ProductsEntity" fetch="select" lazy="false"
+                     not-null="true"/>
+        <property name="link">
+            <column name="link" length="100"/>
+        </property>
+    </class>
+
+
+    <class name="ProductsEntity" table="Products">
+        <id name="id">
+            <column name="id" precision="5"/>
+            <generator class="identity"/>
+        </id>
+        <property name="name">
+            <column name="Name" length="50"/>
+        </property>
+        <property name="price">
+            <column name="Price" precision="10"/>
+        </property>
+        <property name="mainPhoto">
+            <column name="MainPhoto" length="50"/>
+        </property>
+        <many-to-one name="suppliersEntity" column="Supplier_Id" class="SuppliersEntity" lazy="false" not-null="true"/>
+        <set name="imagesEntityList" fetch="select" lazy="false" >
+            <key column="Product_Id"></key>
+            <one-to-many class="ImagesEntity"/>
+        </set>
+        <set name="ProductsColorsEntities" lazy="true">
+            <key column="Product_Id"></key>
+            <one-to-many class="ProductsColorsEntity"/>
+        </set>
+        <set name="ordersDetailsEntities" lazy="true">
+            <key column="Product_Id"></key>
+            <one-to-many class="OrdersDetailsEntity"/>
+        </set>
+
+    </class>
+
+
+    <class name="ProductsColorsEntity" table="Products_Colors">
+        <composite-id>
+            <key-many-to-one name="Product_Id" column="Product_id" lazy="false" class="ProductsEntity"/>
+            <key-property name="color" column="Color"/>
+        </composite-id>
+        <property name="amount">
+            <column name="amount" precision="11"/>
+        </property>
+    </class>
+
+    <class name="OrdersDetailsEntity" table="Orders_Details">
+        <composite-id class="OrdersDetailsEntityPK">
+            <key-many-to-one name="productId" column="Product_id" lazy="false" class="ProductsEntity"/>
+            <key-many-to-one name="orderId" column="Order_id" lazy="false" class="OrdersEntity"/>
+        </composite-id>
+        <property name="amount">
+            <column name="Amount" not-null="true" precision="5"/>
+        </property>
+        <property name="price">
+            <column name="Price" not-null="true" precision="10"/>
+        </property>
+    </class>
+
+
+    <class name="ProductDetailsEntity" table="Product_Details">
+        <id name="id">
+            <column name="id" precision="6"/>
+            <generator class="identity"/>
+        </id>
+        <property name="motor">
+            <column name="Motor" not-null="false" precision="5"/>
+        </property>
+        <property name="operate">
+            <column name="Operate" not-null="false" length="50"/>
+        </property>
+        <property name="speed">
+            <column name="Speed" not-null="false" sql-type="float unsigned" precision="-1"/>
+        </property>
+        <property name="safeWeight">
+            <column name="Safe_Weight" not-null="false" precision="5"/>
+        </property>
+        <property name="weight">
+            <column name="Weight" not-null="false" sql-type="float unsigned" precision="5"/>
+        </property>
+        <property name="maximumDistance">
+            <column name="Maximum_Distance" not-null="false" precision="5"/>
+        </property>
+        <property name="chargingTime">
+            <column name="Charging_Time" not-null="false" precision="5"/>
+        </property>
+        <property name="typeOfBattery">
+            <column name="Type_Of_Battery" not-null="false" length="50"/>
+        </property>
+        <property name="tires">
+            <column name="Tires" not-null="false" length="50"/>
+        </property>
+        <property name="accessoriesIncluded">
+            <column name="Accessories_included" not-null="false" length="50"/>
+        </property>
+        <property name="longs">
+            <column name="Longs" not-null="false" sql-type="float unsigned" precision="-1"/>
+        </property>
+        <property name="wide">
+            <column name="Wide" not-null="false" sql-type="float unsigned" precision="-1"/>
+        </property>
+        <property name="hight">
+            <column name="Hight" not-null="false" sql-type="float unsigned" precision="-1"/>
+        </property>
+        <property name="warrantyBattery">
+            <column name="Warranty_Battery" not-null="false" precision="3"/>
+        </property>
+        <property name="warrantyMotor">
+            <column name="Warranty_Motor" not-null="false" precision="3"/>
+        </property>
+        <many-to-one name="productsEntity" column="Product_id" class="ProductsEntity" lazy="false" not-null="true"/>
+    </class>
+
+</hibernate-mapping>
