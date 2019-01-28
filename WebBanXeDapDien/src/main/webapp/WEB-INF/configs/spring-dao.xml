@@ -6,9 +6,10 @@
 
 	<import resource="spring-datasource.xml"/>
 
-	<!--<bean id="StudentDAO" class="app.dao.impl.StudentDAOImpl">-->
-		<!--<property name="sessionFactory">-->
-			<!--<ref bean="sessionFactory" />-->
-		<!--</property>-->
-	<!--</bean>-->
+	<bean id="genericDAO" class="app.dao.impl.GenericDAO" abstract="true">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="ProductDAOImpl"  class="app.dao.impl.ProductDAOImpl" parent="genericDAO" />
 </beans>

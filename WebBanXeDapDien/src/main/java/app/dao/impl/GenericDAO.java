@@ -1,4 +1,4 @@
-package app.dao;
+package app.dao.impl;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;

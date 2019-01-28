@@ -8,14 +8,14 @@ public class OrdersDetailsEntity implements Serializable {
     private Integer orderId;
     private short productId;
     private short amount;
-    private int price;
+    private double price;
     private OrdersEntity ordersByOrderId;
 
-    public int getOrderId() {
+    public Integer getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
 
@@ -35,13 +35,11 @@ public class OrdersDetailsEntity implements Serializable {
         this.amount = amount;
     }
 
-    @Basic
-    @Column(name = "Price", nullable = false, precision = 0)
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

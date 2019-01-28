@@ -6,22 +6,22 @@ import java.io.Serializable;
 import java.util.Objects;
 
 public class ProductsColorsEntityPK implements Serializable {
-    private short productId;
-    private short color;
+    private Integer productId;
+    private Integer color;
 
-    public short getProductId() {
+    public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(short productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 
-    public short getColor() {
+    public Integer getColor() {
         return color;
     }
 
-    public void setColor(short color) {
+    public void setColor(Integer color) {
         this.color = color;
     }
 

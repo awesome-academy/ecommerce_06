@@ -3,26 +3,11 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping  package="app.model">
 
-	<!--<class  name="Student" table="student_tbl">-->
-		<!--<id name="id" column="id" type="java.lang.Integer">-->
-		<!--</id>-->
 
-		<!--<property name="name" type="string">-->
-			<!--<column name="name" />-->
-		<!--</property>-->
-		<!--<property name="email" type="string">-->
-			<!--<column name="email" />-->
-		<!--</property>-->
-
-		<!--<property name="gender" type="java.lang.Integer">-->
-			<!--<column name="gender" default="1" />-->
-		<!--</property>-->
-
-	<!--</class>-->
     <class name="AccountEntity" table="account">
             <id name="id">
                 <column name="id" precision="4" />
-                <generator class="increment"/>
+                <generator class="identity"/>
             </id>
             <property name="email">
                 <column name="Email" not-null="true" length="30"/>
@@ -80,9 +65,9 @@
         <many-to-one name = "accountByShipperId" column = "Shipper_id"
                      class="AccountEntity" not-null="false" />
 
-        <set name="ordersDetails" lazy="true" cascade="all"  >
-            <key column="orderId" ></key>
-            <one-to-many class="ProductDetailsEntity"/>
+        <set name="ordersDetails" lazy="false" cascade="all"  >
+            <key column="order_Id" ></key>
+            <one-to-many class="OrdersDetailsEntity"/>
         </set>
 
     </class>
@@ -106,18 +91,24 @@
             <one-to-many class="ProductsEntity"/>
         </set>
     </class>
+
+
     <class name="ImagesEntity" table="Images">
             <id name="id">
                 <column name="Id" precision="10"/>
+                <generator class="identity"/>
             </id>
-        <many-to-one name="productsEntity" column="Product_Id" class="ProductsEntity" not-null="true" />
+        <many-to-one name="productsEntity" column="Product_Id" class="ProductsEntity" lazy="false" not-null="true" />
             <property name="link">
                 <column name="link" length="100"/>
             </property>
     </class>
+
+
     <class name="ProductsEntity" table="Products">
             <id name="id">
                 <column name="id" precision="5"/>
+                <generator class="identity"/>
             </id>
             <property name="name">
                 <column name="Name" length="50"/>
@@ -129,13 +120,17 @@
                 <column name="MainPhoto" length="50"/>
             </property>
         <many-to-one name="suppliersEntity" column="Supplier_Id" class="SuppliersEntity" not-null="true"/>
-       <set name="imagesEntityList" lazy="true">
+       <set name="imagesEntityList" lazy="false">
            <key column="Product_Id"></key>
            <one-to-many class="ImagesEntity"/>
        </set>
-        <set name="ProductsColorsEntities" lazy="true">
+        <set name="ProductsColorsEntities" lazy="false">
            <key column="Product_Id"></key>
            <one-to-many class="ProductsColorsEntity"/>
+       </set>
+        <set name="ordersDetailsEntities" lazy="false">
+           <key column="Product_Id"></key>
+           <one-to-many class="OrdersDetailsEntity"/>
        </set>
 
     </class>
@@ -143,7 +138,7 @@
 
     <class name="ProductsColorsEntity" table="Products_Colors">
         <composite-id class="ProductsColorsEntityPK">
-            <key-many-to-one name="productId" column="Product_id" class="ProductsEntity"/>
+            <key-many-to-one name="productId" column="Product_id" lazy="false" class="ProductsEntity"/>
             <key-property name="color"  column="Color"  />
         </composite-id>
             <property name="amount">
@@ -153,8 +148,8 @@
 
     <class name="OrdersDetailsEntity" table="Orders_Details">
         <composite-id class="OrdersDetailsEntityPK">
-            <key-many-to-one name="productId" column="Product_id" class="ProductsEntity"/>
-            <key-many-to-one name="orderId" column="Order_id" class="OrdersEntity"/>
+            <key-many-to-one name="productId" column="Product_id" lazy="false" class="ProductsEntity"/>
+            <key-many-to-one name="orderId" column="Order_id" lazy="false" class="OrdersEntity"/>
         </composite-id>
             <property name="amount">
                 <column name="Amount" not-null="true" precision="5"/>
@@ -168,6 +163,7 @@
     <class name="ProductDetailsEntity" table="Product_Details">
             <id name="id">
                 <column name="id" precision="6"/>
+                <generator class="identity"/>
             </id>
             <property name="motor">
                 <column name="Motor" not-null="false" precision="5"/>
@@ -214,6 +210,6 @@
             <property name="warrantyMotor">
                 <column name="Warranty_Motor" not-null="false" precision="3"/>
             </property>
-        <many-to-one name="productsEntity" column="Product_id" class="ProductsEntity" not-null="true" />
+        <many-to-one name="productsEntity" column="Product_id" class="ProductsEntity" lazy="false" not-null="true" />
     </class>
 </hibernate-mapping>

@@ -7,21 +7,21 @@ import java.util.Objects;
 
 public class OrdersDetailsEntityPK implements Serializable {
     private Integer orderId;
-    private short productId;
+    private Integer productId;
 
-    public int getOrderId() {
+    public Integer getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(int orderId) {
+    public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
 
-    public short getProductId() {
+    public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(short productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 

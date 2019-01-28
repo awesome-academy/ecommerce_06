@@ -1,16 +1,24 @@
 package app.model;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.*;
 
 public class ProductsEntity {
     private Integer id;
     private String name;
-    private int price;
+    private double price;
     private String mainPhoto;
     private SuppliersEntity suppliersEntity;
     private Set<ImagesEntity> imagesEntityList = new HashSet<>(0);
     private Set<ProductsColorsEntity> productsColorsEntities = new HashSet<>(0);
+    private Set<OrdersDetailsEntity> ordersDetailsEntities = new HashSet<>(0);
+
+    public Set<OrdersDetailsEntity> getOrdersDetailsEntities() {
+        return ordersDetailsEntities;
+    }
+
+    public void setOrdersDetailsEntities(Set<OrdersDetailsEntity> ordersDetailsEntities) {
+        this.ordersDetailsEntities = ordersDetailsEntities;
+    }
 
     public Set<ProductsColorsEntity> getProductsColorsEntities() {
         return productsColorsEntities;
@@ -52,11 +60,12 @@ public class ProductsEntity {
         this.name = name;
     }
 
-    public int getPrice() {
+
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

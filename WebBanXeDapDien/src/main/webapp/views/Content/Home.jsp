@@ -6,12 +6,12 @@
     <div class="container">
         <div id="primary" class="content-area">
             <main id="main" class="site-main">
-                <div class="home-v3-slider" >
+                <div class="home-v3-slider">
                     <!-- ========================================== SECTION – HERO : END========================================= -->
 
                     <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
 
-                        <div class="item" style="background-image: url(/assets/images/slider/banner3.jpg);">
+                        <div class="item" style="background-image: url(/assets/images/slider/xedienslider.jpg);">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-8">
@@ -33,7 +33,7 @@
                             </div><!-- /.container -->
                         </div><!-- /.item -->
 
-                        <div class="item" style="background-image: url(/assets/images/slider/banner1.jpg);">
+                        <div class="item" style="background-image: url(/assets/images/slider/xedien2slider.jpg);">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-8">
@@ -55,7 +55,7 @@
                             </div><!-- /.container -->
                         </div><!-- /.item -->
 
-                        <div class="item" style="background-image: url(/assets/images/slider/banner2.jpg);">
+                        <div class="item" style="background-image: url(/assets/images/slider/xedienslider.jpg);">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-8">
@@ -147,7 +147,8 @@
                         <div class="ad col-xs-12 col-sm-6">
                             <div class="media">
                                 <div class="media-left media-middle">
-                                    <img data-echo="/assets/images/banner/cameras.jpg" src="/assets/images/blank.gif" alt="">
+                                    <img data-echo="/assets/images/banner/cameras.jpg" src="/assets/images/blank.gif"
+                                         alt="">
                                 </div>
                                 <div class="media-body media-middle">
                                     <div class="ad-text">
@@ -163,14 +164,17 @@
                         <div class="ad col-xs-12 col-sm-6">
                             <div class="media">
                                 <div class="media-left media-middle">
-                                    <img data-echo="/assets/images/banner/DesktopPC.jpg" src="/assets/images/blank.gif" alt="">
+                                    <img data-echo="/assets/images/banner/DesktopPC.jpg" src="/assets/images/blank.gif"
+                                         alt="">
                                 </div>
                                 <div class="media-body media-middle">
                                     <div class="ad-text">
                                         Tablets, Smartphones <br><strong>and more</strong>
                                     </div>
                                     <div class="ad-action">
-                                        <a href="#"><span class="from"><span class="prefix">From</span><span class="value"><sup>$</sup>749</span><span class="suffix">99</span></span></a>
+                                        <a href="#"><span class="from"><span class="prefix">From</span><span
+                                                class="value"><sup>$</sup>749</span><span
+                                                class="suffix">99</span></span></a>
                                     </div>
                                 </div>
                             </div>
@@ -196,218 +200,203 @@
 
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab-products-1" role="tabpanel">
-                            <section class="section-products-carousel" >
+                            <section class="section-products-carousel">
+
                                 <div class="home-v3-owl-carousel-tabs">
+
                                     <div class="woocommerce columns-4">
+                                        <!-- dnah sach san phaam featured -->
 
-                                        <div class="products owl-carousel home-v3-carousel-tabs products-carousel columns-4">
+                                        <c:forEach items="${productList}" var="product" varStatus="status">
+                                            <c:if test="${status.index % 4 == 0 }">
+                                                <div class="products owl-carousel home-v3-carousel-tabs products-carousel columns-4">
 
-                                            <div class="product first">
-                                                <div class="product-outer">
-                                                    <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Audio Speakers</a></span>
-                                                        <a href="single-product.html">
-                                                            <h3>Wireless Audio System Multiroom 360</h3>
-                                                            <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/3.jpg" class="img-responsive" alt="">
-                                                            </div>
-                                                        </a>
+                                                <div class="product first">
+                                                    <div class="product-outer">
+                                                        <div class="product-inner">
+                                                        <span class="loop-product-categories"><a
+                                                                href="product-category.html"
+                                                                rel="tag">Audio Speakers</a></span>
+                                                            <a href="single-product.html">
+                                                                <h3>Wireless Audio System Multiroom 360</h3>
+                                                                <div class="product-thumbnail">
+                                                                    <img src="/assets/images/blank.gif"
+                                                                         data-echo="/assets/images/products/${product.mainPhoto}"
+                                                                         class="img-responsive" alt="">
+                                                                </div>
+                                                            </a>
 
-                                                        <div class="price-add-to-cart">
+                                                            <div class="price-add-to-cart">
                                                                         <span class="price">
                                                                             <span class="electro-price">
-                                                                                <ins><span class="amount"> $1,999.00</span></ins>
-                                                                                <del><span class="amount">$2,299.00</span></del>
+                                                                                <ins><span
+                                                                                        class="amount"> $1,999.00</span></ins>
+                                                                                <del><span
+                                                                                        class="amount">$2,299.00</span></del>
                                                                                 <span class="amount"> </span>
                                                                             </span>
                                                                         </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                                        </div><!-- /.price-add-to-cart -->
+                                                                <a rel="nofollow" href="single-product.html"
+                                                                   class="button add_to_cart_button">Add to cart</a>
+                                                            </div><!-- /.price-add-to-cart -->
 
-                                                        <div class="hover-area">
-                                                            <div class="action-buttons">
+                                                            <div class="hover-area">
+                                                                <div class="action-buttons">
 
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+                                                                    <a href="#" rel="nofollow"
+                                                                       class="add_to_wishlist">
+                                                                        Wishlist</a>
 
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                    <a href="compare.html"
+                                                                       class="add-to-compare-link">
+                                                                        Compare</a>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </div><!-- /.product-inner -->
-                                                </div><!-- /.product-outer -->
-                                            </div><!-- /.product -->
+                                                        </div><!-- /.product-inner -->
+                                                    </div><!-- /.product-outer -->
+                                                </div>
+                                                <!-- /.product -->
+                                            </c:if>
+                                            <c:if test="${status.index % 4 == 1}">
+                                                <div class="product ">
+                                                    <div class="product-outer">
+                                                        <div class="product-inner">
+                                                        <span class="loop-product-categories"><a
+                                                                href="product-category.html"
+                                                                rel="tag">Laptops</a></span>
+                                                            <a href="single-product.html">
+                                                                <h3>Tablet Thin EliteBook Revolve 810 G6</h3>
+                                                                <div class="product-thumbnail">
+                                                                    <img src="/assets/images/blank.gif"
+                                                                         data-echo="/assets/images/products/${product.mainPhoto}"
+                                                                         class="img-responsive" alt="">
+                                                                </div>
+                                                            </a>
 
-
-                                            <div class="product ">
-                                                <div class="product-outer">
-                                                    <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Laptops</a></span>
-                                                        <a href="single-product.html">
-                                                            <h3>Tablet Thin EliteBook  Revolve 810 G6</h3>
-                                                            <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/1.jpg" class="img-responsive" alt="">
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="price-add-to-cart">
+                                                            <div class="price-add-to-cart">
                                                                         <span class="price">
                                                                             <span class="electro-price">
                                                                                 <ins><span class="amount"> </span></ins>
                                                                                 <span class="amount"> $1,999.00</span>
                                                                             </span>
                                                                         </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                                        </div><!-- /.price-add-to-cart -->
+                                                                <a rel="nofollow" href="single-product.html"
+                                                                   class="button add_to_cart_button">Add to cart</a>
+                                                            </div><!-- /.price-add-to-cart -->
 
-                                                        <div class="hover-area">
-                                                            <div class="action-buttons">
+                                                            <div class="hover-area">
+                                                                <div class="action-buttons">
 
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+                                                                    <a href="#" rel="nofollow"
+                                                                       class="add_to_wishlist">
+                                                                        Wishlist</a>
 
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                    <a href="compare.html"
+                                                                       class="add-to-compare-link">
+                                                                        Compare</a>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </div><!-- /.product-inner -->
-                                                </div><!-- /.product-outer -->
-                                            </div><!-- /.product -->
+                                                        </div><!-- /.product-inner -->
+                                                    </div><!-- /.product-outer -->
+                                                </div>
+                                                <!-- /.product -->
 
+                                            </c:if>
+                                            <c:if test="${status.index % 4 == 2}">
 
-                                            <div class="product ">
-                                                <div class="product-outer">
-                                                    <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Headphones</a></span>
-                                                        <a href="single-product.html">
-                                                            <h3>Purple Solo 2 Wireless</h3>
-                                                            <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/5.jpg" class="img-responsive" alt="">
-                                                            </div>
-                                                        </a>
+                                                <div class="product ">
+                                                    <div class="product-outer">
+                                                        <div class="product-inner">
+                                                        <span class="loop-product-categories"><a
+                                                                href="product-category.html"
+                                                                rel="tag">Headphones</a></span>
+                                                            <a href="single-product.html">
+                                                                <h3>Purple Solo 2 Wireless</h3>
+                                                                <div class="product-thumbnail">
+                                                                    <img src="/assets/images/blank.gif"
+                                                                         data-echo="/assets/images/products/${product.mainPhoto}"
+                                                                         class="img-responsive" alt="">
+                                                                </div>
+                                                            </a>
 
-                                                        <div class="price-add-to-cart">
+                                                            <div class="price-add-to-cart">
                                                                         <span class="price">
                                                                             <span class="electro-price">
-                                                                                <ins><span class="amount"> $1,999.00</span></ins>
-                                                                                <del><span class="amount">$2,299.00</span></del>
+                                                                                <ins><span
+                                                                                        class="amount"> $1,999.00</span></ins>
+                                                                                <del><span
+                                                                                        class="amount">$2,299.00</span></del>
                                                                                 <span class="amount"> </span>
                                                                             </span>
                                                                         </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                                        </div><!-- /.price-add-to-cart -->
+                                                                <a rel="nofollow" href="single-product.html"
+                                                                   class="button add_to_cart_button">Add to cart</a>
+                                                            </div><!-- /.price-add-to-cart -->
 
-                                                        <div class="hover-area">
-                                                            <div class="action-buttons">
+                                                            <div class="hover-area">
+                                                                <div class="action-buttons">
 
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+                                                                    <a href="#" rel="nofollow"
+                                                                       class="add_to_wishlist">
+                                                                        Wishlist</a>
 
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                    <a href="compare.html"
+                                                                       class="add-to-compare-link">
+                                                                        Compare</a>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </div><!-- /.product-inner -->
-                                                </div><!-- /.product-outer -->
-                                            </div><!-- /.product -->
+                                                        </div><!-- /.product-inner -->
+                                                    </div><!-- /.product-outer -->
+                                                </div>
+                                                <!-- /.product -->
+                                            </c:if>
+                                            <c:if test="${status.index % 4 == 3}">
+                                                <div class="product last">
+                                                    <div class="product-outer">
+                                                        <div class="product-inner">
+                                                        <span class="loop-product-categories"><a
+                                                                href="product-category.html"
+                                                                rel="tag">Laptops</a></span>
+                                                            <a href="single-product.html">
+                                                                <h3>Tablet Red EliteBook Revolve 810 G2</h3>
+                                                                <div class="product-thumbnail">
+                                                                    <img src="/assets/images/blank.gif"
+                                                                         data-echo="/assets/images/products/${product.mainPhoto}"
+                                                                         class="img-responsive" alt="">
+                                                                </div>
+                                                            </a>
 
-
-                                            <div class="product last">
-                                                <div class="product-outer">
-                                                    <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Laptops</a></span>
-                                                        <a href="single-product.html">
-                                                            <h3>Tablet Red EliteBook  Revolve 810 G2</h3>
-                                                            <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/2.jpg" class="img-responsive" alt="">
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="price-add-to-cart">
+                                                            <div class="price-add-to-cart">
                                                                         <span class="price">
                                                                             <span class="electro-price">
                                                                                 <ins><span class="amount"> </span></ins>
                                                                                 <span class="amount"> $1,999.00</span>
                                                                             </span>
                                                                         </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                                        </div><!-- /.price-add-to-cart -->
+                                                                <a rel="nofollow" href="single-product.html"
+                                                                   class="button add_to_cart_button">Add to cart</a>
+                                                            </div><!-- /.price-add-to-cart -->
 
-                                                        <div class="hover-area">
-                                                            <div class="action-buttons">
+                                                            <div class="hover-area">
+                                                                <div class="action-buttons">
 
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+                                                                    <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                        Wishlist</a>
 
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                    <a href="compare.html" class="add-to-compare-link">
+                                                                        Compare</a>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </div><!-- /.product-inner -->
-                                                </div><!-- /.product-outer -->
-                                            </div><!-- /.product -->
+                                                        </div><!-- /.product-inner -->
+                                                    </div><!-- /.product-outer -->
+                                                </div>
+                                                <!-- /.product -->
+                                            </c:if>
 
-
-                                            <div class="product first">
-                                                <div class="product-outer">
-                                                    <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Headphones</a></span>
-                                                        <a href="single-product.html">
-                                                            <h3>White Solo 2 Wireless</h3>
-                                                            <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/6.jpg" class="img-responsive" alt="">
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="price-add-to-cart">
-                                                                        <span class="price">
-                                                                            <span class="electro-price">
-                                                                                <ins><span class="amount"> $1,999.00</span></ins>
-                                                                                <del><span class="amount">$2,299.00</span></del>
-                                                                                <span class="amount"> </span>
-                                                                            </span>
-                                                                        </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                                        </div><!-- /.price-add-to-cart -->
-
-                                                        <div class="hover-area">
-                                                            <div class="action-buttons">
-
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
-
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
-                                                            </div>
-                                                        </div>
-                                                    </div><!-- /.product-inner -->
-                                                </div><!-- /.product-outer -->
-                                            </div><!-- /.product -->
-
-
-                                            <div class="product ">
-                                                <div class="product-outer">
-                                                    <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                                        <a href="single-product.html">
-                                                            <h3>Smartphone 6S 32GB LTE</h3>
-                                                            <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/4.jpg" class="img-responsive" alt="">
-                                                            </div>
-                                                        </a>
-
-                                                        <div class="price-add-to-cart">
-                                                                        <span class="price">
-                                                                            <span class="electro-price">
-                                                                                <ins><span class="amount"> </span></ins>
-                                                                                <span class="amount"> $1,999.00</span>
-                                                                            </span>
-                                                                        </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                                        </div><!-- /.price-add-to-cart -->
-
-                                                        <div class="hover-area">
-                                                            <div class="action-buttons">
-
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
-
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
-                                                            </div>
-                                                        </div>
-                                                    </div><!-- /.product-inner -->
-                                                </div><!-- /.product-outer -->
-                                            </div><!-- /.product -->
-                                        </div><!-- /.products -->
+                                            <c:if test="${status.index % 4 == 3 || status.last == true}">
+                                                </div><!-- /.products -->
+                                            </c:if>
+                                        </c:forEach>
                                     </div>
                                 </div>
                             </section>
@@ -417,37 +406,46 @@
                             <section class="section-products-carousel">
                                 <div class="home-v3-owl-carousel-tabs">
                                     <div class="woocommerce columns-4">
-
+                                        <!-- danh sach san pham sale -->
                                         <div class="products owl-carousel home-v3-carousel-tabs products-carousel columns-4">
 
                                             <div class="product ">
                                                 <div class="product-outer">
                                                     <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Audio Speakers</a></span>
+                                                        <span class="loop-product-categories"><a
+                                                                href="product-category.html"
+                                                                rel="tag">Audio Speakers</a></span>
                                                         <a href="single-product.html">
                                                             <h3>Wireless Audio System Multiroom 360</h3>
                                                             <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/3.jpg" class="img-responsive" alt="">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/xedien.jpeg"
+                                                                     class="img-responsive" alt="">
                                                             </div>
                                                         </a>
 
                                                         <div class="price-add-to-cart">
                                                                         <span class="price">
                                                                             <span class="electro-price">
-                                                                                <ins><span class="amount"> $1,999.00</span></ins>
-                                                                                <del><span class="amount">$2,299.00</span></del>
+                                                                                <ins><span
+                                                                                        class="amount"> $1,999.00</span></ins>
+                                                                                <del><span
+                                                                                        class="amount">$2,299.00</span></del>
                                                                                 <span class="amount"> </span>
                                                                             </span>
                                                                         </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
                                                             <div class="action-buttons">
 
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
 
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
                                                             </div>
                                                         </div>
                                                     </div><!-- /.product-inner -->
@@ -458,11 +456,15 @@
                                             <div class="product last">
                                                 <div class="product-outer">
                                                     <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Laptops</a></span>
+                                                        <span class="loop-product-categories"><a
+                                                                href="product-category.html"
+                                                                rel="tag">Laptops</a></span>
                                                         <a href="single-product.html">
-                                                            <h3>Tablet Thin EliteBook  Revolve 810 G6</h3>
+                                                            <h3>Tablet Thin EliteBook Revolve 810 G6</h3>
                                                             <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/1.jpg" class="img-responsive" alt="">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/xedien.jpeg"
+                                                                     class="img-responsive" alt="">
                                                             </div>
                                                         </a>
 
@@ -473,15 +475,18 @@
                                                                                 <span class="amount"> $1,999.00</span>
                                                                             </span>
                                                                         </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
                                                             <div class="action-buttons">
 
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
 
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
                                                             </div>
                                                         </div>
                                                     </div><!-- /.product-inner -->
@@ -492,31 +497,40 @@
                                             <div class="product first">
                                                 <div class="product-outer">
                                                     <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Headphones</a></span>
+                                                        <span class="loop-product-categories"><a
+                                                                href="product-category.html"
+                                                                rel="tag">Headphones</a></span>
                                                         <a href="single-product.html">
                                                             <h3>Purple Solo 2 Wireless</h3>
                                                             <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/5.jpg" class="img-responsive" alt="">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/xedien.jpeg"
+                                                                     class="img-responsive" alt="">
                                                             </div>
                                                         </a>
 
                                                         <div class="price-add-to-cart">
                                                                         <span class="price">
                                                                             <span class="electro-price">
-                                                                                <ins><span class="amount"> $1,999.00</span></ins>
-                                                                                <del><span class="amount">$2,299.00</span></del>
+                                                                                <ins><span
+                                                                                        class="amount"> $1,999.00</span></ins>
+                                                                                <del><span
+                                                                                        class="amount">$2,299.00</span></del>
                                                                                 <span class="amount"> </span>
                                                                             </span>
                                                                         </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
                                                             <div class="action-buttons">
 
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
 
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
                                                             </div>
                                                         </div>
                                                     </div><!-- /.product-inner -->
@@ -527,11 +541,15 @@
                                             <div class="product ">
                                                 <div class="product-outer">
                                                     <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Laptops</a></span>
+                                                        <span class="loop-product-categories"><a
+                                                                href="product-category.html"
+                                                                rel="tag">Laptops</a></span>
                                                         <a href="single-product.html">
-                                                            <h3>Tablet Red EliteBook  Revolve 810 G2</h3>
+                                                            <h3>Tablet Red EliteBook Revolve 810 G2</h3>
                                                             <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/2.jpg" class="img-responsive" alt="">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/xedien.jpeg"
+                                                                     class="img-responsive" alt="">
                                                             </div>
                                                         </a>
 
@@ -542,15 +560,18 @@
                                                                                 <span class="amount"> $1,999.00</span>
                                                                             </span>
                                                                         </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
                                                             <div class="action-buttons">
 
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
 
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
                                                             </div>
                                                         </div>
                                                     </div><!-- /.product-inner -->
@@ -561,31 +582,40 @@
                                             <div class="product ">
                                                 <div class="product-outer">
                                                     <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Headphones</a></span>
+                                                        <span class="loop-product-categories"><a
+                                                                href="product-category.html"
+                                                                rel="tag">Headphones</a></span>
                                                         <a href="single-product.html">
                                                             <h3>White Solo 2 Wireless</h3>
                                                             <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/6.jpg" class="img-responsive" alt="">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/xedien.jpeg"
+                                                                     class="img-responsive" alt="">
                                                             </div>
                                                         </a>
 
                                                         <div class="price-add-to-cart">
                                                                         <span class="price">
                                                                             <span class="electro-price">
-                                                                                <ins><span class="amount"> $1,999.00</span></ins>
-                                                                                <del><span class="amount">$2,299.00</span></del>
+                                                                                <ins><span
+                                                                                        class="amount"> $1,999.00</span></ins>
+                                                                                <del><span
+                                                                                        class="amount">$2,299.00</span></del>
                                                                                 <span class="amount"> </span>
                                                                             </span>
                                                                         </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
                                                             <div class="action-buttons">
 
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
 
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
                                                             </div>
                                                         </div>
                                                     </div><!-- /.product-inner -->
@@ -596,11 +626,15 @@
                                             <div class="product last">
                                                 <div class="product-outer">
                                                     <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
+                                                        <span class="loop-product-categories"><a
+                                                                href="product-category.html"
+                                                                rel="tag">Smartphones</a></span>
                                                         <a href="single-product.html">
                                                             <h3>Smartphone 6S 32GB LTE</h3>
                                                             <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/4.jpg" class="img-responsive" alt="">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/xedien.jpeg"
+                                                                     class="img-responsive" alt="">
                                                             </div>
                                                         </a>
 
@@ -611,15 +645,274 @@
                                                                                 <span class="amount"> $1,999.00</span>
                                                                             </span>
                                                                         </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
                                                             <div class="action-buttons">
 
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
 
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.product-inner -->
+                                                </div><!-- /.product-outer -->
+                                            </div><!-- /.product -->
+                                        </div><!-- /.products -->
+                                        <div class="products owl-carousel home-v3-carousel-tabs products-carousel columns-4">
+
+                                            <div class="product ">
+                                                <div class="product-outer">
+                                                    <div class="product-inner">
+                                                        <span class="loop-product-categories"><a
+                                                                href="product-category.html"
+                                                                rel="tag">Audio Speakers</a></span>
+                                                        <a href="single-product.html">
+                                                            <h3>Wireless Audio System Multiroom 360</h3>
+                                                            <div class="product-thumbnail">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/xedien.jpeg"
+                                                                     class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+
+                                                        <div class="price-add-to-cart">
+                                                                        <span class="price">
+                                                                            <span class="electro-price">
+                                                                                <ins><span
+                                                                                        class="amount"> $1,999.00</span></ins>
+                                                                                <del><span
+                                                                                        class="amount">$2,299.00</span></del>
+                                                                                <span class="amount"> </span>
+                                                                            </span>
+                                                                        </span>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
+                                                        </div><!-- /.price-add-to-cart -->
+
+                                                        <div class="hover-area">
+                                                            <div class="action-buttons">
+
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
+
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.product-inner -->
+                                                </div><!-- /.product-outer -->
+                                            </div><!-- /.product -->
+
+
+                                            <div class="product last">
+                                                <div class="product-outer">
+                                                    <div class="product-inner">
+                                                        <span class="loop-product-categories"><a
+                                                                href="product-category.html"
+                                                                rel="tag">Laptops</a></span>
+                                                        <a href="single-product.html">
+                                                            <h3>Tablet Thin EliteBook Revolve 810 G6</h3>
+                                                            <div class="product-thumbnail">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/xedien.jpeg"
+                                                                     class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+
+                                                        <div class="price-add-to-cart">
+                                                                        <span class="price">
+                                                                            <span class="electro-price">
+                                                                                <ins><span class="amount"> </span></ins>
+                                                                                <span class="amount"> $1,999.00</span>
+                                                                            </span>
+                                                                        </span>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
+                                                        </div><!-- /.price-add-to-cart -->
+
+                                                        <div class="hover-area">
+                                                            <div class="action-buttons">
+
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
+
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.product-inner -->
+                                                </div><!-- /.product-outer -->
+                                            </div><!-- /.product -->
+
+
+                                            <div class="product first">
+                                                <div class="product-outer">
+                                                    <div class="product-inner">
+                                                        <span class="loop-product-categories"><a
+                                                                href="product-category.html"
+                                                                rel="tag">Headphones</a></span>
+                                                        <a href="single-product.html">
+                                                            <h3>Purple Solo 2 Wireless</h3>
+                                                            <div class="product-thumbnail">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/5.jpg"
+                                                                     class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+
+                                                        <div class="price-add-to-cart">
+                                                                        <span class="price">
+                                                                            <span class="electro-price">
+                                                                                <ins><span
+                                                                                        class="amount"> $1,999.00</span></ins>
+                                                                                <del><span
+                                                                                        class="amount">$2,299.00</span></del>
+                                                                                <span class="amount"> </span>
+                                                                            </span>
+                                                                        </span>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
+                                                        </div><!-- /.price-add-to-cart -->
+
+                                                        <div class="hover-area">
+                                                            <div class="action-buttons">
+
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
+
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.product-inner -->
+                                                </div><!-- /.product-outer -->
+                                            </div><!-- /.product -->
+
+
+                                            <div class="product ">
+                                                <div class="product-outer">
+                                                    <div class="product-inner">
+                                                        <span class="loop-product-categories"><a
+                                                                href="product-category.html"
+                                                                rel="tag">Laptops</a></span>
+                                                        <a href="single-product.html">
+                                                            <h3>Tablet Red EliteBook Revolve 810 G2</h3>
+                                                            <div class="product-thumbnail">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/2.jpg"
+                                                                     class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+
+                                                        <div class="price-add-to-cart">
+                                                                        <span class="price">
+                                                                            <span class="electro-price">
+                                                                                <ins><span class="amount"> </span></ins>
+                                                                                <span class="amount"> $1,999.00</span>
+                                                                            </span>
+                                                                        </span>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
+                                                        </div><!-- /.price-add-to-cart -->
+
+                                                        <div class="hover-area">
+                                                            <div class="action-buttons">
+
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
+
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.product-inner -->
+                                                </div><!-- /.product-outer -->
+                                            </div><!-- /.product -->
+
+
+                                            <div class="product ">
+                                                <div class="product-outer">
+                                                    <div class="product-inner">
+                                                        <span class="loop-product-categories"><a
+                                                                href="product-category.html"
+                                                                rel="tag">Headphones</a></span>
+                                                        <a href="single-product.html">
+                                                            <h3>White Solo 2 Wireless</h3>
+                                                            <div class="product-thumbnail">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/6.jpg"
+                                                                     class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+
+                                                        <div class="price-add-to-cart">
+                                                                        <span class="price">
+                                                                            <span class="electro-price">
+                                                                                <ins><span
+                                                                                        class="amount"> $1,999.00</span></ins>
+                                                                                <del><span
+                                                                                        class="amount">$2,299.00</span></del>
+                                                                                <span class="amount"> </span>
+                                                                            </span>
+                                                                        </span>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
+                                                        </div><!-- /.price-add-to-cart -->
+
+                                                        <div class="hover-area">
+                                                            <div class="action-buttons">
+
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
+
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.product-inner -->
+                                                </div><!-- /.product-outer -->
+                                            </div><!-- /.product -->
+
+
+                                            <div class="product last">
+                                                <div class="product-outer">
+                                                    <div class="product-inner">
+                                                        <span class="loop-product-categories"><a
+                                                                href="product-category.html"
+                                                                rel="tag">Smartphones</a></span>
+                                                        <a href="single-product.html">
+                                                            <h3>Smartphone 6S 32GB LTE</h3>
+                                                            <div class="product-thumbnail">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/4.jpg"
+                                                                     class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+
+                                                        <div class="price-add-to-cart">
+                                                                        <span class="price">
+                                                                            <span class="electro-price">
+                                                                                <ins><span class="amount"> </span></ins>
+                                                                                <span class="amount"> $1,999.00</span>
+                                                                            </span>
+                                                                        </span>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
+                                                        </div><!-- /.price-add-to-cart -->
+
+                                                        <div class="hover-area">
+                                                            <div class="action-buttons">
+
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
+
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
                                                             </div>
                                                         </div>
                                                     </div><!-- /.product-inner -->
@@ -635,37 +928,45 @@
                             <section class="section-products-carousel">
                                 <div class="home-v3-owl-carousel-tabs">
                                     <div class="woocommerce columns-4">
-
+                                        <!-- danh sach san pham thih hanh -->
                                         <div class="products owl-carousel home-v3-carousel-tabs products-carousel columns-4">
 
                                             <div class="product first">
                                                 <div class="product-outer">
                                                     <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Audio Speakers</a></span>
+                                                            <span class="loop-product-categories"><a
+                                                                    href="product-category.html" rel="tag">Audio Speakers</a></span>
                                                         <a href="single-product.html">
                                                             <h3>Wireless Audio System Multiroom 360</h3>
                                                             <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/3.jpg" class="img-responsive" alt="">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/3.jpg"
+                                                                     class="img-responsive" alt="">
                                                             </div>
                                                         </a>
 
                                                         <div class="price-add-to-cart">
                                                                         <span class="price">
                                                                             <span class="electro-price">
-                                                                                <ins><span class="amount"> $1,999.00</span></ins>
-                                                                                <del><span class="amount">$2,299.00</span></del>
+                                                                                <ins><span
+                                                                                        class="amount"> $1,999.00</span></ins>
+                                                                                <del><span
+                                                                                        class="amount">$2,299.00</span></del>
                                                                                 <span class="amount"> </span>
                                                                             </span>
                                                                         </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
                                                             <div class="action-buttons">
 
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
 
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
                                                             </div>
                                                         </div>
                                                     </div><!-- /.product-inner -->
@@ -676,11 +977,15 @@
                                             <div class="product ">
                                                 <div class="product-outer">
                                                     <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Laptops</a></span>
+                                                            <span class="loop-product-categories"><a
+                                                                    href="product-category.html"
+                                                                    rel="tag">Laptops</a></span>
                                                         <a href="single-product.html">
-                                                            <h3>Tablet Thin EliteBook  Revolve 810 G6</h3>
+                                                            <h3>Tablet Thin EliteBook Revolve 810 G6</h3>
                                                             <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/1.jpg" class="img-responsive" alt="">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/1.jpg"
+                                                                     class="img-responsive" alt="">
                                                             </div>
                                                         </a>
 
@@ -691,15 +996,18 @@
                                                                                 <span class="amount"> $1,999.00</span>
                                                                             </span>
                                                                         </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
                                                             <div class="action-buttons">
 
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
 
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
                                                             </div>
                                                         </div>
                                                     </div><!-- /.product-inner -->
@@ -710,31 +1018,40 @@
                                             <div class="product ">
                                                 <div class="product-outer">
                                                     <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Headphones</a></span>
+                                                            <span class="loop-product-categories"><a
+                                                                    href="product-category.html"
+                                                                    rel="tag">Headphones</a></span>
                                                         <a href="single-product.html">
                                                             <h3>Purple Solo 2 Wireless</h3>
                                                             <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/5.jpg" class="img-responsive" alt="">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/5.jpg"
+                                                                     class="img-responsive" alt="">
                                                             </div>
                                                         </a>
 
                                                         <div class="price-add-to-cart">
                                                                         <span class="price">
                                                                             <span class="electro-price">
-                                                                                <ins><span class="amount"> $1,999.00</span></ins>
-                                                                                <del><span class="amount">$2,299.00</span></del>
+                                                                                <ins><span
+                                                                                        class="amount"> $1,999.00</span></ins>
+                                                                                <del><span
+                                                                                        class="amount">$2,299.00</span></del>
                                                                                 <span class="amount"> </span>
                                                                             </span>
                                                                         </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
                                                             <div class="action-buttons">
 
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
 
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
                                                             </div>
                                                         </div>
                                                     </div><!-- /.product-inner -->
@@ -745,11 +1062,15 @@
                                             <div class="product last">
                                                 <div class="product-outer">
                                                     <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Laptops</a></span>
+                                                            <span class="loop-product-categories"><a
+                                                                    href="product-category.html"
+                                                                    rel="tag">Laptops</a></span>
                                                         <a href="single-product.html">
-                                                            <h3>Tablet Red EliteBook  Revolve 810 G2</h3>
+                                                            <h3>Tablet Red EliteBook Revolve 810 G2</h3>
                                                             <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/2.jpg" class="img-responsive" alt="">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/2.jpg"
+                                                                     class="img-responsive" alt="">
                                                             </div>
                                                         </a>
 
@@ -760,15 +1081,18 @@
                                                                                 <span class="amount"> $1,999.00</span>
                                                                             </span>
                                                                         </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
                                                             <div class="action-buttons">
 
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
 
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
                                                             </div>
                                                         </div>
                                                     </div><!-- /.product-inner -->
@@ -779,31 +1103,40 @@
                                             <div class="product first">
                                                 <div class="product-outer">
                                                     <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Headphones</a></span>
+                                                            <span class="loop-product-categories"><a
+                                                                    href="product-category.html"
+                                                                    rel="tag">Headphones</a></span>
                                                         <a href="single-product.html">
                                                             <h3>White Solo 2 Wireless</h3>
                                                             <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/6.jpg" class="img-responsive" alt="">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/6.jpg"
+                                                                     class="img-responsive" alt="">
                                                             </div>
                                                         </a>
 
                                                         <div class="price-add-to-cart">
                                                                         <span class="price">
                                                                             <span class="electro-price">
-                                                                                <ins><span class="amount"> $1,999.00</span></ins>
-                                                                                <del><span class="amount">$2,299.00</span></del>
+                                                                                <ins><span
+                                                                                        class="amount"> $1,999.00</span></ins>
+                                                                                <del><span
+                                                                                        class="amount">$2,299.00</span></del>
                                                                                 <span class="amount"> </span>
                                                                             </span>
                                                                         </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
                                                             <div class="action-buttons">
 
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
 
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
                                                             </div>
                                                         </div>
                                                     </div><!-- /.product-inner -->
@@ -814,11 +1147,15 @@
                                             <div class="product ">
                                                 <div class="product-outer">
                                                     <div class="product-inner">
-                                                        <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
+                                                            <span class="loop-product-categories"><a
+                                                                    href="product-category.html"
+                                                                    rel="tag">Smartphones</a></span>
                                                         <a href="single-product.html">
                                                             <h3>Smartphone 6S 32GB LTE</h3>
                                                             <div class="product-thumbnail">
-                                                                <img src="/assets/images/blank.gif" data-echo="/assets/images/products/4.jpg" class="img-responsive" alt="">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/4.jpg"
+                                                                     class="img-responsive" alt="">
                                                             </div>
                                                         </a>
 
@@ -829,15 +1166,273 @@
                                                                                 <span class="amount"> $1,999.00</span>
                                                                             </span>
                                                                         </span>
-                                                            <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
                                                         </div><!-- /.price-add-to-cart -->
 
                                                         <div class="hover-area">
                                                             <div class="action-buttons">
 
-                                                                <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
 
-                                                                <a href="compare.html" class="add-to-compare-link"> Compare</a>
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.product-inner -->
+                                                </div><!-- /.product-outer -->
+                                            </div><!-- /.product -->
+                                        </div><!-- /.products -->
+                                        <div class="products owl-carousel home-v3-carousel-tabs products-carousel columns-4">
+
+                                            <div class="product first">
+                                                <div class="product-outer">
+                                                    <div class="product-inner">
+                                                            <span class="loop-product-categories"><a
+                                                                    href="product-category.html" rel="tag">Audio Speakers</a></span>
+                                                        <a href="single-product.html">
+                                                            <h3>Wireless Audio System Multiroom 360</h3>
+                                                            <div class="product-thumbnail">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/3.jpg"
+                                                                     class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+
+                                                        <div class="price-add-to-cart">
+                                                                        <span class="price">
+                                                                            <span class="electro-price">
+                                                                                <ins><span
+                                                                                        class="amount"> $1,999.00</span></ins>
+                                                                                <del><span
+                                                                                        class="amount">$2,299.00</span></del>
+                                                                                <span class="amount"> </span>
+                                                                            </span>
+                                                                        </span>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
+                                                        </div><!-- /.price-add-to-cart -->
+
+                                                        <div class="hover-area">
+                                                            <div class="action-buttons">
+
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
+
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.product-inner -->
+                                                </div><!-- /.product-outer -->
+                                            </div><!-- /.product -->
+
+
+                                            <div class="product ">
+                                                <div class="product-outer">
+                                                    <div class="product-inner">
+                                                            <span class="loop-product-categories"><a
+                                                                    href="product-category.html"
+                                                                    rel="tag">Laptops</a></span>
+                                                        <a href="single-product.html">
+                                                            <h3>Tablet Thin EliteBook Revolve 810 G6</h3>
+                                                            <div class="product-thumbnail">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/1.jpg"
+                                                                     class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+
+                                                        <div class="price-add-to-cart">
+                                                                        <span class="price">
+                                                                            <span class="electro-price">
+                                                                                <ins><span class="amount"> </span></ins>
+                                                                                <span class="amount"> $1,999.00</span>
+                                                                            </span>
+                                                                        </span>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
+                                                        </div><!-- /.price-add-to-cart -->
+
+                                                        <div class="hover-area">
+                                                            <div class="action-buttons">
+
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
+
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.product-inner -->
+                                                </div><!-- /.product-outer -->
+                                            </div><!-- /.product -->
+
+
+                                            <div class="product ">
+                                                <div class="product-outer">
+                                                    <div class="product-inner">
+                                                            <span class="loop-product-categories"><a
+                                                                    href="product-category.html"
+                                                                    rel="tag">Headphones</a></span>
+                                                        <a href="single-product.html">
+                                                            <h3>Purple Solo 2 Wireless</h3>
+                                                            <div class="product-thumbnail">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/5.jpg"
+                                                                     class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+
+                                                        <div class="price-add-to-cart">
+                                                                        <span class="price">
+                                                                            <span class="electro-price">
+                                                                                <ins><span
+                                                                                        class="amount"> $1,999.00</span></ins>
+                                                                                <del><span
+                                                                                        class="amount">$2,299.00</span></del>
+                                                                                <span class="amount"> </span>
+                                                                            </span>
+                                                                        </span>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
+                                                        </div><!-- /.price-add-to-cart -->
+
+                                                        <div class="hover-area">
+                                                            <div class="action-buttons">
+
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
+
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.product-inner -->
+                                                </div><!-- /.product-outer -->
+                                            </div><!-- /.product -->
+
+
+                                            <div class="product last">
+                                                <div class="product-outer">
+                                                    <div class="product-inner">
+                                                            <span class="loop-product-categories"><a
+                                                                    href="product-category.html"
+                                                                    rel="tag">Laptops</a></span>
+                                                        <a href="single-product.html">
+                                                            <h3>Tablet Red EliteBook Revolve 810 G2</h3>
+                                                            <div class="product-thumbnail">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/2.jpg"
+                                                                     class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+
+                                                        <div class="price-add-to-cart">
+                                                                        <span class="price">
+                                                                            <span class="electro-price">
+                                                                                <ins><span class="amount"> </span></ins>
+                                                                                <span class="amount"> $1,999.00</span>
+                                                                            </span>
+                                                                        </span>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
+                                                        </div><!-- /.price-add-to-cart -->
+
+                                                        <div class="hover-area">
+                                                            <div class="action-buttons">
+
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
+
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.product-inner -->
+                                                </div><!-- /.product-outer -->
+                                            </div><!-- /.product -->
+
+
+                                            <div class="product first">
+                                                <div class="product-outer">
+                                                    <div class="product-inner">
+                                                            <span class="loop-product-categories"><a
+                                                                    href="product-category.html"
+                                                                    rel="tag">Headphones</a></span>
+                                                        <a href="single-product.html">
+                                                            <h3>White Solo 2 Wireless</h3>
+                                                            <div class="product-thumbnail">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/6.jpg"
+                                                                     class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+
+                                                        <div class="price-add-to-cart">
+                                                                        <span class="price">
+                                                                            <span class="electro-price">
+                                                                                <ins><span
+                                                                                        class="amount"> $1,999.00</span></ins>
+                                                                                <del><span
+                                                                                        class="amount">$2,299.00</span></del>
+                                                                                <span class="amount"> </span>
+                                                                            </span>
+                                                                        </span>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
+                                                        </div><!-- /.price-add-to-cart -->
+
+                                                        <div class="hover-area">
+                                                            <div class="action-buttons">
+
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
+
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.product-inner -->
+                                                </div><!-- /.product-outer -->
+                                            </div><!-- /.product -->
+
+
+                                            <div class="product ">
+                                                <div class="product-outer">
+                                                    <div class="product-inner">
+                                                            <span class="loop-product-categories"><a
+                                                                    href="product-category.html"
+                                                                    rel="tag">Smartphones</a></span>
+                                                        <a href="single-product.html">
+                                                            <h3>Smartphone 6S 32GB LTE</h3>
+                                                            <div class="product-thumbnail">
+                                                                <img src="/assets/images/blank.gif"
+                                                                     data-echo="/assets/images/products/4.jpg"
+                                                                     class="img-responsive" alt="">
+                                                            </div>
+                                                        </a>
+
+                                                        <div class="price-add-to-cart">
+                                                                        <span class="price">
+                                                                            <span class="electro-price">
+                                                                                <ins><span class="amount"> </span></ins>
+                                                                                <span class="amount"> $1,999.00</span>
+                                                                            </span>
+                                                                        </span>
+                                                            <a rel="nofollow" href="single-product.html"
+                                                               class="button add_to_cart_button">Add to cart</a>
+                                                        </div><!-- /.price-add-to-cart -->
+
+                                                        <div class="hover-area">
+                                                            <div class="action-buttons">
+
+                                                                <a href="#" rel="nofollow" class="add_to_wishlist">
+                                                                    Wishlist</a>
+
+                                                                <a href="compare.html" class="add-to-compare-link">
+                                                                    Compare</a>
                                                             </div>
                                                         </div>
                                                     </div><!-- /.product-inner -->
@@ -851,928 +1446,22 @@
                     </div><!-- /.tab-content -->
                 </section><!-- /.products-carousel-tabs -->
 
-                <section class="products-carousel-with-image animate-in-view fadeIn animated" style="background-size: cover; background-position: center center; background-image: url( /assets/images/home-v3-bg.jpg );" data-animation="fadeIn">
-                    <h2 class="sr-only">Products Carousel</h2>
-                    <div class="container">
-                        <div class="row">
-                            <div class="image-block col-xs-12 col-sm-6">
-                                <img data-echo="/assets/images/adbanner3.png" src="/assets/images/blank.gif" alt="">
-                            </div><!-- /.image-block -->
+                <!-- ----------------------------------------------------------------------------------------------------- -->
+                <div class="row">
+                    <div aria-label="Page navigation">
+                        <ul class="pagination">
+                            <%
+                                long count = (long) request.getAttribute("pageCount");
+                                for (int i = 1; i <= count; i++) {
+                            %>
+                            <li class="page-item"><a class="page-link"
+                                                     href="/Featured/<%=i%>"><%=i%></a></li>
+                            <%}%>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ----------------------------------------------------------------------------------------------------- -->
 
-                            <div class="products-carousel-block col-xs-12 col-sm-6">
-                                <section class="home-v2-categories-products-carousel section-products-carousel" >
-
-                                    <header>
-                                        <h2 class="h1">Home Entertainment</h2>
-                                        <div class="owl-nav">
-                                            <a href="#products-carousel-prev" data-target="#products-carousel-with-umage" class="slider-prev"><i class="fa fa-angle-left"></i></a>
-                                            <a href="#products-carousel-next" data-target="#products-carousel-with-umage" class="slider-next"><i class="fa fa-angle-right"></i></a>
-                                        </div>
-
-                                    </header>
-
-                                    <div id="products-carousel-with-umage">
-                                        <div class="woocommerce columns-4">
-
-
-                                            <div class="products owl-carousel home-v3-carousel-tabs products-carousel columns-4">
-
-
-                                                <div class="product ">
-                                                    <div class="product-outer">
-                                                        <div class="product-inner">
-                                                            <span class="loop-product-categories"><a href="product-category.html" rel="tag">Audio Speakers</a></span>
-                                                            <a href="single-product.html">
-                                                                <h3>Wireless Audio System Multiroom 360</h3>
-                                                                <div class="product-thumbnail">
-                                                                    <img src="/assets/images/blank.gif" data-echo="/assets/images/products/3.jpg" class="img-responsive" alt="">
-                                                                </div>
-                                                            </a>
-
-                                                            <div class="price-add-to-cart">
-                                                                            <span class="price">
-                                                                                <span class="electro-price">
-                                                                                    <ins><span class="amount"> $1,999.00</span></ins>
-                                                                                    <del><span class="amount">$2,299.00</span></del>
-                                                                                    <span class="amount"> </span>
-                                                                                </span>
-                                                                            </span>
-                                                                <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                                            </div><!-- /.price-add-to-cart -->
-
-                                                            <div class="hover-area">
-                                                                <div class="action-buttons">
-
-                                                                    <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
-
-                                                                    <a href="compare.html" class="add-to-compare-link"> Compare</a>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- /.product-inner -->
-                                                    </div><!-- /.product-outer -->
-                                                </div><!-- /.product -->
-
-
-                                                <div class="product last">
-                                                    <div class="product-outer">
-                                                        <div class="product-inner">
-                                                            <span class="loop-product-categories"><a href="product-category.html" rel="tag">Laptops</a></span>
-                                                            <a href="single-product.html">
-                                                                <h3>Tablet Thin EliteBook  Revolve 810 G6</h3>
-                                                                <div class="product-thumbnail">
-                                                                    <img src="/assets/images/blank.gif" data-echo="/assets/images/products/1.jpg" class="img-responsive" alt="">
-                                                                </div>
-                                                            </a>
-
-                                                            <div class="price-add-to-cart">
-                                                                            <span class="price">
-                                                                                <span class="electro-price">
-                                                                                    <ins><span class="amount"> </span></ins>
-                                                                                    <span class="amount"> $1,999.00</span>
-                                                                                </span>
-                                                                            </span>
-                                                                <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                                            </div><!-- /.price-add-to-cart -->
-
-                                                            <div class="hover-area">
-                                                                <div class="action-buttons">
-
-                                                                    <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
-
-                                                                    <a href="compare.html" class="add-to-compare-link"> Compare</a>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- /.product-inner -->
-                                                    </div><!-- /.product-outer -->
-                                                </div><!-- /.product -->
-
-
-                                                <div class="product first">
-                                                    <div class="product-outer">
-                                                        <div class="product-inner">
-                                                            <span class="loop-product-categories"><a href="product-category.html" rel="tag">Headphones</a></span>
-                                                            <a href="single-product.html">
-                                                                <h3>Purple Solo 2 Wireless</h3>
-                                                                <div class="product-thumbnail">
-                                                                    <img src="/assets/images/blank.gif" data-echo="/assets/images/products/5.jpg" class="img-responsive" alt="">
-                                                                </div>
-                                                            </a>
-
-                                                            <div class="price-add-to-cart">
-                                                                            <span class="price">
-                                                                                <span class="electro-price">
-                                                                                    <ins><span class="amount"> $1,999.00</span></ins>
-                                                                                    <del><span class="amount">$2,299.00</span></del>
-                                                                                    <span class="amount"> </span>
-                                                                                </span>
-                                                                            </span>
-                                                                <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                                            </div><!-- /.price-add-to-cart -->
-
-                                                            <div class="hover-area">
-                                                                <div class="action-buttons">
-
-                                                                    <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
-
-                                                                    <a href="compare.html" class="add-to-compare-link"> Compare</a>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- /.product-inner -->
-                                                    </div><!-- /.product-outer -->
-                                                </div><!-- /.product -->
-
-
-                                                <div class="product ">
-                                                    <div class="product-outer">
-                                                        <div class="product-inner">
-                                                            <span class="loop-product-categories"><a href="product-category.html" rel="tag">Laptops</a></span>
-                                                            <a href="single-product.html">
-                                                                <h3>Tablet Red EliteBook  Revolve 810 G2</h3>
-                                                                <div class="product-thumbnail">
-                                                                    <img src="/assets/images/blank.gif" data-echo="/assets/images/products/2.jpg" class="img-responsive" alt="">
-                                                                </div>
-                                                            </a>
-
-                                                            <div class="price-add-to-cart">
-                                                                            <span class="price">
-                                                                                <span class="electro-price">
-                                                                                    <ins><span class="amount"> </span></ins>
-                                                                                    <span class="amount"> $1,999.00</span>
-                                                                                </span>
-                                                                            </span>
-                                                                <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                                            </div><!-- /.price-add-to-cart -->
-
-                                                            <div class="hover-area">
-                                                                <div class="action-buttons">
-
-                                                                    <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
-
-                                                                    <a href="compare.html" class="add-to-compare-link"> Compare</a>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- /.product-inner -->
-                                                    </div><!-- /.product-outer -->
-                                                </div><!-- /.product -->
-
-
-                                                <div class="product ">
-                                                    <div class="product-outer">
-                                                        <div class="product-inner">
-                                                            <span class="loop-product-categories"><a href="product-category.html" rel="tag">Headphones</a></span>
-                                                            <a href="single-product.html">
-                                                                <h3>White Solo 2 Wireless</h3>
-                                                                <div class="product-thumbnail">
-                                                                    <img src="/assets/images/blank.gif" data-echo="/assets/images/products/6.jpg" class="img-responsive" alt="">
-                                                                </div>
-                                                            </a>
-
-                                                            <div class="price-add-to-cart">
-                                                                            <span class="price">
-                                                                                <span class="electro-price">
-                                                                                    <ins><span class="amount"> $1,999.00</span></ins>
-                                                                                    <del><span class="amount">$2,299.00</span></del>
-                                                                                    <span class="amount"> </span>
-                                                                                </span>
-                                                                            </span>
-                                                                <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                                            </div><!-- /.price-add-to-cart -->
-
-                                                            <div class="hover-area">
-                                                                <div class="action-buttons">
-
-                                                                    <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
-
-                                                                    <a href="compare.html" class="add-to-compare-link"> Compare</a>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- /.product-inner -->
-                                                    </div><!-- /.product-outer -->
-                                                </div><!-- /.product -->
-
-
-                                                <div class="product last">
-                                                    <div class="product-outer">
-                                                        <div class="product-inner">
-                                                            <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                                            <a href="single-product.html">
-                                                                <h3>Smartphone 6S 32GB LTE</h3>
-                                                                <div class="product-thumbnail">
-                                                                    <img src="/assets/images/blank.gif" data-echo="/assets/images/products/4.jpg" class="img-responsive" alt="">
-                                                                </div>
-                                                            </a>
-
-                                                            <div class="price-add-to-cart">
-                                                                            <span class="price">
-                                                                                <span class="electro-price">
-                                                                                    <ins><span class="amount"> </span></ins>
-                                                                                    <span class="amount"> $1,999.00</span>
-                                                                                </span>
-                                                                            </span>
-                                                                <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                                            </div><!-- /.price-add-to-cart -->
-
-                                                            <div class="hover-area">
-                                                                <div class="action-buttons">
-
-                                                                    <a href="#" rel="nofollow" class="add_to_wishlist"> Wishlist</a>
-
-                                                                    <a href="compare.html" class="add-to-compare-link"> Compare</a>
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- /.product-inner -->
-                                                    </div><!-- /.product-outer -->
-                                                </div><!-- /.product -->
-                                            </div><!-- /.products -->
-                                        </div>
-                                    </div>
-                                </section>
-                            </div><!-- /.iproducts-carousel-block -->
-                        </div><!-- /.row -->
-                    </div><!-- /.conainer -->
-                </section><!-- /.products-carousel-with-image-->
-
-                <section class="section-product-cards-carousel animate-in-view fadeIn animated" data-animation="fadeIn">
-                    <header>
-                        <h2 class="h1">Laptops &amp; Computers</h2>
-
-                        <div class="owl-nav">
-                            <a href="#products-cards-carousel-prev" data-target="#homev3-products-cards-carousel" class="slider-prev"><i class="fa fa-angle-left"></i></a>
-                            <a href="#products-cards-carousel-next" data-target="#homev3-products-cards-carousel" class="slider-next"><i class="fa fa-angle-right"></i></a>
-                        </div>
-                    </header><!-- /header-->
-
-
-                    <div id="homev3-products-cards-carousel">
-                        <div class="woocommerce home-v3 columns-2 product-cards-carousel owl-carousel">
-
-                            <ul class="products columns-2">
-                                <li class="product product-card first">
-
-                                    <div class="product-outer">
-                                        <div class="media product-inner">
-
-                                            <a class="media-left" href="single-product.html" title="Pendrive USB 3.0 Flash 64 GB">
-                                                <img class="media-object wp-post-image img-responsive" src="/assets/images/blank.gif" data-echo="/assets/images/product-cards/2.jpg" alt="">
-
-                                            </a>
-
-                                            <div class="media-body">
-                                                            <span class="loop-product-categories">
-                                                                <a href="product-category.html" rel="tag">Smartphones</a>
-                                                            </span>
-
-                                                <a href="single-product.html">
-                                                    <h3>Tablet Thin EliteBook  Revolve 810 G6</h3>
-                                                </a>
-
-                                                <div class="price-add-to-cart">
-                                                                <span class="price">
-                                                                    <span class="electro-price">
-                                                                        <ins><span class="amount"> </span></ins>
-                                                                        <span class="amount"> $500</span>
-                                                                    </span>
-                                                                </span>
-
-                                                    <a href="cart.html" class="button add_to_cart_button">Add to cart</a>
-                                                </div><!-- /.price-add-to-cart -->
-
-                                                <div class="hover-area">
-                                                    <div class="action-buttons">
-
-                                                        <a href="#" class="add_to_wishlist">
-                                                            Wishlist</a>
-
-                                                        <a href="#" class="add-to-compare-link">Compare</a>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div><!-- /.product-inner -->
-                                    </div><!-- /.product-outer -->
-
-                                </li><!-- /.products -->
-                                <li class="product product-card last">
-
-                                    <div class="product-outer">
-                                        <div class="media product-inner">
-
-                                            <a class="media-left" href="single-product.html" title="Pendrive USB 3.0 Flash 64 GB">
-                                                <img class="media-object wp-post-image img-responsive" src="/assets/images/blank.gif" data-echo="/assets/images/product-cards/4.jpg" alt="">
-
-                                            </a>
-
-                                            <div class="media-body">
-                                                            <span class="loop-product-categories">
-                                                                <a href="product-category.html" rel="tag">TVs</a>
-                                                            </span>
-
-                                                <a href="single-product.html">
-                                                    <h3>Widescreen 4K SUHD TV</h3>
-                                                </a>
-
-                                                <div class="price-add-to-cart">
-                                                                <span class="price">
-                                                                    <span class="electro-price">
-                                                                        <ins><span class="amount"> </span></ins>
-                                                                        <span class="amount"> $800</span>
-                                                                    </span>
-                                                                </span>
-
-                                                    <a href="cart.html" class="button add_to_cart_button">Add to cart</a>
-                                                </div><!-- /.price-add-to-cart -->
-
-                                                <div class="hover-area">
-                                                    <div class="action-buttons">
-
-                                                        <a href="#" class="add_to_wishlist">
-                                                            Wishlist</a>
-
-                                                        <a href="#" class="add-to-compare-link">Compare</a>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div><!-- /.product-inner -->
-                                    </div><!-- /.product-outer -->
-
-                                </li><!-- /.products -->
-                                <li class="product product-card first">
-
-                                    <div class="product-outer">
-                                        <div class="media product-inner">
-
-                                            <a class="media-left" href="single-product.html" title="Pendrive USB 3.0 Flash 64 GB">
-                                                <img class="media-object wp-post-image img-responsive" src="/assets/images/blank.gif" data-echo="/assets/images/product-cards/6.jpg" alt="">
-
-                                            </a>
-
-                                            <div class="media-body">
-                                                            <span class="loop-product-categories">
-                                                                <a href="product-category.html" rel="tag">Peripherals</a>
-                                                            </span>
-
-                                                <a href="single-product.html">
-                                                    <h3>External SSD USB 3.1  750 GB</h3>
-                                                </a>
-
-                                                <div class="price-add-to-cart">
-                                                                <span class="price">
-                                                                    <span class="electro-price">
-                                                                        <ins><span class="amount"> </span></ins>
-                                                                        <span class="amount"> $600</span>
-                                                                    </span>
-                                                                </span>
-
-                                                    <a href="cart.html" class="button add_to_cart_button">Add to cart</a>
-                                                </div><!-- /.price-add-to-cart -->
-
-                                                <div class="hover-area">
-                                                    <div class="action-buttons">
-
-                                                        <a href="#" class="add_to_wishlist">
-                                                            Wishlist</a>
-
-                                                        <a href="#" class="add-to-compare-link">Compare</a>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div><!-- /.product-inner -->
-                                    </div><!-- /.product-outer -->
-
-                                </li><!-- /.products -->
-                                <li class="product product-card last">
-
-                                    <div class="product-outer">
-                                        <div class="media product-inner">
-
-                                            <a class="media-left" href="single-product.html" title="Pendrive USB 3.0 Flash 64 GB">
-                                                <img class="media-object wp-post-image img-responsive" src="/assets/images/blank.gif" data-echo="/assets/images/product-cards/5.jpg" alt="">
-
-                                            </a>
-
-                                            <div class="media-body">
-                                                            <span class="loop-product-categories">
-                                                                <a href="product-category.html" rel="tag">Printers</a>
-                                                            </span>
-
-                                                <a href="single-product.html">
-                                                    <h3>Full Color LaserJet Pro  M452dn</h3>
-                                                </a>
-
-                                                <div class="price-add-to-cart">
-                                                                <span class="price">
-                                                                    <span class="electro-price">
-                                                                        <ins><span class="amount"> $3,788.00</span></ins>
-                                                                        <del><span class="amount">$4,780.00</span></del>
-                                                                        <span class="amount"> </span>
-                                                                    </span>
-                                                                </span>
-
-                                                    <a href="cart.html" class="button add_to_cart_button">Add to cart</a>
-                                                </div><!-- /.price-add-to-cart -->
-
-                                                <div class="hover-area">
-                                                    <div class="action-buttons">
-
-                                                        <a href="#" class="add_to_wishlist">
-                                                            Wishlist</a>
-
-                                                        <a href="#" class="add-to-compare-link">Compare</a>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div><!-- /.product-inner -->
-                                    </div><!-- /.product-outer -->
-
-                                </li><!-- /.products -->
-                            </ul>
-                            <ul class="products columns-2">
-                                <li class="product product-card first">
-
-                                    <div class="product-outer">
-                                        <div class="media product-inner">
-
-                                            <a class="media-left" href="single-product.html" title="Pendrive USB 3.0 Flash 64 GB">
-                                                <img class="media-object wp-post-image img-responsive" src="/assets/images/blank.gif" data-echo="/assets/images/product-cards/3.jpg" alt="">
-
-                                            </a>
-
-                                            <div class="media-body">
-                                                            <span class="loop-product-categories">
-                                                                <a href="product-category.html" rel="tag">Smartphones</a>
-                                                            </span>
-
-                                                <a href="single-product.html">
-                                                    <h3>Notebook Purple G752VT-T7008T</h3>
-                                                </a>
-
-                                                <div class="price-add-to-cart">
-                                                                <span class="price">
-                                                                    <span class="electro-price">
-                                                                        <ins><span class="amount"> $3,788.00</span></ins>
-                                                                        <del><span class="amount">$4,780.00</span></del>
-                                                                        <span class="amount"> </span>
-                                                                    </span>
-                                                                </span>
-
-                                                    <a href="cart.html" class="button add_to_cart_button">Add to cart</a>
-                                                </div><!-- /.price-add-to-cart -->
-
-                                                <div class="hover-area">
-                                                    <div class="action-buttons">
-
-                                                        <a href="#" class="add_to_wishlist">
-                                                            Wishlist</a>
-
-                                                        <a href="#" class="add-to-compare-link">Compare</a>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div><!-- /.product-inner -->
-                                    </div><!-- /.product-outer -->
-
-                                </li><!-- /.products -->
-                                <li class="product product-card last">
-
-                                    <div class="product-outer">
-                                        <div class="media product-inner">
-
-                                            <a class="media-left" href="single-product.html" title="Pendrive USB 3.0 Flash 64 GB">
-                                                <img class="media-object wp-post-image img-responsive" src="/assets/images/blank.gif" data-echo="/assets/images/product-cards/6.jpg" alt="">
-
-                                            </a>
-
-                                            <div class="media-body">
-                                                            <span class="loop-product-categories">
-                                                                <a href="product-category.html" rel="tag">Peripherals</a>
-                                                            </span>
-
-                                                <a href="single-product.html">
-                                                    <h3>External SSD USB 3.1  750 GB</h3>
-                                                </a>
-
-                                                <div class="price-add-to-cart">
-                                                                <span class="price">
-                                                                    <span class="electro-price">
-                                                                        <ins><span class="amount"> $3,788.00</span></ins>
-                                                                        <del><span class="amount">$4,780.00</span></del>
-                                                                        <span class="amount"> </span>
-                                                                    </span>
-                                                                </span>
-
-                                                    <a href="cart.html" class="button add_to_cart_button">Add to cart</a>
-                                                </div><!-- /.price-add-to-cart -->
-
-                                                <div class="hover-area">
-                                                    <div class="action-buttons">
-
-                                                        <a href="#" class="add_to_wishlist">
-                                                            Wishlist</a>
-
-                                                        <a href="#" class="add-to-compare-link">Compare</a>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div><!-- /.product-inner -->
-                                    </div><!-- /.product-outer -->
-
-                                </li><!-- /.products -->
-                                <li class="product product-card first">
-
-                                    <div class="product-outer">
-                                        <div class="media product-inner">
-
-                                            <a class="media-left" href="single-product.html" title="Pendrive USB 3.0 Flash 64 GB">
-                                                <img class="media-object wp-post-image img-responsive" src="/assets/images/blank.gif" data-echo="/assets/images/product-cards/2.jpg" alt="">
-
-                                            </a>
-
-                                            <div class="media-body">
-                                                            <span class="loop-product-categories">
-                                                                <a href="product-category.html" rel="tag">Headphone Cases</a>
-                                                            </span>
-
-                                                <a href="single-product.html">
-                                                    <h3>Universal Headphones Case in Black</h3>
-                                                </a>
-
-                                                <div class="price-add-to-cart">
-                                                                <span class="price">
-                                                                    <span class="electro-price">
-                                                                        <ins><span class="amount"> </span></ins>
-                                                                        <span class="amount"> $1500</span>
-                                                                    </span>
-                                                                </span>
-
-                                                    <a href="cart.html" class="button add_to_cart_button">Add to cart</a>
-                                                </div><!-- /.price-add-to-cart -->
-
-                                                <div class="hover-area">
-                                                    <div class="action-buttons">
-
-                                                        <a href="#" class="add_to_wishlist">
-                                                            Wishlist</a>
-
-                                                        <a href="#" class="add-to-compare-link">Compare</a>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div><!-- /.product-inner -->
-                                    </div><!-- /.product-outer -->
-
-                                </li><!-- /.products -->
-                                <li class="product product-card last">
-
-                                    <div class="product-outer">
-                                        <div class="media product-inner">
-
-                                            <a class="media-left" href="single-product.html" title="Pendrive USB 3.0 Flash 64 GB">
-                                                <img class="media-object wp-post-image img-responsive" src="/assets/images/blank.gif" data-echo="/assets/images/product-cards/1.jpg" alt="">
-
-                                            </a>
-
-                                            <div class="media-body">
-                                                            <span class="loop-product-categories">
-                                                                <a href="product-category.html" rel="tag">Smartphones</a>
-                                                            </span>
-
-                                                <a href="single-product.html">
-                                                    <h3>Tablet Thin EliteBook  Revolve 810 G6</h3>
-                                                </a>
-
-                                                <div class="price-add-to-cart">
-                                                                <span class="price">
-                                                                    <span class="electro-price">
-                                                                        <ins><span class="amount"> $3,788.00</span></ins>
-                                                                        <del><span class="amount">$4,780.00</span></del>
-                                                                        <span class="amount"> </span>
-                                                                    </span>
-                                                                </span>
-
-                                                    <a href="cart.html" class="button add_to_cart_button">Add to cart</a>
-                                                </div><!-- /.price-add-to-cart -->
-
-                                                <div class="hover-area">
-                                                    <div class="action-buttons">
-
-                                                        <a href="#" class="add_to_wishlist">
-                                                            Wishlist</a>
-
-                                                        <a href="#" class="add-to-compare-link">Compare</a>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div><!-- /.product-inner -->
-                                    </div><!-- /.product-outer -->
-
-                                </li><!-- /.products -->
-                            </ul>
-
-                        </div>
-                    </div><!-- /#homev3-products-cards-carousel-->
-
-                </section><!-- /.section-product-cards-carousel-->
-
-                <section class="products-6-1 animate-in-view fadeIn animated" data-animation="fadeIn">
-                    <div class="container">
-                        <header>
-                            <h2 class="h1">Bestsellers</h2>
-                            <ul class="nav nav-inline">
-                                <li class="nav-item active">
-                                    <span class="nav-link">Top 7</span>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="product-category.html">Smart Phones &amp; Tablets</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="product-category.html">Laptops &amp; Computers</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="product-category.html">Video Cameras</a>
-                                </li>
-                            </ul>
-                        </header>
-
-                        <div class="columns-6-1">
-                            <ul class="products exclude-auto-height products-6">
-                                <li class="product">
-                                    <div class="product-outer">
-                                        <div class="product-inner">
-                                            <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a href="single-product.html">
-                                                <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
-                                                <div class="product-thumbnail">
-
-                                                    <img data-echo="/assets/images/products/5.jpg" src="/assets/images/blank.gif" alt="">
-
-
-                                                </div>
-                                            </a>
-
-                                            <div class="price-add-to-cart">
-                                                            <span class="price">
-                                                                <span class="electro-price">
-                                                                    <ins><span class="amount">&#036;1,999.00</span></ins>
-                                                                    <del><span class="amount">&#036;2,299.00</span></del>
-                                                                </span>
-                                                            </span>
-                                                <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                            </div><!-- /.price-add-to-cart -->
-
-                                            <div class="hover-area">
-                                                <div class="action-buttons">
-
-                                                    <a href="/electro/?add_to_wishlist=2933" rel="nofollow" class="add_to_wishlist">
-                                                        Wishlist</a>
-
-                                                    <a href="compare.html" class="add-to-compare-link">Compare</a>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.product-inner -->
-                                    </div><!-- /.product-outer -->
-                                </li>
-                                <li class="product">
-                                    <div class="product-outer">
-                                        <div class="product-inner">
-                                            <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a href="single-product.html">
-                                                <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
-                                                <div class="product-thumbnail">
-
-                                                    <img data-echo="/assets/images/products/6.jpg" src="/assets/images/blank.gif" alt="">
-
-
-                                                </div>
-                                            </a>
-
-                                            <div class="price-add-to-cart">
-                                                            <span class="price">
-                                                                <span class="electro-price">
-                                                                    <ins><span class="amount">&#036;1,999.00</span></ins>
-                                                                    <del><span class="amount">&#036;2,299.00</span></del>
-                                                                </span>
-                                                            </span>
-                                                <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                            </div><!-- /.price-add-to-cart -->
-
-                                            <div class="hover-area">
-                                                <div class="action-buttons">
-
-                                                    <a href="/electro/?add_to_wishlist=2933" rel="nofollow" class="add_to_wishlist">
-                                                        Wishlist</a>
-
-                                                    <a href="compare.html" class="add-to-compare-link">Compare</a>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.product-inner -->
-                                    </div><!-- /.product-outer -->
-                                </li>
-                                <li class="product">
-                                    <div class="product-outer">
-                                        <div class="product-inner">
-                                            <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a href="single-product.html">
-                                                <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
-                                                <div class="product-thumbnail">
-
-                                                    <img data-echo="/assets/images/products/3.jpg" src="/assets/images/blank.gif" alt="">
-
-
-                                                </div>
-                                            </a>
-
-                                            <div class="price-add-to-cart">
-                                                            <span class="price">
-                                                                <span class="electro-price">
-                                                                    <ins><span class="amount">&#036;1,999.00</span></ins>
-                                                                    <del><span class="amount">&#036;2,299.00</span></del>
-                                                                </span>
-                                                            </span>
-                                                <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                            </div><!-- /.price-add-to-cart -->
-
-                                            <div class="hover-area">
-                                                <div class="action-buttons">
-
-                                                    <a href="/electro/?add_to_wishlist=2933" rel="nofollow" class="add_to_wishlist">
-                                                        Wishlist</a>
-
-                                                    <a href="compare.html" class="add-to-compare-link">Compare</a>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.product-inner -->
-                                    </div><!-- /.product-outer -->
-                                </li>
-                                <li class="product">
-                                    <div class="product-outer">
-                                        <div class="product-inner">
-                                            <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a href="single-product.html">
-                                                <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
-                                                <div class="product-thumbnail">
-
-                                                    <img data-echo="/assets/images/products/4.jpg" src="/assets/images/blank.gif" alt="">
-
-
-                                                </div>
-                                            </a>
-
-                                            <div class="price-add-to-cart">
-                                                            <span class="price">
-                                                                <span class="electro-price">
-                                                                    <ins><span class="amount">&#036;1,999.00</span></ins>
-                                                                    <del><span class="amount">&#036;2,299.00</span></del>
-                                                                </span>
-                                                            </span>
-                                                <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                            </div><!-- /.price-add-to-cart -->
-
-                                            <div class="hover-area">
-                                                <div class="action-buttons">
-
-                                                    <a href="/electro/?add_to_wishlist=2933" rel="nofollow" class="add_to_wishlist">
-                                                        Wishlist</a>
-
-                                                    <a href="compare.html" class="add-to-compare-link">Compare</a>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.product-inner -->
-                                    </div><!-- /.product-outer -->
-                                </li>
-                                <li class="product">
-                                    <div class="product-outer">
-                                        <div class="product-inner">
-                                            <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a href="single-product.html">
-                                                <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
-                                                <div class="product-thumbnail">
-
-                                                    <img data-echo="/assets/images/products/2.jpg" src="/assets/images/blank.gif" alt="">
-
-
-                                                </div>
-                                            </a>
-
-                                            <div class="price-add-to-cart">
-                                                            <span class="price">
-                                                                <span class="electro-price">
-                                                                    <ins><span class="amount">&#036;1,999.00</span></ins>
-                                                                    <del><span class="amount">&#036;2,299.00</span></del>
-                                                                </span>
-                                                            </span>
-                                                <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                            </div><!-- /.price-add-to-cart -->
-
-                                            <div class="hover-area">
-                                                <div class="action-buttons">
-
-                                                    <a href="/electro/?add_to_wishlist=2933" rel="nofollow" class="add_to_wishlist">
-                                                        Wishlist</a>
-
-                                                    <a href="compare.html" class="add-to-compare-link">Compare</a>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.product-inner -->
-                                    </div><!-- /.product-outer -->
-                                </li>
-                                <li class="product">
-                                    <div class="product-outer">
-                                        <div class="product-inner">
-                                            <span class="loop-product-categories"><a href="product-category.html" rel="tag">Smartphones</a></span>
-                                            <a href="single-product.html">
-                                                <h3>Notebook Black Spire V Nitro  VN7-591G</h3>
-                                                <div class="product-thumbnail">
-
-                                                    <img data-echo="/assets/images/products/2.jpg" src="/assets/images/blank.gif" alt="">
-
-
-                                                </div>
-                                            </a>
-
-                                            <div class="price-add-to-cart">
-                                                            <span class="price">
-                                                                <span class="electro-price">
-                                                                    <ins><span class="amount">&#036;1,999.00</span></ins>
-                                                                    <del><span class="amount">&#036;2,299.00</span></del>
-                                                                </span>
-                                                            </span>
-                                                <a rel="nofollow" href="single-product.html" class="button add_to_cart_button">Add to cart</a>
-                                            </div><!-- /.price-add-to-cart -->
-
-                                            <div class="hover-area">
-                                                <div class="action-buttons">
-
-                                                    <a href="/electro/?add_to_wishlist=2933" rel="nofollow" class="add_to_wishlist">
-                                                        Wishlist</a>
-
-                                                    <a href="compare.html" class="add-to-compare-link">Compare</a>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.product-inner -->
-                                    </div><!-- /.product-outer -->
-                                </li>
-                            </ul>
-
-                            <ul class="products exclude-auto-height product-main-6-1">
-                                <li class="first product">
-
-                                    <div class="product-outer">
-                                        <div class="product-inner">
-                                                        <span class="loop-product-categories">
-                                                            <a href="product-category.html" rel="tag">Game Consoles</a>
-                                                        </span>
-
-                                            <a href="single-product.html">
-                                                <h3>Game Console Controller <br/>+ USB 3.0 Cable</h3>
-                                                <div class="product-thumbnail">
-                                                    <img src="/assets/images/blank.gif" data-echo="/assets/images/products/6-1.jpg" class="wp-post-image" alt="">
-                                                </div>
-                                            </a>
-
-                                            <div class="thumbnails columns-3">
-                                                <a href="images/products/thumb1.jpg" class="zoom first" title="" data-rel="prettyPhoto[product-gallery]">
-                                                    <img src="/assets/images/blank.gif" data-echo="/assets/images/products/thumb1.jpg"  alt="">
-                                                </a>
-                                                <a href="images/products/thumb2.jpg" class="zoom" title="" data-rel="prettyPhoto[product-gallery]">
-                                                    <img src="/assets/images/blank.gif" data-echo="/assets/images/products/thumb2.jpg"  alt="">
-                                                </a>
-                                                <a href="images/products/thumb3.jpg" class="zoom last" title="" data-rel="prettyPhoto[product-gallery]">
-                                                    <img src="/assets/images/blank.gif" data-echo="/assets/images/products/thumb3.jpg"  alt="">
-                                                </a>
-                                            </div>
-
-                                            <div class="price-add-to-cart">
-                                                            <span class="price">
-                                                                <span class="electro-price"><ins><span class="amount">&#36;79.00</span></ins> <del><span class="amount">&#36;99.00</span></del></span>
-                                                            </span>
-
-                                                <a rel="nofollow" href="cart.html" class="button add_to_cart_button">Add to cart</a>
-                                            </div><!-- /.price-add-to-cart -->
-
-                                            <div class="hover-area">
-                                                <div class="action-buttons">
-
-                                                    <a href="/electro/?add_to_wishlist=2933" rel="nofollow" class="add_to_wishlist">
-                                                        Wishlist</a>
-
-                                                    <a href="compare.html" class="add-to-compare-link">Compare</a>
-                                                </div>
-                                            </div>
-                                        </div><!-- /.product-inner -->
-                                    </div><!-- /.product-outer -->
-                                </li><!-- /.product -->
-                            </ul><!-- /.products-->
-                        </div><!-- /.columns-6-1 -->
-                    </div><!-- /.container-->
-                </section><!-- /.products-6-1 -->
 
                 <section class="home-list-categories animate-in-view fadeIn animated" data-animation="fadeIn">
                     <header>
@@ -1782,23 +1471,25 @@
                         <li class="category">
                             <div class="media">
                                 <a class="media-left" href="product-category.html">
-                                    <img data-echo="/assets/images/products/1.jpg" src="/assets/images/blank.gif" alt="">
+                                    <img data-echo="/assets/images/products/1.jpg" src="/assets/images/blank.gif"
+                                         alt="">
                                 </a><!-- /.media-left -->
 
                                 <div class="media-body">
-                                    <h4 class="media-heading"><a href="product-category.html">Smart Phones & Tablets</a></h4>
+                                    <h4 class="media-heading"><a href="product-category.html">Smart Phones & Tablets</a>
+                                    </h4>
                                     <ul class="sub-categories list-unstyled">
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Accessories</a>
+                                            <a href="product-category.html">Accessories</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Chargers</a>
+                                            <a href="product-category.html">Chargers</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Powerbanks</a>
+                                            <a href="product-category.html">Powerbanks</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Smartphones</a>
+                                            <a href="product-category.html">Smartphones</a>
                                         </li>
                                     </ul>
                                 </div><!-- /.media-body -->
@@ -1808,23 +1499,25 @@
                         <li class="category">
                             <div class="media">
                                 <a class="media-left" href="product-category.html">
-                                    <img data-echo="/assets/images/products/2.jpg" src="/assets/images/blank.gif" alt="">
+                                    <img data-echo="/assets/images/products/2.jpg" src="/assets/images/blank.gif"
+                                         alt="">
                                 </a><!-- /.media-left -->
 
                                 <div class="media-body">
-                                    <h4 class="media-heading"><a href="product-category.html">Video Games & Consoles</a></h4>
+                                    <h4 class="media-heading"><a href="product-category.html">Video Games & Consoles</a>
+                                    </h4>
                                     <ul class="sub-categories list-unstyled">
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Accessories</a>
+                                            <a href="product-category.html">Accessories</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Chargers</a>
+                                            <a href="product-category.html">Chargers</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Powerbanks</a>
+                                            <a href="product-category.html">Powerbanks</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Smartphones</a>
+                                            <a href="product-category.html">Smartphones</a>
                                         </li>
                                     </ul>
                                 </div><!-- /.media-body -->
@@ -1834,23 +1527,24 @@
                         <li class="category">
                             <div class="media">
                                 <a class="media-left" href="product-category.html">
-                                    <img data-echo="/assets/images/products/3.jpg" src="/assets/images/blank.gif" alt="">
+                                    <img data-echo="/assets/images/products/3.jpg" src="/assets/images/blank.gif"
+                                         alt="">
                                 </a><!-- /.media-left -->
 
                                 <div class="media-body">
                                     <h4 class="media-heading"><a href="product-category.html">Gadgets</a></h4>
                                     <ul class="sub-categories list-unstyled">
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Accessories</a>
+                                            <a href="product-category.html">Accessories</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Chargers</a>
+                                            <a href="product-category.html">Chargers</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Powerbanks</a>
+                                            <a href="product-category.html">Powerbanks</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Smartphones</a>
+                                            <a href="product-category.html">Smartphones</a>
                                         </li>
                                     </ul>
                                 </div><!-- /.media-body -->
@@ -1860,23 +1554,25 @@
                         <li class="category">
                             <div class="media">
                                 <a class="media-left" href="product-category.html">
-                                    <img data-echo="/assets/images/products/4.jpg" src="/assets/images/blank.gif" alt="">
+                                    <img data-echo="/assets/images/products/4.jpg" src="/assets/images/blank.gif"
+                                         alt="">
                                 </a><!-- /.media-left -->
 
                                 <div class="media-body">
-                                    <h4 class="media-heading"><a href="product-category.html">Home Entertainment</a></h4>
+                                    <h4 class="media-heading"><a href="product-category.html">Home Entertainment</a>
+                                    </h4>
                                     <ul class="sub-categories list-unstyled">
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Accessories</a>
+                                            <a href="product-category.html">Accessories</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Chargers</a>
+                                            <a href="product-category.html">Chargers</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Powerbanks</a>
+                                            <a href="product-category.html">Powerbanks</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Smartphones</a>
+                                            <a href="product-category.html">Smartphones</a>
                                         </li>
                                     </ul>
                                 </div><!-- /.media-body -->
@@ -1886,23 +1582,25 @@
                         <li class="category">
                             <div class="media">
                                 <a class="media-left" href="product-category.html">
-                                    <img data-echo="/assets/images/products/5.jpg" src="/assets/images/blank.gif" alt="">
+                                    <img data-echo="/assets/images/products/5.jpg" src="/assets/images/blank.gif"
+                                         alt="">
                                 </a><!-- /.media-left -->
 
                                 <div class="media-body">
-                                    <h4 class="media-heading"><a href="product-category.html">Laptops & Computers</a></h4>
+                                    <h4 class="media-heading"><a href="product-category.html">Laptops & Computers</a>
+                                    </h4>
                                     <ul class="sub-categories list-unstyled">
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Accessories</a>
+                                            <a href="product-category.html">Accessories</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Chargers</a>
+                                            <a href="product-category.html">Chargers</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Powerbanks</a>
+                                            <a href="product-category.html">Powerbanks</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Smartphones</a>
+                                            <a href="product-category.html">Smartphones</a>
                                         </li>
                                     </ul>
                                 </div><!-- /.media-body -->
@@ -1912,23 +1610,24 @@
                         <li class="category">
                             <div class="media">
                                 <a class="media-left" href="product-category.html">
-                                    <img data-echo="/assets/images/products/6.jpg" src="/assets/images/blank.gif" alt="">
+                                    <img data-echo="/assets/images/products/6.jpg" src="/assets/images/blank.gif"
+                                         alt="">
                                 </a><!-- /.media-left -->
 
                                 <div class="media-body">
                                     <h4 class="media-heading"><a href="product-category.html">Accessories</a></h4>
                                     <ul class="sub-categories list-unstyled">
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Accessories</a>
+                                            <a href="product-category.html">Accessories</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Chargers</a>
+                                            <a href="product-category.html">Chargers</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Powerbanks</a>
+                                            <a href="product-category.html">Powerbanks</a>
                                         </li>
                                         <li class="cat-item">
-                                            <a href="product-category.html" >Smartphones</a>
+                                            <a href="product-category.html">Smartphones</a>
                                         </li>
                                     </ul>
                                 </div><!-- /.media-body -->
@@ -1941,7 +1640,8 @@
             </main><!-- #main -->
         </div><!-- #primary -->
     </div><!-- .container -->
-</div><!-- #content -->
+</div>
+<!-- #content -->
 
 <section class="brands-carousel">
     <h2 class="sr-only">Brands Carousel</h2>
@@ -1959,7 +1659,8 @@
                             </div><!-- /.info -->
                         </figcaption>
 
-                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/1.png" class="img-responsive" alt="">
+                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/1.png"
+                             class="img-responsive" alt="">
 
                     </figure>
                 </a>
@@ -1977,7 +1678,8 @@
                             </div><!-- /.info -->
                         </figcaption>
 
-                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/2.png" class="img-responsive" alt="">
+                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/2.png"
+                             class="img-responsive" alt="">
 
                     </figure>
                 </a>
@@ -1995,7 +1697,8 @@
                             </div><!-- /.info -->
                         </figcaption>
 
-                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/3.png" class="img-responsive" alt="">
+                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/3.png"
+                             class="img-responsive" alt="">
 
                     </figure>
                 </a>
@@ -2013,7 +1716,8 @@
                             </div><!-- /.info -->
                         </figcaption>
 
-                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/4.png" class="img-responsive" alt="">
+                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/4.png"
+                             class="img-responsive" alt="">
 
                     </figure>
                 </a>
@@ -2031,7 +1735,8 @@
                             </div><!-- /.info -->
                         </figcaption>
 
-                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/5.png" class="img-responsive" alt="">
+                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/5.png"
+                             class="img-responsive" alt="">
 
                     </figure>
                 </a>
@@ -2049,7 +1754,8 @@
                             </div><!-- /.info -->
                         </figcaption>
 
-                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/6.png" class="img-responsive" alt="">
+                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/6.png"
+                             class="img-responsive" alt="">
 
                     </figure>
                 </a>
@@ -2067,7 +1773,8 @@
                             </div><!-- /.info -->
                         </figcaption>
 
-                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/3.png" class="img-responsive" alt="">
+                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/3.png"
+                             class="img-responsive" alt="">
 
                     </figure>
                 </a>
@@ -2085,7 +1792,8 @@
                             </div><!-- /.info -->
                         </figcaption>
 
-                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/5.png" class="img-responsive" alt="">
+                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/5.png"
+                             class="img-responsive" alt="">
 
                     </figure>
                 </a>
@@ -2103,7 +1811,8 @@
                             </div><!-- /.info -->
                         </figcaption>
 
-                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/2.png" class="img-responsive" alt="">
+                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/2.png"
+                             class="img-responsive" alt="">
 
                     </figure>
                 </a>
@@ -2121,7 +1830,8 @@
                             </div><!-- /.info -->
                         </figcaption>
 
-                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/1.png" class="img-responsive" alt="">
+                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/1.png"
+                             class="img-responsive" alt="">
 
                     </figure>
                 </a>
@@ -2139,7 +1849,8 @@
                             </div><!-- /.info -->
                         </figcaption>
 
-                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/6.png" class="img-responsive" alt="">
+                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/6.png"
+                             class="img-responsive" alt="">
 
                     </figure>
                 </a>
@@ -2157,7 +1868,8 @@
                             </div><!-- /.info -->
                         </figcaption>
 
-                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/4.png" class="img-responsive" alt="">
+                        <img src="/assets/images/blank.gif" data-echo="/assets/images/brands/4.png"
+                             class="img-responsive" alt="">
 
                     </figure>
                 </a>
