@@ -1,5 +1,5 @@
 <%@ page import="java.text.DecimalFormat" %>
-<%@ page import="app.Bean.Products" %>
+<%@ page import="app.Bean.Product" %>
 <%@ page import="java.awt.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>

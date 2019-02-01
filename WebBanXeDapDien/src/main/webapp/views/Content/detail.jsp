@@ -1,5 +1,5 @@
 <%@ page import="java.text.DecimalFormat" %>
-<%@ page import="app.Bean.Products" %>
+<%@ page import="app.Bean.Product" %>
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
@@ -7,7 +7,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles-extras"
            prefix="tilesx" %>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="cf" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -1096,7 +1095,7 @@
                                 <span class="onsale">Sale!</span>
                                 <div class="images electro-gallery">
                                     <div class="thumbnails-single owl-carousel">
-                                        <c:forEach items="${product.imagesList}" var="image">
+                                        <c:forEach items="${product.images}" var="image">
                                             <a href="images/single-product/s1-1.jpg" class="zoom" title=""
                                                data-rel="prettyPhoto[product-gallery]"><img
                                                     src="/assets/images/blank.gif"
@@ -1107,7 +1106,7 @@
                                     </div><!-- .thumbnails-single -->
 
                                     <div class="thumbnails-all columns-5 owl-carousel">
-                                        <c:forEach items="${product.imagesList}" var="image">
+                                        <c:forEach items="${product.images}" var="image">
                                             <a href="/assets/images/products/${image.link}" class="first"
                                                title=""><img src="/assets/images/blank.gif"
                                                              data-echo="/assets/images/products/${image.link}"
