@@ -1,6 +1,4 @@
-package app.Bean;
-
-
+package app.bean;
 public class OrderDetail {
     private Integer orderId;
     private short productId;
@@ -40,11 +38,11 @@ public class OrderDetail {
         this.price = price;
     }
 
-    public app.Bean.Order getOrder() {
+    public app.bean.Order getOrder() {
         return Order;
     }
 
-    public void setOrder(app.Bean.Order order) {
+    public void setOrder(app.bean.Order order) {
         Order = order;
     }
 }

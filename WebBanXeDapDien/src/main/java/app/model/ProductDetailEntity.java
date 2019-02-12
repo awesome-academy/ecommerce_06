@@ -1,8 +1,6 @@
 package app.model;
-
 import java.io.Serializable;
 import java.util.Objects;
-
 public class ProductDetailEntity implements Serializable {
     private Integer id;
     private ProductEntity productEntity;

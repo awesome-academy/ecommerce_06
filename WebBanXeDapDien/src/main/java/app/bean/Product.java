@@ -1,16 +1,14 @@
-package app.Bean;
+package app.bean;
 import java.util.*;
-
 public class Product {
-
   private Integer id;
   private String name;
   private double price;
   private String mainPhoto;
   private Supplier supplier;
   private List<Image> images;
-  private List<ProductColor> productsColors;
-  private List<OrderDetail> ordersDetails ;
+  private List<ProductColor> productColors;
+  private List<OrderDetail> orderDetails ;
 
   public Integer getId() {
     return id;
@@ -61,20 +59,20 @@ public class Product {
     this.images = images;
   }
 
-  public List<OrderDetail> getOrdersDetails() {
-    return ordersDetails;
+  public List<ProductColor> getProductColors() {
+    return productColors;
   }
 
-  public void setOrdersDetails(List<OrderDetail> ordersDetails) {
-    this.ordersDetails = ordersDetails;
+  public void setProductColors(List<ProductColor> productColors) {
+    this.productColors = productColors;
   }
 
-  public List<ProductColor> getProductsColors() {
-    return productsColors;
+  public List<OrderDetail> getOrderDetails() {
+    return orderDetails;
   }
 
-  public void setProductsColors(List<ProductColor> productsColors) {
-    this.productsColors = productsColors;
+  public void setOrderDetails(List<OrderDetail> orderDetails) {
+    this.orderDetails = orderDetails;
   }
 
   @Override

@@ -1,7 +1,6 @@
 package app.model;
 import java.io.Serializable;
 import java.util.Objects;
-
 public class ProductColorEntityPK implements Serializable {
     private Integer productId;
     private Integer color;

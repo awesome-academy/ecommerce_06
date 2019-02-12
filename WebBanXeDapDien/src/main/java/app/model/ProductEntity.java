@@ -1,27 +1,17 @@
 package app.model;
-
 import java.io.Serializable;
 import java.util.*;
-
 public class ProductEntity implements Serializable {
     private Integer id;
     private String name;
     private double price;
     private String mainPhoto;
     private SupplierEntity SupplierEntity;
-    private List<ImageEntity> imagesEntities;
-    private List<ProductColorEntity> productsColorsEntities;
-    private List<OrderDetailEntity> ordersDetailsEntities;
+    private List<ImageEntity> imageEntities;
+    private List<ProductColorEntity> productColorEntities;
+    private List<OrderDetailEntity> orderDetailEntities;
 
     public ProductEntity() {
-    }
-
-    public List<ImageEntity> getImagesEntities() {
-        return imagesEntities;
-    }
-
-    public void setImagesEntities(List<ImageEntity> imagesEntities) {
-        this.imagesEntities = imagesEntities;
     }
 
     public Integer getId() {
@@ -64,21 +54,28 @@ public class ProductEntity implements Serializable {
         SupplierEntity = supplierEntity;
     }
 
-
-    public List<ProductColorEntity> getProductsColorsEntities() {
-        return productsColorsEntities;
+    public List<ImageEntity> getImageEntities() {
+        return imageEntities;
     }
 
-    public void setProductsColorsEntities(List<ProductColorEntity> productsColorsEntities) {
-        this.productsColorsEntities = productsColorsEntities;
+    public void setImageEntities(List<ImageEntity> imageEntities) {
+        this.imageEntities = imageEntities;
     }
 
-    public List<OrderDetailEntity> getOrdersDetailsEntities() {
-        return ordersDetailsEntities;
+    public List<ProductColorEntity> getProductColorEntities() {
+        return productColorEntities;
     }
 
-    public void setOrdersDetailsEntities(List<OrderDetailEntity> ordersDetailsEntities) {
-        this.ordersDetailsEntities = ordersDetailsEntities;
+    public void setProductColorEntities(List<ProductColorEntity> productColorEntities) {
+        this.productColorEntities = productColorEntities;
+    }
+
+    public List<OrderDetailEntity> getOrderDetailEntities() {
+        return orderDetailEntities;
+    }
+
+    public void setOrderDetailEntities(List<OrderDetailEntity> orderDetailEntities) {
+        this.orderDetailEntities = orderDetailEntities;
     }
 
     @Override

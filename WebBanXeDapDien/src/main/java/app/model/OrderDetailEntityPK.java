@@ -1,9 +1,6 @@
 package app.model;
-
-
 import java.io.Serializable;
 import java.util.Objects;
-
 public class OrderDetailEntityPK implements Serializable {
     private Integer orderId;
     private Integer productId;

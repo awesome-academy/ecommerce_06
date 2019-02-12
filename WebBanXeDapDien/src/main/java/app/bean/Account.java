@@ -1,8 +1,4 @@
-package app.Bean;
-
-
-import app.model.RoleEntity;
-
+package app.bean;
 public class Account {
   private Integer id;
   private String email;

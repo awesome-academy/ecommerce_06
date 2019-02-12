@@ -1,9 +1,6 @@
 package app.model;
-
-
 import java.io.Serializable;
 import java.util.Objects;
-
 public class ImageEntity implements Serializable {
     private String link;
     private Integer id;

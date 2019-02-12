@@ -1,4 +1,4 @@
-package app.Bean;
+package app.bean;
 public class Image {
   private String link;
   private Integer id;

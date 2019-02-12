@@ -1,24 +1,20 @@
 package app.Utils;
-
-import app.Bean.*;
+import app.bean.*;
+import app.model.ProductColorEntity;
 import app.model.ProductEntity;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
-
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
-
+import java.util.stream.Stream;
 public class ObjectMapperUtils {
-
     private static ModelMapper modelMapper = new ModelMapper();
-
-
     static {
         modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
     }
-
 
     private ObjectMapperUtils() {
     }
@@ -62,10 +58,24 @@ public class ObjectMapperUtils {
         return destination;
     }
 
-    public static Product productMap(ProductEntity ProductEntity){
+
+    public static Product productMap(ProductEntity ProductEntity) {
         Product productMap = map(ProductEntity, Product.class);
         Supplier supplierMap = map(ProductEntity.getSupplierEntity(), Supplier.class);
+        Stream<ProductColor> productColorStream = ProductEntity.getProductColorEntities().stream().map(new Function<ProductColorEntity, ProductColor>() {
+            @Override
+            public ProductColor apply(ProductColorEntity productColorEntity) {
+                ProductColor productColor = new ProductColor();
+                productColor.setProductId(productColorEntity.getProductEntity().getId());
+                productColor.setAmount(productColorEntity.getAmount());
+                productColor.setColor(Color.values()[productColorEntity.getColor()]);
+                return productColor;
+            }
+        });
+        List<Image> images = mapAll(ProductEntity.getImageEntities(), Image.class);
+        productMap.setProductColors(productColorStream.collect(Collectors.toList()));
         productMap.setSupplier(supplierMap);
+        productMap.setImages(images);
         return productMap;
     }
 

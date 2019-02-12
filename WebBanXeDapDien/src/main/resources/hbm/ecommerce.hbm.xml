@@ -24,17 +24,20 @@
     </class>
 
     <class name="RoleEntity" table="Role">
+
         <id name="id">
             <column name="id" precision="4"/>
             <generator class="identity"/>
         </id>
         <property name="Name">
             <column name="name" not-null="true" length="10"/>
+
         </property>
     </class>
 
 
     <class name="OrderEntity" table="Orders">
+
         <id name="id">
             <column name="Id" precision="10"/>
             <generator class="identity"/>
@@ -60,25 +63,23 @@
         <property name="updatedAt">
             <column name="Updated_At" not-null="false" precision="-1"/>
         </property>
-        <many-to-one name="accountByUserId" column="User_id"
+        <many-to-one name="accountByUserId" column="User_id" fetch="join" outer-join="false"
                      class="AccountEntity" not-null="false"/>
-        <many-to-one name="accountByShipperId" column="Shipper_id"
+        <many-to-one name="accountByShipperId" column="Shipper_id" fetch="join" outer-join="false"
                      class="AccountEntity" not-null="false"/>
 
-        <!--<set name="ordersDetails" lazy="false" cascade="all">-->
-            <!--<key column="order_Id"></key>-->
-            <!--<one-to-many class="OrderDetailEntity"/>-->
-        <!--</set>-->
-
-
-        <bag name = "ordersDetailsEntities"  access="field"  >
-            <key column = "Order_id" />
+        <list name="orderDetailEntities" fetch="join" outer-join="false" access="field">
+            <key column="Order_id"/>
+            <index>
+                <column name="Product_id"/>
+            </index>
             <one-to-many class="OrderDetailEntity"/>
-        </bag>
+        </list>
 
     </class>
 
     <class name="SupplierEntity" table="Suppliers">
+
         <id name="id">
             <column name="Id" precision="5"/>
             <generator class="identity"/>
@@ -92,15 +93,12 @@
         <property name="phoneNumber">
             <column name="PhoneNumber" not-null="false" length="15"/>
         </property>
-        <!--<set name="productsEntities" inverse="true" cascade="all">-->
-            <!--<key column="Supplier_Id"/>-->
-            <!--<one-to-many class="ProductEntity"/>-->
-        <!--</set>-->
 
-        <bag name = "productsEntities" cascade="all">
-            <key column = "Supplier_Id"/>
+        <list name="productEntities" fetch="join" outer-join="false" cascade="all">
+            <key column="Supplier_Id"/>
+            <index column="id"/>
             <one-to-many class="ProductEntity"/>
-        </bag>
+        </list>
     </class>
 
 
@@ -109,7 +107,9 @@
             <column name="Id" sql-type="int" precision="10"/>
             <generator class="identity"/>
         </id>
-        <many-to-one name="ProductEntity" column="Product_Id" class="ProductEntity"  />
+        <many-to-one name="ProductEntity" column="Product_Id" fetch="join" outer-join="false" not-null="true"
+                     class="ProductEntity"/>
+
         <property name="link">
             <column name="link" length="100"/>
         </property>
@@ -117,6 +117,7 @@
 
 
     <class name="ProductEntity" table="Products">
+
         <id name="id">
             <column name="id" precision="5"/>
             <generator class="identity"/>
@@ -130,41 +131,41 @@
         <property name="mainPhoto">
             <column name="MainPhoto" length="50"/>
         </property>
-        <many-to-one name="supplierEntity" column="Supplier_Id" class="SupplierEntity" lazy="false" not-null="true"/>
-        <!--<set name="ImageEntityList" fetch="select" lazy="false" >-->
-            <!--<key column="Product_Id"></key>-->
-            <!--<one-to-many class="ImageEntity"/>-->
-        <!--</set>-->
-        <bag name = "imagesEntities"  access="field" table="Images" >
-            <key column = "Product_Id" />
+        <many-to-one name="supplierEntity" column="Supplier_Id" class="SupplierEntity" fetch="join" outer-join="false"
+                     not-null="true"/>
+
+        <list name="imageEntities" fetch="join" outer-join="false" inverse="true">
+            <key column="Product_Id"/>
+            <index>
+                <column name="Id"/>
+            </index>
             <one-to-many class="ImageEntity"/>
-        </bag>
+        </list>
 
-        <!--<set name="ProductsColorsEntities" lazy="true">-->
-            <!--<key column="Product_Id"></key>-->
-            <!--<one-to-many class="ProductsColorsEntity"/>-->
-        <!--</set>-->
-        <bag name = "ProductsColorsEntities" cascade="all">
-            <key column = "Product_Id"/>
+        <list name="ProductColorEntities" fetch="join" outer-join="false" inverse="true">
+            <key column="Product_Id"/>
+            <index>
+                <column name="Color"/>
+            </index>
             <one-to-many class="ProductColorEntity"/>
-        </bag>
+        </list>
 
-        <!--<set name="ordersDetailsEntities" lazy="true">-->
-            <!--<key column="Product_Id"></key>-->
-            <!--<one-to-many class="OrderDetailEntity"/>-->
-        <!--</set>-->
 
-        <bag name = "ordersDetailsEntities" cascade="all">
-            <key column = "Product_Id"/>
+        <list name="orderDetailEntities" fetch="join" outer-join="false" inverse="true">
+            <key column="Order_id"/>
+            <index>
+                <column name="Product_id"/>
+            </index>
             <one-to-many class="OrderDetailEntity"/>
-        </bag>
+        </list>
+
 
     </class>
 
-
     <class name="ProductColorEntity" table="Products_Colors">
         <composite-id>
-            <key-many-to-one name="productEntity" column="Product_id" lazy="false" class="ProductEntity"/>
+            <key-many-to-one name="productEntity" column="Product_id" class="ProductEntity"/>
+
             <key-property name="color" column="Color"/>
         </composite-id>
         <property name="amount">
@@ -174,8 +175,9 @@
 
     <class name="OrderDetailEntity" table="Orders_Details">
         <composite-id class="OrderDetailEntityPK">
-            <key-many-to-one name="productId" column="Product_id" lazy="false" class="ProductEntity"/>
-            <key-many-to-one name="orderId" column="Order_id" lazy="false" class="OrderEntity"/>
+            <key-many-to-one name="productId" column="Product_id" class="ProductEntity"/>
+            <key-many-to-one name="orderId" column="Order_id" class="OrderEntity"/>
+
         </composite-id>
         <property name="amount">
             <column name="Amount" not-null="true" precision="5"/>
@@ -187,6 +189,7 @@
 
 
     <class name="ProductDetailEntity" table="Product_Details">
+
         <id name="id">
             <column name="id" precision="6"/>
             <generator class="identity"/>
@@ -236,7 +239,10 @@
         <property name="warrantyMotor">
             <column name="Warranty_Motor" not-null="false" precision="3"/>
         </property>
-        <many-to-one name="ProductEntity" column="Product_id" class="ProductEntity" lazy="false" not-null="true"/>
+        <many-to-one name="productEntity" column="Product_id" fetch="join" outer-join="false"
+                     class="ProductEntity"
+                     not-null="true"/>
+
     </class>
 
 </hibernate-mapping>
