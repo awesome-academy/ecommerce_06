@@ -3,7 +3,7 @@ import java.util.*;
 public class Product {
   private Integer id;
   private String name;
-  private double price;
+  private String price;
   private String mainPhoto;
   private Supplier supplier;
   private List<Image> images;
@@ -26,11 +26,11 @@ public class Product {
     this.name = name;
   }
 
-  public double getPrice() {
+  public String getPrice() {
     return price;
   }
 
-  public void setPrice(double price) {
+  public void setPrice(String price) {
     this.price = price;
   }
 

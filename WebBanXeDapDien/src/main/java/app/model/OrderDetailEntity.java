@@ -1,11 +1,11 @@
 package app.model;
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 public class OrderDetailEntity implements Serializable {
     private Integer orderId;
     private short productId;
     private short amount;
+    private short productColor;
     private double price;
     private OrderEntity orderEntity;
     public Integer getOrderId() {
@@ -38,6 +38,14 @@ public class OrderDetailEntity implements Serializable {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public short getProductColor() {
+        return productColor;
+    }
+
+    public void setProductColor(short productColor) {
+        this.productColor = productColor;
     }
 
     @Override
