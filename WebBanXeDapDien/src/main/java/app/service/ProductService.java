@@ -12,4 +12,6 @@ public interface ProductService extends BaseService<Integer, ProductEntity> {
 
     Product getProduct(Integer id);
 
+    List<Product> getProductByNameAndSuppilerId(String name, int supplierId);
+
 }

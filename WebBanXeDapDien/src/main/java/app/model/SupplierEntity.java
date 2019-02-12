@@ -5,7 +5,7 @@ import java.util.*;
 public class SupplierEntity implements Serializable {
     private Integer id;
     private String name;
-    private String adress;
+    private String address;
     private String phoneNumber;
     private List<ProductEntity> productEntities;
 
@@ -36,12 +36,12 @@ public class SupplierEntity implements Serializable {
         this.name = name;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getPhoneNumber() {
@@ -55,26 +55,28 @@ public class SupplierEntity implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof SupplierEntity)) return false;
         SupplierEntity that = (SupplierEntity) o;
-        return id == that.id &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(adress, that.adress) &&
-                Objects.equals(phoneNumber, that.phoneNumber);
+        return Objects.equals(getId(), that.getId()) &&
+                Objects.equals(getName(), that.getName()) &&
+                Objects.equals(getAddress(), that.getAddress()) &&
+                Objects.equals(getPhoneNumber(), that.getPhoneNumber()) &&
+                Objects.equals(getProductEntities(), that.getProductEntities());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, adress, phoneNumber);
+        return Objects.hash(getId(), getName(), getAddress(), getPhoneNumber(), getProductEntities());
     }
 
     @Override
     public String toString() {
-        return "SuppliersEntity{" +
+        return "SupplierEntity{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", adress='" + adress + '\'' +
+                ", address='" + address + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", productEntities=" + productEntities +
                 '}';
     }
 }

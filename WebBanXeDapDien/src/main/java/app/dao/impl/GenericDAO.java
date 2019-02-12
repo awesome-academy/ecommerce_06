@@ -2,7 +2,7 @@ package app.dao.impl;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
-
+import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,44 +10,49 @@ import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 public abstract class GenericDAO<PK extends Serializable, T> extends HibernateDaoSupport {
 
-	@Autowired
-	private SessionFactory sessionFactory;
+    @Autowired
+    private SessionFactory sessionFactory;
 
-	public T findById(Serializable key) {
-		return (T) getSession().get(getPersistentClass(), key);
-	}
+    public T findById(Serializable key) {
+        return (T) getSession().get(getPersistentClass(), key);
+    }
 
-	public void persist(T entity) {
-		getSession().persist(entity);
-	}
+    public T findByIdUsingLock(Serializable key, LockMode lockMode) {
+        return getSession().load(persistentClass, key, lockMode);
+    }
 
-	public void delete(T entity) {
-		getSession().delete(entity);
-	}
 
-	public T saveOrUpdate(T entity) {
-		getSession().saveOrUpdate(entity);
-		return entity;
-	}
+    public void persist(T entity) {
+        getSession().persist(entity);
+    }
 
-	private Class<T> persistentClass;
+    public void delete(T entity) {
+        getSession().delete(entity);
+    }
 
-	public Class<T> getPersistentClass() {
-		return persistentClass;
-	}
+    public T saveOrUpdate(T entity) {
+        getSession().saveOrUpdate(entity);
+        return entity;
+    }
 
-	public GenericDAO(Class<T> persistentClass) {
-		this.persistentClass = persistentClass;
-	}
+    private Class<T> persistentClass;
 
-	@SuppressWarnings("unchecked")
-	public GenericDAO() {
-		this.persistentClass = (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass())
-				.getActualTypeArguments()[1];
-	}
+    public Class<T> getPersistentClass() {
+        return persistentClass;
+    }
 
-	protected Session getSession() {
-		return sessionFactory.getCurrentSession();
-	}
+    public GenericDAO(Class<T> persistentClass) {
+        this.persistentClass = persistentClass;
+    }
+
+    @SuppressWarnings("unchecked")
+    public GenericDAO() {
+        this.persistentClass = (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass())
+                .getActualTypeArguments()[1];
+    }
+
+    protected Session getSession() {
+        return sessionFactory.getCurrentSession();
+    }
 
 }

@@ -41,7 +41,7 @@
     <spring:url value="/assets/js/jquery.easing.min.js" var="jqueryeasingminjs"/>
     <spring:url value="/assets/js/jquery.waypoints.min.js" var="jquerywaypointsminjs"/>
     <spring:url value="/assets/js/electro.js" var="electrojs"/>
-    <spring:url value="/assets/js/ProductDetail.js" var="ProductDetail"/>
+    <spring:url value="/assets/js/cart.js" var="cartjs"/>
     <spring:url value="/assets/images/fav-icon.png" var="favicon"/>
 
     <link rel="stylesheet" type="text/css" href="${bootstrapCss}" media="all"/>
@@ -195,8 +195,8 @@
                                 <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
                                     <p class="price"><span class="electro-price"><ins><span id="amount"
-                                            class="amount" data-value="${product.price}" >
-<fmt:formatNumber value="${product.price}" type="currency" pattern="###,###,### VND"/>
+                                            class="amount" data-value="${product.price}">
+                                <fmt:formatNumber value="${product.price}" type="currency" pattern="###,###,### VND"/>
 
                                     </span></ins> <del><span
                                             class="amount">  <fmt:formatNumber value="${product.price}" type="currency"
@@ -273,7 +273,7 @@
 <script type="text/javascript" src="${jqueryeasingminjs}"></script>
 <script type="text/javascript" src="${jquerywaypointsminjs}"></script>
 <script type="text/javascript" src="${electrojs}"></script>
-<script type="text/javascript" src="${ProductDetail}"></script>
+<script type="text/javascript" src="${cartjs}"></script>
 
 </body>
 </html>

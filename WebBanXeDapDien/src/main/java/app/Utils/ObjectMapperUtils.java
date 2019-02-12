@@ -1,16 +1,22 @@
 package app.Utils;
+
 import app.bean.*;
-import app.model.ProductColorEntity;
-import app.model.ProductEntity;
+import app.model.*;
+import org.apache.log4j.Logger;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
+
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 public class ObjectMapperUtils {
     private static ModelMapper modelMapper = new ModelMapper();
+    private static final Logger logger = Logger.getLogger(ObjectMapperUtils.class);
+
     static {
         modelMapper = new ModelMapper();
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
@@ -42,6 +48,7 @@ public class ObjectMapperUtils {
      * @return list of mapped object with <code><D></code> type.
      */
     public static <D, T> List<D> mapAll(final Collection<T> entityList, Class<D> outCLass) {
+
         return entityList.stream()
                 .map(entity -> map(entity, outCLass))
                 .collect(Collectors.toList());
@@ -77,6 +84,59 @@ public class ObjectMapperUtils {
         productMap.setSupplier(supplierMap);
         productMap.setImages(images);
         return productMap;
+    }
+
+    public static OrderDetail OrderDetailMap(Cart cart) {
+        OrderDetail orderDetail = new OrderDetail();
+        orderDetail.setProductId(cart.getProductId());
+        orderDetail.setProductColor((short) Color.getColor(cart.getProductColor()).ordinal());
+        orderDetail.setAmount(cart.getQuantity());
+        orderDetail.setPrice(cart.getProductPrice());
+        logger.info("OrderDetailMap" + orderDetail);
+        return orderDetail;
+    }
+
+    public static List<OrderDetail> orderDetailsMap(List<Cart> carts) {
+        Stream<OrderDetail> orderDetailStream = carts.stream().map(new Function<Cart, OrderDetail>() {
+            @Override
+            public OrderDetail apply(Cart cart) {
+                return OrderDetailMap(cart);
+            }
+        });
+        return orderDetailStream.collect(Collectors.toList());
+    }
+
+    public static OrderDetailEntity orderDetailEntityMap(OrderDetail orderDetail) {
+        OrderDetailEntity orderDetailEntity = new OrderDetailEntity();
+        OrderDetailEntityPK orderDetailEntityPK = new OrderDetailEntityPK();
+        orderDetailEntityPK.setColor(orderDetail.getProductColor());
+        ProductEntity productEntity = new ProductEntity();
+        productEntity.setId(orderDetail.getProductId());
+        orderDetailEntityPK.setProductEntity(productEntity);
+        orderDetailEntity.setOrderDetailEntityPK(orderDetailEntityPK);
+        orderDetailEntity.setAmount(orderDetail.getAmount());
+        orderDetailEntity.setPrice(orderDetail.getPrice());
+        return orderDetailEntity;
+    }
+
+    public static OrderEntity orderEntityMap(Order order) {
+        OrderEntity orderEntity = map(order, OrderEntity.class);
+        logger.info(orderEntity);
+        return orderEntity;
+    }
+
+
+    public static List<OrderDetailEntity> orderDetailsEntityMap(List<OrderDetail> orderDetails) {
+        Stream<OrderDetailEntity> orderDetailEntityStream = orderDetails.stream().map(new Function<OrderDetail, OrderDetailEntity>() {
+            @Override
+            public OrderDetailEntity apply(OrderDetail orderDetail) {
+                OrderDetailEntity orderDetailEntity = orderDetailEntityMap(orderDetail);
+                logger.info(orderDetailEntity);
+                return orderDetailEntity;
+            }
+        });
+        return orderDetailEntityStream.collect(Collectors.toList());
+
     }
 
 }

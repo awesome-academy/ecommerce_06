@@ -23,15 +23,10 @@ public class ControllerDetailProduct {
 
     @GetMapping("/products/{id}")
     public String detailProduct(@PathVariable Integer id, Model model) {
-
         Product product = productService.getProduct(id);
-
         ProductDetail productDetail = productDetailsService.getProductDetailbyProductId(id);
-
         model.addAttribute("product", product);
-
         model.addAttribute("productDetail", productDetail);
-
         return "detail";
     }
 

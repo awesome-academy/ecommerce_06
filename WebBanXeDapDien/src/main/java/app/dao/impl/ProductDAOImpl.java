@@ -1,16 +1,10 @@
 package app.dao.impl;
 
 import app.dao.ProductDao;
-import app.model.ImageEntity;
 import app.model.ProductEntity;
-import org.hibernate.Session;
 import org.hibernate.query.Query;
-
-import javax.persistence.criteria.*;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Consumer;
 
 public class ProductDAOImpl extends GenericDAO<Integer, ProductEntity> implements ProductDao {
     @Override
@@ -27,9 +21,16 @@ public class ProductDAOImpl extends GenericDAO<Integer, ProductEntity> implement
     }
 
     @Override
-    public List<ProductEntity> getProductBySuppiler(String suppilerName) {
-        return null;
+    public List<ProductEntity> getProductByNameAndSuppilerId(String name, int supplierId) {
+        if (supplierId == 0) {
+           return getSession().createQuery("From ProductEntity P WHERE P.name LIKE :name ").setParameter("name","%"+ name+"%").getResultList();
+
+        }else {
+            return getSession().createQuery("From ProductEntity P WHERE P.name LIKE :name AND P.supplierEntity.id = :supplierId").setParameter("name","%"+ name+"%").setParameter("supplierId", supplierId).getResultList();
+
+        }
     }
+
 
     @Override
     public int getPageCount() {
@@ -39,17 +40,11 @@ public class ProductDAOImpl extends GenericDAO<Integer, ProductEntity> implement
 
     @Override
     public ProductEntity getProduct(Integer id) {
-
         ProductEntity productsEntity = findById(id);
-
         productsEntity.getImageEntities().removeIf(Objects::isNull);
-
         productsEntity.getProductColorEntities().removeIf(Objects::isNull);
-
         productsEntity.getOrderDetailEntities().removeIf(Objects::isNull);
-
         return productsEntity;
-
     }
 
 

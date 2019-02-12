@@ -5,6 +5,7 @@ import app.Utils.ObjectMapperUtils;
 import app.model.ProductEntity;
 import app.service.ProductService;
 import org.apache.log4j.Logger;
+import org.hibernate.LockMode;
 import java.io.Serializable;
 import java.util.List;
 
@@ -51,6 +52,16 @@ public class ProductServiceImpl extends BaseServiceImpl implements ProductServic
         }
     }
 
+    @Override
+    public List<Product> getProductByNameAndSuppilerId(String name, int supplierId) {
+
+        try {
+            return ObjectMapperUtils.mapAll(productDao.getProductByNameAndSuppilerId(name,supplierId), Product.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     @Override
     public ProductEntity findById(Serializable key) {
@@ -75,10 +86,10 @@ public class ProductServiceImpl extends BaseServiceImpl implements ProductServic
     @Override
     public boolean delete(ProductEntity entity) {
         try {
-            ProductEntity productEntity = productDao.findById(entity.getId());
-            if(productEntity == null){
+            ProductEntity productEntity = productDao.findByIdUsingLock(entity.getId(), LockMode.PESSIMISTIC_WRITE);
+            if (productEntity == null) {
                 return false;
-            }else {
+            } else {
                 productDao.delete(entity);
                 return true;
             }

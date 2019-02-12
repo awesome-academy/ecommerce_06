@@ -1,7 +1,7 @@
 package app.bean;
 public class OrderDetail {
     private Integer orderId;
-    private short productId;
+    private Integer productId;
     private short amount;
     private double price;
     private short productColor;
@@ -15,11 +15,11 @@ public class OrderDetail {
         this.orderId = orderId;
     }
 
-    public short getProductId() {
+    public Integer getProductId() {
         return productId;
     }
 
-    public void setProductId(short productId) {
+    public void setProductId(Integer productId) {
         this.productId = productId;
     }
 
@@ -53,5 +53,17 @@ public class OrderDetail {
 
     public void setProductColor(short productColor) {
         this.productColor = productColor;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderDetail{" +
+                "orderId=" + orderId +
+                ", productId=" + productId +
+                ", amount=" + amount +
+                ", price=" + price +
+                ", productColor=" + productColor +
+                ", Order=" + Order +
+                '}';
     }
 }
