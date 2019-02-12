@@ -172,8 +172,6 @@ jQuery(document).ready(function () {
                 } else {
                     console.log("cart trong")
                 }
-
-
             },
             dataType: "json"
         })
