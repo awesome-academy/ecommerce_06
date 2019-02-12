@@ -1,14 +1,9 @@
-package app.Bean;
-
-
+package app.bean;
 import java.util.*;
-
-
 public class Supplier {
-
   private Integer id;
   private String name;
-  private String adress;
+  private String address;
   private String phoneNumber;
   private List<Product> products;
   public Integer getId() {
@@ -27,12 +22,12 @@ public class Supplier {
     this.name = name;
   }
 
-  public String getAdress() {
-    return adress;
+  public String getAddress() {
+    return address;
   }
 
-  public void setAdress(String adress) {
-    this.adress = adress;
+  public void setAddress(String address) {
+    this.address = address;
   }
 
   public String getPhoneNumber() {
@@ -56,7 +51,7 @@ public class Supplier {
     return "Suppliers{" +
             "id=" + id +
             ", name='" + name + '\'' +
-            ", adress='" + adress + '\'' +
+            ", adress='" + address + '\'' +
             ", phoneNumber='" + phoneNumber + '\'' +
             '}';
   }

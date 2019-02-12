@@ -1,24 +1,21 @@
-package app.Bean;
-
-
+package app.bean;
 public class Role {
-
-  private byte Id;
-  private String Name;
+  private byte id;
+  private String name;
 
   public byte getId() {
-    return Id;
+    return id;
   }
 
   public void setId(byte id) {
-    Id = id;
+    this.id = id;
   }
 
   public String getName() {
-    return Name;
+    return name;
   }
 
   public void setName(String name) {
-    Name = name;
+    this.name = name;
   }
 }

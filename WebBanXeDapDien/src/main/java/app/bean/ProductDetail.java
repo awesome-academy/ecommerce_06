@@ -1,8 +1,5 @@
-package app.Bean;
-
-
+package app.bean;
 public class ProductDetail {
-
     private Integer id;
     private Product product;
     private Short motor;

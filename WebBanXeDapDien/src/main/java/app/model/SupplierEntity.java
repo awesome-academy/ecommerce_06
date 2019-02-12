@@ -1,25 +1,23 @@
 package app.model;
-
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.*;
-
 public class SupplierEntity implements Serializable {
     private Integer id;
     private String name;
     private String adress;
     private String phoneNumber;
-    private List<ProductEntity> productsEntities;
+    private List<ProductEntity> productEntities;
 
     public SupplierEntity() {
     }
 
-    public List<ProductEntity> getProductsEntities() {
-        return productsEntities;
+    public List<ProductEntity> getProductEntities() {
+        return productEntities;
     }
 
-    public void setProductsEntities(List<ProductEntity> productsEntities) {
-        this.productsEntities = productsEntities;
+    public void setProductEntities(List<ProductEntity> productEntities) {
+        this.productEntities = productEntities;
     }
 
     public Integer getId() {

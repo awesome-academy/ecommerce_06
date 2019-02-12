@@ -1,5 +1,5 @@
 <%@ page import="java.text.DecimalFormat" %>
-<%@ page import="app.Bean.Product" %>
+<%@ page import="app.bean.Product" %>
 <%@ page import="java.awt.*" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
@@ -22,7 +22,8 @@
                                     <div class="col-md-8">
                                         <div class="caption vertical-center text-left">
                                             <div class="hero-subtitle-v2 fadeInDown-1">
-                                                shop to get what you loves
+
+               shop to get what you loves
                                             </div>
 
                                             <div class="hero-2 fadeInDown-2">

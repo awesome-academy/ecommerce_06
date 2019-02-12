@@ -1,10 +1,7 @@
-package app.Bean;
-
-
+package app.bean;
 public class ProductColor {
-
   private Integer productId ;
-  private short color;
+  private Color color;
   private int amount;
   private Product product;
 
@@ -16,11 +13,11 @@ public class ProductColor {
     this.productId = productId;
   }
 
-  public short getColor() {
+  public Color getColor() {
     return color;
   }
 
-  public void setColor(short color) {
+  public void setColor(Color color) {
     this.color = color;
   }
 

@@ -1,13 +1,7 @@
-package app.Bean;
-
-
+package app.bean;
 import java.util.*;
-
-
 import java.sql.Timestamp;
-
 public class Order {
-
     private Integer id;
     private String customerName;
     private String customerAdress;
@@ -18,7 +12,7 @@ public class Order {
     private Timestamp updatedAt;
     private Account accountByUserId;
     private Account accountByShipperId;
-    private List<OrderDetail> ordersDetails;
+    private List<OrderDetail> orderDetails;
 
     public Integer getId() {
         return id;
@@ -100,11 +94,11 @@ public class Order {
         this.accountByShipperId = accountByShipperId;
     }
 
-    public List<OrderDetail> getOrdersDetails() {
-        return ordersDetails;
+    public List<OrderDetail> getOrderDetails() {
+        return orderDetails;
     }
 
-    public void setOrdersDetails(List<OrderDetail> ordersDetails) {
-        this.ordersDetails = ordersDetails;
+    public void setOrderDetails(List<OrderDetail> orderDetails) {
+        this.orderDetails = orderDetails;
     }
 }

@@ -1,8 +1,6 @@
 package app.model;
-
 import java.io.Serializable;
 import java.util.Objects;
-
 public class AccountEntity implements Serializable {
     private Integer id;
     private String email;

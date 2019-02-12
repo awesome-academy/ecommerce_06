@@ -1,5 +1,11 @@
 <%@ page import="java.text.DecimalFormat" %>
-<%@ page import="app.Bean.Product" %>
+<%@ page import="app.bean.Product" %>
+<%@ page import="app.bean.Color" %>
+<%@ page import="app.bean.ProductColor" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.util.function.Consumer" %>
+<%@ page import="java.io.IOException" %>
+
 <%@ page language="java" contentType="text/html; charset=utf-8" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
@@ -35,6 +41,7 @@
     <spring:url value="/assets/js/jquery.easing.min.js" var="jqueryeasingminjs"/>
     <spring:url value="/assets/js/jquery.waypoints.min.js" var="jquerywaypointsminjs"/>
     <spring:url value="/assets/js/electro.js" var="electrojs"/>
+    <spring:url value="/assets/js/ProductDetail.js" var="ProductDetail"/>
     <spring:url value="/assets/images/fav-icon.png" var="favicon"/>
 
     <link rel="stylesheet" type="text/css" href="${bootstrapCss}" media="all"/>
@@ -45,6 +52,7 @@
     <link rel="stylesheet" type="text/css" href="${owlcarousel}" media="all"/>
     <link rel="stylesheet" type="text/css" href="${style}" media="all"/>
     <link rel="stylesheet" type="text/css" href="${yellow}" media="all"/>
+
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,700italic,800,800italic,600italic,400italic,300italic'
           rel='stylesheet' type='text/css'>
 
@@ -1096,6 +1104,7 @@
                                 <div class="images electro-gallery">
                                     <div class="thumbnails-single owl-carousel">
                                         <c:forEach items="${product.images}" var="image">
+
                                             <a href="images/single-product/s1-1.jpg" class="zoom" title=""
                                                data-rel="prettyPhoto[product-gallery]"><img
                                                     src="/assets/images/blank.gif"
@@ -1107,6 +1116,7 @@
 
                                     <div class="thumbnails-all columns-5 owl-carousel">
                                         <c:forEach items="${product.images}" var="image">
+
                                             <a href="/assets/images/products/${image.link}" class="first"
                                                title=""><img src="/assets/images/blank.gif"
                                                              data-echo="/assets/images/products/${image.link}"
@@ -1188,7 +1198,7 @@
 
                                 </div><!-- /itemprop -->
 
-                                <form class="variations_form cart" method="post">
+                                <form id="form_cart" class="variations_form cart" method="post">
 
                                     <table class="variations">
                                         <tbody>
@@ -1196,21 +1206,9 @@
                                             <td class="label"><label>Color</label></td>
                                             <td class="value">
                                                 <select class="" name="attribute_pa_color">
-
-                                                    <option value="">Choose an option</option>
-                                                    <c:forEach items="${product.productsColors}" var="productsColors">
-
-                                                        <c:if test="${productsColors.color == 1}">
-                                                            <option value="${color}">Đỏ</option>
-                                                        </c:if>
-
-                                                        <c:if  test="${productsColors.color == 2}">
-                                                            <option value="${color}">Xanh</option>
-                                                        </c:if>
-
-                                                        <c:if test="${productsColors.color == 3}">
-                                                            <option value="${color}">Vàng</option>
-                                                        </c:if>
+                                                    <option id="color" value="0">Choose an option</option>
+                                                    <c:forEach items="${product.productColors}" var="productsColors">
+                                                        <option value="${productsColors.color}">${productsColors.color.value}</option>
                                                     </c:forEach>
                                                 </select>
                                             </td>
@@ -1227,10 +1225,10 @@
                                                 <input type="number" name="quantity" value="1" title="Qty"
                                                        class="input-text qty text"/>
                                             </div>
-                                            <button type="submit" class="single_add_to_cart_button button">Add to cart
+                                            <button id="btn-submit-cart" type="submit"
+                                                    class="single_add_to_cart_button button">Add to cart
                                             </button>
-                                            <input type="hidden" name="add-to-cart" value="2452"/>
-                                            <input type="hidden" name="product_id" value="2452"/>
+                                            <input type="hidden" name="product_id" value=" ${product.id}"/>
                                             <input type="hidden" name="variation_id" class="variation_id" value="0"/>
                                         </div>
                                     </div>
@@ -1264,6 +1262,7 @@
 <script type="text/javascript" src="${jqueryeasingminjs}"></script>
 <script type="text/javascript" src="${jquerywaypointsminjs}"></script>
 <script type="text/javascript" src="${electrojs}"></script>
+<script type="text/javascript" src="${ProductDetail}"></script>
 
 </body>
 </html>

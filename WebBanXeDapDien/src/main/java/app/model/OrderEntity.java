@@ -1,10 +1,8 @@
 package app.model;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.*;
-
 public class OrderEntity implements Serializable {
     private Integer id;
     private String customerName;
@@ -16,7 +14,7 @@ public class OrderEntity implements Serializable {
     private Timestamp updatedAt;
     private AccountEntity accountByUserId;
     private AccountEntity accountByShipperId;
-    private List<OrderDetailEntity> ordersDetailsEntities ;
+    private List<OrderDetailEntity> orderDetailEntities;
 
     public Integer getId() {
         return id;
@@ -98,12 +96,12 @@ public class OrderEntity implements Serializable {
         this.accountByShipperId = accountByShipperId;
     }
 
-    public List<OrderDetailEntity> getOrdersDetailsEntities() {
-        return ordersDetailsEntities;
+    public List<OrderDetailEntity> getOrderDetailEntities() {
+        return orderDetailEntities;
     }
 
-    public void setOrdersDetailsEntities(List<OrderDetailEntity> ordersDetailsEntities) {
-        this.ordersDetailsEntities = ordersDetailsEntities;
+    public void setOrderDetailEntities(List<OrderDetailEntity> orderDetailEntities) {
+        this.orderDetailEntities = orderDetailEntities;
     }
 
     @Override

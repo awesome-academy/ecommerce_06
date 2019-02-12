@@ -1,9 +1,6 @@
 package app.model;
-
-
 import java.io.Serializable;
 import java.util.Objects;
-
 public class ProductColorEntity implements Serializable {
     private ProductEntity productEntity ;
     private short color;
@@ -47,8 +44,5 @@ public class ProductColorEntity implements Serializable {
     public int hashCode() {
         return Objects.hash(productEntity, color, amount);
     }
-
-
-
 
 }

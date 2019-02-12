@@ -1,9 +1,7 @@
 package app.model;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
-
 public class OrderDetailEntity implements Serializable {
     private Integer orderId;
     private short productId;
