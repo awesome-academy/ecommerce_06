@@ -5,7 +5,6 @@ import app.Utils.ObjectMapperUtils;
 import app.model.ProductDetailEntity;
 import app.service.ProductDetailsService;
 import org.apache.log4j.Logger;
-
 import java.io.Serializable;
 
 public class ProductDetailService extends BaseServiceImpl implements ProductDetailsService {
@@ -18,7 +17,7 @@ public class ProductDetailService extends BaseServiceImpl implements ProductDeta
         try {
             return ObjectMapperUtils.map(productDetailsDao.getProductDetailsByProductId(id), ProductDetail.class);
         } catch (Exception e) {
-            logger.info(e.getMessage());
+            logger.error(e.getMessage());
             return null;
         }
     }
@@ -28,8 +27,7 @@ public class ProductDetailService extends BaseServiceImpl implements ProductDeta
         try {
             return productDetailsDao.findById(key);
         }catch (Exception e){
-
-            logger.info(e);
+            logger.error(e);
             return null;
         }
     }
@@ -42,8 +40,7 @@ public class ProductDetailService extends BaseServiceImpl implements ProductDeta
 
         }catch (Exception e){
 
-            logger.info(e.getMessage());
-
+            logger.error(e.getMessage());
             throw e;
         }
     }
@@ -52,13 +49,16 @@ public class ProductDetailService extends BaseServiceImpl implements ProductDeta
     public boolean delete(ProductDetailEntity entity) {
         try {
 
-            productDetailsDao.delete(entity);
-
-            return true;
+            ProductDetailEntity detailEntity = productDetailsDao.findById(entity.getId());
+            if (detailEntity == null)
+                return false;
+            else {
+                productDetailsDao.delete(detailEntity);
+                return true;
+            }
         }catch (Exception e){
 
-            logger.info(e);
-
+            logger.error(e);
             throw e;
         }
     }

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
 import java.util.function.Consumer;
 
 @Controller
@@ -27,11 +26,11 @@ public class ControllerDetailProduct {
 
         Product product = productService.getProduct(id);
 
-        ProductDetail productDetailbyProductId = productDetailsService.getProductDetailbyProductId(id);
+        ProductDetail productDetail = productDetailsService.getProductDetailbyProductId(id);
 
         model.addAttribute("product", product);
 
-        model.addAttribute("productDetail", productDetailbyProductId);
+        model.addAttribute("productDetail", productDetail);
 
         return "detail";
     }

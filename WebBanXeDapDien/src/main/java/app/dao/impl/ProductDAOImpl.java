@@ -15,8 +15,6 @@ import java.util.function.Consumer;
 public class ProductDAOImpl extends GenericDAO<Integer, ProductEntity> implements ProductDao {
     @Override
     public List<ProductEntity> getProductList() {
-        Session session = getSession();
-
         return getSession().createQuery("from ProductsEntity").getResultList();
     }
 
@@ -42,7 +40,7 @@ public class ProductDAOImpl extends GenericDAO<Integer, ProductEntity> implement
     @Override
     public ProductEntity getProduct(Integer id) {
 
-        ProductEntity productsEntity =findById(id);
+        ProductEntity productsEntity = findById(id);
 
         productsEntity.getImageEntities().removeIf(Objects::isNull);
 
