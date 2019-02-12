@@ -6,7 +6,7 @@ public class ProductEntity implements Serializable {
     private String name;
     private double price;
     private String mainPhoto;
-    private SupplierEntity SupplierEntity;
+    private SupplierEntity supplierEntity;
     private List<ImageEntity> imageEntities;
     private List<ProductColorEntity> productColorEntities;
     private List<OrderDetailEntity> orderDetailEntities;
@@ -46,12 +46,12 @@ public class ProductEntity implements Serializable {
         this.mainPhoto = mainPhoto;
     }
 
-    public app.model.SupplierEntity getSupplierEntity() {
-        return SupplierEntity;
+    public SupplierEntity getSupplierEntity() {
+        return supplierEntity;
     }
 
-    public void setSupplierEntity(app.model.SupplierEntity supplierEntity) {
-        SupplierEntity = supplierEntity;
+    public void setSupplierEntity(SupplierEntity supplierEntity) {
+        this.supplierEntity = supplierEntity;
     }
 
     public List<ImageEntity> getImageEntities() {
@@ -101,7 +101,7 @@ public class ProductEntity implements Serializable {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", mainPhoto='" + mainPhoto + '\'' +
-                ", suppliersEntity=" + SupplierEntity +
+                ", suppliersEntity=" + supplierEntity +
                 '}';
     }
 }

@@ -19,10 +19,23 @@
 		<put-attribute name="footer" value="/views/layout/footer.jsp" />
 	</definition>
 	<definition name="detail" template="/views/Content/detail.jsp">
+		<put-attribute name="title" value="DETAIL" />
 		<put-attribute name="header" value="/views/layout/header.jsp" />
 		<put-attribute name="footer" value="/views/layout/footer.jsp" />
 	</definition>
-	
+	<definition name="checkout" extends="baseLayout">
+		<put-attribute name="title" value="CHECKOUT" />
+		<put-attribute name="body" value="/views/Content/checkout.jsp"/>
+	</definition>
+	<definition name="cart" extends="baseLayout">
+		<put-attribute name="title" value="CART" />
+		<put-attribute name="body" value="/views/Content/cart.jsp"/>
+	</definition>
+	<definition name="login" extends="baseLayout">
+		<put-attribute name="title" value="LOGIN" />
+		<put-attribute name="body" value="/views/Content/login.jsp"/>
+	</definition>
+
 
 
 </tiles-definitions>

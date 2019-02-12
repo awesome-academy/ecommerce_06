@@ -68,7 +68,7 @@
         <many-to-one name="accountByShipperId" column="Shipper_id" fetch="join" outer-join="false"
                      class="AccountEntity" not-null="false"/>
 
-        <list name="orderDetailEntities" fetch="join" outer-join="false" access="field">
+        <list name="orderDetailEntities" fetch="join" outer-join="false" access="field" >
             <key column="Order_id"/>
             <index>
                 <column name="Product_id"/>
@@ -87,14 +87,14 @@
         <property name="name">
             <column name="Name" length="50"/>
         </property>
-        <property name="adress">
-            <column name="adress" length="50"/>
+        <property name="address">
+            <column name="address" length="50"/>
         </property>
         <property name="phoneNumber">
             <column name="PhoneNumber" not-null="false" length="15"/>
         </property>
 
-        <list name="productEntities" fetch="join" outer-join="false" cascade="all">
+        <list name="productEntities" fetch="join" outer-join="false">
             <key column="Supplier_Id"/>
             <index column="id"/>
             <one-to-many class="ProductEntity"/>
@@ -132,7 +132,7 @@
         </property>
         <many-to-one name="supplierEntity" column="Supplier_Id" class="SupplierEntity" fetch="join" outer-join="false"
                      not-null="true"/>
-        <list name="imageEntities" fetch="join" outer-join="false" inverse="true"><key column="Product_Id"/>
+        <list name="imageEntities" fetch="join" outer-join="false" inverse="true" ><key column="Product_Id"/>
             <index>
                 <column name="Id"/>
             </index>
@@ -172,20 +172,20 @@
     </class>
 
     <class name="OrderDetailEntity" table="Orders_Details">
-        <composite-id class="OrderDetailEntityPK">
-            <key-many-to-one name="productId" column="Product_id" class="ProductEntity"/>
-            <key-many-to-one name="orderId" column="Order_id" class="OrderEntity"/>
-
+        <composite-id name="orderDetailEntityPK" class="OrderDetailEntityPK">
+            <key-many-to-one name="productEntity" column="Product_id" class="ProductEntity"/>
+            <key-many-to-one name="orderEntity" column="Order_id" class="OrderEntity"/>
+            <key-property name="color" column="color" type="java.lang.Short"/>
         </composite-id>
+
+
         <property name="amount">
             <column name="Amount" not-null="true" precision="5"/>
         </property>
         <property name="price">
             <column name="Price" not-null="true" precision="10"/>
         </property>
-        <property name="productColor">
-            <column name="product_color" not-null="true"/>
-        </property>
+
     </class>
 
 

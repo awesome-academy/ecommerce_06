@@ -6,9 +6,9 @@ public class Cart {
     private Integer productId;
     private String productColor;
     private String productName;
-    private int quantity;
+    private short quantity;
     private String urlImage;
-    private String productPrice;
+    private double productPrice;
 
     public Integer getProductId() {
         return productId;
@@ -26,11 +26,11 @@ public class Cart {
         this.productColor = productColor;
     }
 
-    public int getQuantity() {
+    public short getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(short quantity) {
         this.quantity = quantity;
     }
 
@@ -42,11 +42,11 @@ public class Cart {
         this.urlImage = urlImage;
     }
 
-    public String getProductPrice() {
+    public double getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(String productPrice) {
+    public void setProductPrice(double productPrice) {
         this.productPrice = productPrice;
     }
 

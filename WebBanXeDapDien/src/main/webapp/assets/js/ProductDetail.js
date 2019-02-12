@@ -11,7 +11,8 @@ jQuery(document).ready(function () {
         var productId = jQuery("input[name=product_id]").val();
         var quantity = jQuery("input[name=quantity]").val();
         var urlImage = jQuery("#mainImage").attr("data-images");
-        var productPrice = jQuery("#amount").text();
+        var productPrice = jQuery("#amount").attr("data-value");
+
         var productName = jQuery("#productName").text();
 
         console.log(color + ' ' + productId + ' ' + quantity + ' ' + urlImage + ' ' + productPrice + ' ' + productName);
@@ -29,11 +30,13 @@ jQuery(document).ready(function () {
             },
             success: function (data) {
                 jQuery('.mini_cart_item').remove();
-                if(data != null){
+                if (data != null) {
                     jQuery('#countProduct').text(data.length);
                 }
                 for (var i = 0; i < data.length; i++) {
-                    jQuery('.cart_list').append('<li ' + 'id="' + data[i].productId + '" class="mini_cart_item" ' + 'data-color="' + data[i].productColor + '"' + '><a id="abc" title="Remove this item" style="cursor: pointer" class="remove" >×</a><a href="single-product.html"><img class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"src="/assets/images/products/' + data[i].urlImage + '" alt="">' + data[i].productName + '&nbsp;</a><span class="quantity">' + data[i].quantity + ' ' + data[i].productColor + '× <span class="amount">' + data[i].productPrice + '</span></span></li>');
+                    var value = parseInt(data[i].productPrice);
+                    var price = value.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") + ' VND';
+                    jQuery('.cart_list').append('<li ' + 'data-id="' + data[i].productId + '" class="mini_cart_item" ' + 'data-color="' + data[i].productColor + '"' + '><a id="abc" title="Remove this item" style="cursor: pointer" class="remove" >×</a><a href="single-product.html"><img class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"src="/assets/images/products/' + data[i].urlImage + '" alt="">' + data[i].productName + '&nbsp;</a><span class="quantity">' + data[i].quantity + ' ' + data[i].productColor + '× <span class="amount">' + price + '</span></span></li>');
                 }
 
             },
@@ -42,9 +45,9 @@ jQuery(document).ready(function () {
         })
     });
 
-    jQuery(document).on('click', '.remove', function(){
+    jQuery(document).on('click', '.remove', function () {
         var elment = jQuery(this).parent();
-        var productId = elment.attr('id');
+        var productId = elment.attr('data-id');
         var productColor = elment.attr('data-color');
 
         jQuery.ajax({
@@ -55,13 +58,15 @@ jQuery(document).ready(function () {
                 productId: productId,
             },
             success: function (data) {
-                jQuery('.mini_cart_item').remove();
-                if(data != null){
-                    jQuery('#countProduct').text(data.length);
-                }
-                for (var i = 0; i < data.length; i++) {
-                    jQuery('.cart_list').append('<li ' + 'id="' + data[i].productId + '" class="mini_cart_item" ' + 'data-color="' + data[i].productColor + '"' + '><a id="abc" title="Remove this item" style="cursor: pointer" class="remove" >×</a><a href="single-product.html"><img class="attachment-shop_thumbnail size-shop_thumbnail wp-post-image"src="/assets/images/products/' + data[i].urlImage + '" alt="">' + data[i].productName + '&nbsp;</a><span class="quantity">' + data[i].quantity + ' ' + data[i].productColor + '× <span class="amount">' + data[i].productPrice + '</span></span></li>');
-                }
+                alert(data);
+               if(data == true) {
+                  var count = jQuery('#countProduct').text();
+                  count -= 1;
+                   jQuery('#countProduct').text(count);
+                   elment.hide();
+               }else {
+                   console.log("xoa khong thanh cong")
+               }
             },
             dataType: "json"
 

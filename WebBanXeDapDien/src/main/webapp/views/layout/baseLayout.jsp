@@ -28,6 +28,7 @@
         <spring:url value="/assets/js/jquery.easing.min.js" var="jqueryeasingminjs"/>
         <spring:url value="/assets/js/jquery.waypoints.min.js" var="jquerywaypointsminjs"/>
         <spring:url value="/assets/js/electro.js" var="electrojs"/>
+        <spring:url value="/assets/js/cart.js" var="cartjs"/>
         <spring:url value="/assets/images/fav-icon.png" var="favicon"/>
 
         <link rel="stylesheet" type="text/css" href="${bootstrapCss}" media="all" />
@@ -101,6 +102,7 @@
         <script type="text/javascript" src="${jqueryeasingminjs}"></script>
         <script type="text/javascript" src="${jquerywaypointsminjs}"></script>
         <script type="text/javascript" src="${electrojs}"></script>
+        <script type="text/javascript" src="${cartjs}"></script>
 
 
         </body>
