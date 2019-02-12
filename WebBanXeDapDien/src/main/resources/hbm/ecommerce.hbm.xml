@@ -109,7 +109,6 @@
         </id>
         <many-to-one name="ProductEntity" column="Product_Id" fetch="join" outer-join="false" not-null="true"
                      class="ProductEntity"/>
-
         <property name="link">
             <column name="link" length="100"/>
         </property>
@@ -133,9 +132,7 @@
         </property>
         <many-to-one name="supplierEntity" column="Supplier_Id" class="SupplierEntity" fetch="join" outer-join="false"
                      not-null="true"/>
-
-        <list name="imageEntities" fetch="join" outer-join="false" inverse="true">
-            <key column="Product_Id"/>
+        <list name="imageEntities" fetch="join" outer-join="false" inverse="true"><key column="Product_Id"/>
             <index>
                 <column name="Id"/>
             </index>
@@ -152,6 +149,7 @@
 
 
         <list name="orderDetailEntities" fetch="join" outer-join="false" inverse="true">
+
             <key column="Order_id"/>
             <index>
                 <column name="Product_id"/>
@@ -184,6 +182,9 @@
         </property>
         <property name="price">
             <column name="Price" not-null="true" precision="10"/>
+        </property>
+        <property name="productColor">
+            <column name="product_color" not-null="true"/>
         </property>
     </class>
 

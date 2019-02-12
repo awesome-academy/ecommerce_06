@@ -23,7 +23,7 @@
                                         <div class="caption vertical-center text-left">
                                             <div class="hero-subtitle-v2 fadeInDown-1">
 
-               shop to get what you loves
+                                                shop to get what you loves
                                             </div>
 
                                             <div class="hero-2 fadeInDown-2">
@@ -223,7 +223,7 @@
                                                         <span class="loop-product-categories"><a
                                                                 href="product-category.html"
                                                                 rel="tag">${product.supplier.name}"</a></span>
-                                                            <a href="/product/${product.id}">
+                                                            <a href="/products/${product.id}">
                                                                 <h3>${product.name}</h3>
                                                                 <div class="product-thumbnail">
                                                                     <img src="/assets/images/blank.gif"
@@ -238,9 +238,15 @@
 
 
                                                                                 <ins><span
-                                                                                        class="amount"><fmt:formatNumber value="${product.price}" type="currency" pattern="###,###,### VND"/> </span></ins>
+                                                                                        class="amount"><fmt:formatNumber
+                                                                                        value="${product.price}"
+                                                                                        type="currency"
+                                                                                        pattern="###,###,### VND"/> </span></ins>
                                                                                 <del><span
-                                                                                        class="amount"> <fmt:formatNumber value="${product.price}" type="currency" pattern="###,###,### VND"/></span></del>
+                                                                                        class="amount"> <fmt:formatNumber
+                                                                                        value="${product.price}"
+                                                                                        type="currency"
+                                                                                        pattern="###,###,### VND"/></span></del>
                                                                                 <span class="amount"> </span>
                                                                             </span>
                                                                         </span>
@@ -261,7 +267,7 @@
                                                         <span class="loop-product-categories"><a
                                                                 href="product-category.html"
                                                                 rel="tag">${product.supplier.name}</a></span>
-                                                            <a href="/product/${product.id}">
+                                                            <a href="/products/${product.id}">
                                                                 <h3>${product.name}</h3>
                                                                 <div class="product-thumbnail">
                                                                     <img src="/assets/images/blank.gif"
@@ -275,11 +281,15 @@
                                                                             <span class="electro-price">
                                                                                 <ins><span
                                                                                         class="amount">
-                                                                                 <fmt:formatNumber value="${product.price}" type="currency" pattern="###,###,### VND"/>
+                                                                                 <fmt:formatNumber
+                                                                                         value="${product.price}"
+                                                                                         type="currency"
+                                                                                         pattern="###,###,### VND"/>
 
                                                                                 </span></ins>
                                                                                 <del><span
-                                                                                        class="amount"><a href="/product/${product.id}"></span></del>
+                                                                                        class="amount"><a
+                                                                                        href="/products/${product.id}"></span></del>
                                                                                 <span class="amount"> </span>
                                                                             </span>
                                                                         </span>
@@ -301,7 +311,7 @@
                                                         <span class="loop-product-categories"><a
                                                                 href="product-category.html"
                                                                 rel="tag">${product.supplier.name}</a></span>
-                                                            <a href="/product/${product.id}">
+                                                            <a href="/products/${product.id}">
                                                                 <h3>${product.name}</h3>
                                                                 <div class="product-thumbnail">
                                                                     <img src="/assets/images/blank.gif"
@@ -314,9 +324,15 @@
                                                                         <span class="price">
                                                                             <span class="electro-price">
                                                                                 <ins><span
-                                                                                        class="amount"><fmt:formatNumber value="${product.price}" type="currency" pattern="###,###,### VND"/></span></ins>
+                                                                                        class="amount"><fmt:formatNumber
+                                                                                        value="${product.price}"
+                                                                                        type="currency"
+                                                                                        pattern="###,###,### VND"/></span></ins>
                                                                                 <del><span
-                                                                                        class="amount"><fmt:formatNumber value="${product.price}" type="currency" pattern="###,###,### VND"/></span></del>
+                                                                                        class="amount"><fmt:formatNumber
+                                                                                        value="${product.price}"
+                                                                                        type="currency"
+                                                                                        pattern="###,###,### VND"/></span></del>
                                                                                 <span class="amount"> </span>
                                                                             </span>
                                                                         </span>
@@ -337,7 +353,7 @@
                                                         <span class="loop-product-categories"><a
                                                                 href="product-category.html"
                                                                 rel="tag">${product.supplier.name}</a></span>
-                                                            <a href="/product/${product.id}">
+                                                            <a href="/products/${product.id}">
                                                                 <h3>${product.name}</h3>
                                                                 <div class="product-thumbnail">
                                                                     <img src="/assets/images/blank.gif"
@@ -350,9 +366,15 @@
                                                                         <span class="price">
                                                                             <span class="electro-price">
                                                                                 <ins><span
-                                                                                        class="amount"><fmt:formatNumber value="${product.price}" type="currency" pattern="###,###,### VND"/></span></ins>
+                                                                                        class="amount"><fmt:formatNumber
+                                                                                        value="${product.price}"
+                                                                                        type="currency"
+                                                                                        pattern="###,###,### VND"/></span></ins>
                                                                                 <del><span
-                                                                                        class="amount"><fmt:formatNumber value="${product.price}" type="currency" pattern="###,###,### VND"/></span></del>
+                                                                                        class="amount"><fmt:formatNumber
+                                                                                        value="${product.price}"
+                                                                                        type="currency"
+                                                                                        pattern="###,###,### VND"/></span></del>
                                                                                 <span class="amount"> </span>
                                                                             </span>
                                                                         </span>
