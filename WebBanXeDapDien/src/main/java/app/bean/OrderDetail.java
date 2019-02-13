@@ -4,6 +4,7 @@ public class OrderDetail {
     private short productId;
     private short amount;
     private double price;
+    private short productColor;
     private Order Order;
 
     public Integer getOrderId() {
@@ -44,5 +45,13 @@ public class OrderDetail {
 
     public void setOrder(app.bean.Order order) {
         Order = order;
+    }
+
+    public short getProductColor() {
+        return productColor;
+    }
+
+    public void setProductColor(short productColor) {
+        this.productColor = productColor;
     }
 }
