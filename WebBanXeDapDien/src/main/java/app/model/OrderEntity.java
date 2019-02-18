@@ -124,7 +124,20 @@ public class OrderEntity implements Serializable {
         return Objects.hash(id, customerName, customerAdress, customerPhoneNumber, customerNote, status, createdAt, updatedAt);
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "OrderEntity{" +
+                "id=" + id +
+                ", customerName='" + customerName + '\'' +
+                ", customerAdress='" + customerAdress + '\'' +
+                ", customerPhoneNumber='" + customerPhoneNumber + '\'' +
+                ", customerNote='" + customerNote + '\'' +
+                ", status='" + status + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", accountByUserId=" + accountByUserId +
+                ", accountByShipperId=" + accountByShipperId +
+                ", orderDetailEntities=" + orderDetailEntities +
+                '}';
+    }
 }
