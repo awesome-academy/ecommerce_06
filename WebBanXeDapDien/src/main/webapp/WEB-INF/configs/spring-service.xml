@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+
+    <import resource="spring-dao.xml"/>
+    <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${mail.host}"/>
+        <property name="port" value="${mail.port}"/>
+        <property name="username" value="${mail.username}"/>
+        <property name="password" value="${mail.password}"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.debug">true</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="bcryptEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
+
+    <bean id="BaseServiceImpl" class="app.service.impl.BaseServiceImpl">
+        <property name="orderDetailDao" ref="OrderDetailDAOImpl"/>
+        <property name="productDetailsDao" ref="ProductDetailsDAOImpl"/>
+        <property name="orderDao" ref="OrderDAOImpl"/>
+        <property name="productDao" ref="ProductDAOImpl"/>
+        <property name="suppilerDao" ref="SupplierDAOImpl"/>
+        <property name="accountDao" ref="AccountDAOImpl"/>
+        <property name="mailSender" ref="mailSender"/>
+        <property name="passwordEncoder" ref="bcryptEncoder"/>
+    </bean>
+
+    <bean id="ProductService" parent="baseTransactionProxy">
+        <property name="target">
+            <bean class="app.service.impl.ProductServiceImpl" parent="BaseServiceImpl"/>
+        </property>
+    </bean>
+    <bean id="ProductDetailsService" parent="baseTransactionProxy">
+        <property name="target">
+            <bean class="app.service.impl.ProductDetailServiceImpl" parent="BaseServiceImpl"/>
+        </property>
+    </bean>
+    <bean id="OrderService" parent="baseTransactionProxy">
+        <property name="target">
+            <bean class="app.service.impl.OrderServiceImpl" parent="BaseServiceImpl"/>
+        </property>
+    </bean>
+    <bean id="OrderDetailService" parent="baseTransactionProxy">
+        <property name="target">
+            <bean class="app.service.impl.OrderDetailServiceImpl" parent="BaseServiceImpl"/>
+        </property>
+    </bean>
+    <bean id="SupplierService" parent="baseTransactionProxy">
+        <property name="target">
+            <bean class="app.service.impl.SupplierServiceImpl" parent="BaseServiceImpl"/>
+        </property>
+    </bean>
+    <bean id="AccountService" parent="baseTransactionProxy">
+        <property name="target">
+            <bean class="app.service.impl.AccountServiceImpl" parent="BaseServiceImpl"/>
+        </property>
+    </bean>
+    <bean id="UserDetailServiceImpl"  parent="baseTransactionProxy">
+        <property name="target">
+            <bean class="app.service.impl.UserDetailServiceImpl" parent="BaseServiceImpl"/>
+        </property>
+    </bean>
+
+</beans>
