@@ -5,7 +5,7 @@
         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
     <beans:import resource="spring-service.xml"/>
     <http auto-config="true">
-        <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+        <!--<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>-->
         <!--<intercept-url pattern="/*" access="hasRole('ROLE_USER') or permitAll()"/>-->
         <csrf disabled="true"/>
         <form-login login-page="/login"

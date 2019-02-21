@@ -208,25 +208,21 @@
         Menu
         </li>
         <li class="nav-item ">
-        <a class="nav-link " href="#" data-toggle="collapse" aria-expanded="false"
+        <a class="nav-link " href="/admin/products" data-toggle="collapse" aria-expanded="false"
         data-target="#submenu-1" aria-controls="submenu-1"><i
-        class="fa fa-fw fa-user-circle"></i>Dashboar</a>
+        class="fa fa-fw fa-user-circle"></i><spring:message code="admin.product" text="default"/></a>
         </li>
             <li class="nav-item ">
-            <a class="nav-link " href="#" data-toggle="collapse" aria-expanded="false"
+            <a class="nav-link " href="/admin/order" data-toggle="collapse" aria-expanded="false"
             data-target="#submenu-1" aria-controls="submenu-1"><i
-            class="fa fa-fw fa-user-circle"></i>Dashboar</a>
+            class="fa fa-fw fa-user-circle"></i><spring:message code="admin.order"/> </a>
             </li>
             <li class="nav-item ">
             <a class="nav-link " href="#" data-toggle="collapse" aria-expanded="false"
             data-target="#submenu-1" aria-controls="submenu-1"><i
-            class="fa fa-fw fa-user-circle"></i>Dashboar</a>
+            class="fa fa-fw fa-user-circle"></i><spring:message code="admin.supplier" /> </a>
             </li>
-            <li class="nav-item ">
-            <a class="nav-link " href="#" data-toggle="collapse" aria-expanded="false"
-            data-target="#submenu-1" aria-controls="submenu-1"><i
-            class="fa fa-fw fa-user-circle"></i>Order</a>
-            </li>
+
 
         </ul>
         </div>

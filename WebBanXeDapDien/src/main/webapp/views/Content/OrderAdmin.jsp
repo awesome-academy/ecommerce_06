@@ -13,7 +13,7 @@
             <table class="table">
                 <thead>
                 <tr>
-                    <
+
                     <th>Mã Hóa Đơn</th>
                     <th>Tên Khach Hàng</th>
                     <th> Địa Chỉ</th>
@@ -36,10 +36,10 @@
                         <td>${order.createdAt}</td>
                         <td>
                             <c:if test="${order.status == 'chưa xác nhận'}">
-                                <input class="checkBoxStatus" type="checkbox">
+                                <input data-id="${order.id}" class="checkBoxStatus" type="checkbox">
                             </c:if>
                             <c:if test="${order.status == 'xác nhận'}">
-                                <input class="checkBoxStatus" type="checkbox" checked>
+                                <input data-id="${order.id}" class="checkBoxStatus" type="checkbox" checked>
                             </c:if>
                         </td>
                         <td>
