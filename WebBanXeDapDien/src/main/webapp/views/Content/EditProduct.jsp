@@ -17,8 +17,8 @@
 
                 name <input type="text" name="name" value="${product.name}"><br>
                 price <input type="text" name="price" value="${product.price}"><br>
-                <img src="/assets/images/products/${product.mainPhoto}"><br>
-                <input type="file" name="mainPhoto" value="${product.mainPhoto}">
+                <img id="mainImage" src="/assets/images/products/${product.mainPhoto}"><br>
+                <input id="mainPhoto" type="file" name="mainPhoto" value="${product.mainPhoto}">
                 supplier <select name="supplier.id">
                 <option value="1">HC Bike</option>
             </select>

@@ -18,7 +18,7 @@ jQuery(document).ready(function () {
         console.log(color + ' ' + productId + ' ' + quantity + ' ' + urlImage + ' ' + productPrice + ' ' + productName);
 
         jQuery.ajax({
-            url: '/addtocart',
+            url: '/addcart',
             type: 'post',
             data: {
                 productColor: color,

@@ -172,12 +172,16 @@ jQuery(document).ready(function ($) {
     $('.changeImage').click(function () {
         var btn = $(this);
         var idImage = btn.attr('data-id');
-        btn.parent().find("input[data-id="+idImage+"]").click();
+        btn.parent().find("input[data-id=" + idImage + "]").click();
     });
 
     $('.fileImages').change(function () {
 
     });
+
+    $('#mainPhoto').change(function () {
+        $('#mainImage').attr('src',$(this).val());
+    })
 
 });
 

@@ -103,7 +103,7 @@
 
 
         <p class="buttons">
-        <a class="button wc-forward" href="/cart">View Cart</a>
+        <a class="button wc-forward" href="/carts">View Cart</a>
         <a class="button checkout wc-forward" href="/checkout">Checkout</a>
         </p>
 

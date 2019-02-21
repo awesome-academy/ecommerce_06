@@ -7,7 +7,7 @@ public class ProductDetailDAOImpl extends GenericDAO<Integer, ProductDetailEntit
 
     @Override
     public ProductDetailEntity getProductDetailsByProductId(Integer id) {
-        return (ProductDetailEntity) getSession().createQuery("From ProductDetailEntity P Where P.productEntity.id = :id").setParameter("id",id).getSingleResult();
+        return (ProductDetailEntity) getSession().createQuery("From ProductDetailEntity P Where P.productEntity.id = :id").setParameter("id", id).getSingleResult();
     }
 
 }
