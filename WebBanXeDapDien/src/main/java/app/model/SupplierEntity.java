@@ -76,7 +76,6 @@ public class SupplierEntity implements Serializable {
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", productEntities=" + productEntities +
                 '}';
     }
 }

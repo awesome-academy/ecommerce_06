@@ -2,13 +2,19 @@ package app.service.impl;
 
 import app.bean.Product;
 import app.Utils.ObjectMapperUtils;
+import app.bean.ProductDetail;
+import app.model.ProductDetailEntity;
 import app.model.ProductEntity;
+import app.model.SupplierEntity;
 import app.service.ProductService;
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.LockMode;
 
 import java.io.Serializable;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -58,7 +64,7 @@ public class ProductServiceImpl extends BaseServiceImpl implements ProductServic
             return ObjectMapperUtils.productMap(productDao.getProduct(id));
         } catch (Exception e) {
             logger.error(e);
-            return null;
+            throw e;
         }
     }
 
@@ -71,6 +77,66 @@ public class ProductServiceImpl extends BaseServiceImpl implements ProductServic
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public boolean saveProducts(List<Product> products) {
+
+        try {
+            List<ProductEntity> productEntities = products.stream().map(new Function<Product, ProductEntity>() {
+                @Override
+                public ProductEntity apply(Product product) {
+                    ProductEntity productEntity = new ProductEntity();
+                    productEntity.setName(product.getName());
+                    productEntity.setPrice(product.getPrice());
+                    productEntity.setMainPhoto(product.getMainPhoto());
+                    SupplierEntity supplierEntity = new SupplierEntity();
+                    supplierEntity.setId(product.getSupplier().getId());
+                    productEntity.setSupplierEntity(supplierEntity);
+                    return productEntity;
+                }
+            }).collect(Collectors.toList());
+            productEntities.forEach(new Consumer<ProductEntity>() {
+                @Override
+                public void accept(ProductEntity productEntity) {
+                    saveOrUpdate(productEntity);
+                }
+            });
+            return true;
+
+        } catch (Exception e) {
+            logger.error(e);
+            throw e;
+        }
+
+    }
+
+    @Override
+    public boolean saveProduct(Product product, ProductDetail productDetail) {
+        try {
+            ProductEntity productEntity = productDao.getProduct(product.getId());
+            ProductDetailEntity productDetailEntity = productDetailsDao.getProductDetailsByProductId(product.getId());
+            BeanUtils.copyProperties(productEntity, product);
+            SupplierEntity supplierEntity = suppilerDao.findById(product.getSupplier().getId());
+            productEntity.setSupplierEntity(supplierEntity);
+            BeanUtils.copyProperties(productDetailEntity, productDetail);
+            productDetailEntity.setProductEntity(productEntity);
+            logger.info(productEntity);
+            logger.info(productDetailEntity);
+            productDao.saveOrUpdate(productEntity);
+            productDetailsDao.saveOrUpdate(productDetailEntity);
+            return true;
+        } catch (Exception e) {
+            logger.error(e);
+            try {
+                throw e;
+            } catch (IllegalAccessException e1) {
+                e1.printStackTrace();
+            } catch (InvocationTargetException e1) {
+                e1.printStackTrace();
+            }
+        }
+        return false;
     }
 
     @Override
