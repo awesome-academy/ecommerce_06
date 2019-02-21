@@ -43,7 +43,7 @@
                             </c:if>
                         </td>
                         <td>
-                            <button class="btn btn-info "><a href="/admin/orders/show/${order.id}"> Chi Tiết </a>
+                            <button class="btn btn-info "><a href="/admin/orders/${order.id}"> Chi Tiết </a>
                             </button>
 
                         </td>

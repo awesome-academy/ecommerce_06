@@ -73,7 +73,7 @@ jQuery(document).ready(function () {
 
         jQuery.ajax({
 
-            url: '/cart',
+            url: '/cart/create',
             type: 'post',
             data: {
                 productColor: color,
@@ -183,7 +183,7 @@ jQuery(document).ready(function () {
 
     function loadSuppilers() {
         jQuery.ajax({
-            url: '/suppiler',
+            url: '/supplier',
             type: 'get',
             success: function (data) {
                 if (data != null) {

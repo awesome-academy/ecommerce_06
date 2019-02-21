@@ -1,4 +1,4 @@
-package app.controller;
+package app.controller.client;
 
 import app.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;

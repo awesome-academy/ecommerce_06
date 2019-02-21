@@ -105,7 +105,7 @@ jQuery(document).ready(function ($) {
         if (this.checked)
             ch = "xác nhận";
         $.ajax({
-            url: '/admin/order/update',
+            url: '/admin/orders/update',
             type: 'post',
             data: {
                 id: idOrder,
@@ -133,7 +133,7 @@ jQuery(document).ready(function ($) {
         forms.append('file', files[0]);
 
         $.ajax({
-            url: '/admin/addproduct',
+            url: '/admin/products/create',
             type: 'Post',
             data: forms,
             contentType: false,
@@ -157,7 +157,7 @@ jQuery(document).ready(function ($) {
         console.log($('#formupdate').serialize());
 
         $.ajax({
-            url: '/admin/updateproduct',
+            url: '/admin/products/update',
             type: 'Post',
             data:
                 $('#formupdate').serialize(),

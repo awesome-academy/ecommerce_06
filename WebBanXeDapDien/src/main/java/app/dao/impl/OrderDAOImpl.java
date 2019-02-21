@@ -15,8 +15,6 @@ public class OrderDAOImpl extends GenericDAO<Integer, OrderEntity> implements Or
         return getSession().createQuery("From OrderEntity").getResultList();
     }
 
-
-
     @Override
     public int[] getRevenue() {
         NativeQuery nativeQuery = getSession().createNativeQuery("select MONTH(Orders.Created_At) as \"mounth\", CAST(Sum(OD.Amount * OD.Price) AS CHAR) as \"total\" " +
@@ -30,8 +28,6 @@ public class OrderDAOImpl extends GenericDAO<Integer, OrderEntity> implements Or
             int mounth = (int) record[0];
             revenue[mounth - 1] = Integer.valueOf(record[1].toString());
         }
-
         return revenue;
     }
-
 }

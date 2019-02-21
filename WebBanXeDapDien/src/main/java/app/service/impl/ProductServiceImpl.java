@@ -74,7 +74,7 @@ public class ProductServiceImpl extends BaseServiceImpl implements ProductServic
         try {
             return ObjectMapperUtils.mapAll(productDao.getProductByNameAndSuppilerId(name, supplierId), Product.class);
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e);
             return null;
         }
     }

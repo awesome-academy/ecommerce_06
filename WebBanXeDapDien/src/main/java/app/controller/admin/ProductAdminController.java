@@ -1,9 +1,10 @@
-package app.controller;
+package app.controller.admin;
 
 import app.Utils.FileUtils;
-import app.Utils.ObjectMapperUtils;
 import app.bean.Product;
 import app.bean.ProductDetail;
+import app.controller.client.ProductController;
+import app.service.OrderService;
 import app.service.ProductDetailsService;
 import app.service.ProductService;
 import org.apache.log4j.Logger;
@@ -13,35 +14,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.ServletContext;
-import java.io.*;
+import java.io.File;
 import java.util.List;
 
 @Controller
-public class ProductController {
-    private static final Logger logger = Logger.getLogger(ProductController.class);
-
-    @Autowired
-    ServletContext context;
+@RequestMapping("/admin/products")
+public class ProductAdminController {
+    private static final Logger logger = Logger.getLogger(ProductAdminController.class);
 
     @Autowired
     ProductService productService;
+
     @Autowired
     ProductDetailsService productDetailsService;
 
+    @Autowired
+    OrderService orderService;
 
-    @GetMapping("/products/{id}")
-    public String detailProduct(@PathVariable Integer id, Model model) {
-        Product product = productService.getProduct(id);
-        ProductDetail productDetail = productDetailsService.getProductDetailbyProductId(id);
-        model.addAttribute("product", product);
-        model.addAttribute("productDetail", productDetail);
-        return "detail";
-    }
-
-    @PostMapping("/admin/addproduct")
+    @PostMapping("/create")
     @ResponseBody
-    public boolean addproduct(@RequestParam("file") MultipartFile file) {
+    public boolean newProducts(@RequestParam("file") MultipartFile file) {
         try {
             File saveFile = FileUtils.saveFile(file.getBytes(), "" + file.getOriginalFilename());
             return productService.saveProducts(FileUtils.ReadFileProducts(saveFile));
@@ -51,21 +43,22 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/admin/updateproduct/{id}")
-    public String editProduct(Model model, @PathVariable("id") Integer id) {
-        detailProduct(id, model);
+    @GetMapping("/{id}")
+    public String show(Model model, @PathVariable("id") Integer id) {
+        model.addAttribute("product", productService.getProduct(id));
+        model.addAttribute("productDetail", productDetailsService.getProductDetailbyProductId(id));
         return "EditProduct";
     }
 
-    @PostMapping("/admin/updateproduct")
+    @PostMapping("/update")
     @ResponseBody
     public boolean update(Product product, ProductDetail productDetail) {
         logger.info(product);
         logger.info(productDetail);
-        return  productService.saveProduct(product,productDetail);
+        return productService.saveProduct(product, productDetail);
     }
 
-    @GetMapping("/admin/products")
+    @GetMapping("")
     public String productsAdmin(Model model) {
         List<Product> products = productService.getProductListByPage(1, 24);
         model.addAttribute("products", products);

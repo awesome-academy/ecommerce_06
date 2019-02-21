@@ -102,7 +102,7 @@ public class OrderServiceImpl extends BaseServiceImpl implements OrderService {
             Order order = ObjectMapperUtils.orderMap(orderEntity);
             return order;
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e);
             return null;
         }
 
@@ -117,7 +117,7 @@ public class OrderServiceImpl extends BaseServiceImpl implements OrderService {
             orderDao.saveOrUpdate(orderEntity);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e);
             throw e;
         }
 

@@ -213,7 +213,7 @@
         </a>
         </li>
         <li class="nav-item ">
-        <a  href="/admin/order">
+        <a  href="/admin/orders">
         <spring:message code="admin.order" text="default"/>
         </a>
         </li>
