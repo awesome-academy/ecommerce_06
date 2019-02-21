@@ -40,7 +40,7 @@
                                 </td>
 
                                 <td class="product-thumbnail">
-                                    <a href="single-product.html"><img width="180" height="180" src="assets/images/products/${cart.urlImage}" alt=""></a>
+                                    <a href="single-product.html"><img width="180" height="180" src="/assets/images/products/${cart.urlImage}" alt=""></a>
                                 </td>
 
                                 <td data-title="Product" class="product-name">
