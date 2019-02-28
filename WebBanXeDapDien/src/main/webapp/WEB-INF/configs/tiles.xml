@@ -53,6 +53,10 @@
         <put-attribute name="title" value="ProductAdmin"/>
         <put-attribute name="body" value="/views/Content/ProductAdmin.jsp"/>
     </definition>
+ <definition name="EditProduct" extends="baseAdmin">
+        <put-attribute name="title" value="EditProduct"/>
+        <put-attribute name="body" value="/views/Content/EditProduct.jsp"/>
+    </definition>
 
 
 </tiles-definitions>

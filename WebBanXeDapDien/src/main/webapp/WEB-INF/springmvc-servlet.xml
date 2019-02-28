@@ -24,7 +24,7 @@ http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 			</list>
 		</property>
 	</bean>
-	
+
 	<bean id="messageSource"
 		class="org.springframework.context.support.ResourceBundleMessageSource">
 		<property name="basename" value="messages" />

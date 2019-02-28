@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class ProductDAOImpl extends GenericDAO<Integer, ProductEntity> implements ProductDao {
     @Override
     public List<ProductEntity> getProductList() {
-        return getSession().createQuery("from ProductsEntity").getResultList();
+        return getSession().createQuery("from ProductEntity").getResultList();
     }
 
     @Override

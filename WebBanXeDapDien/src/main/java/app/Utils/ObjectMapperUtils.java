@@ -1,13 +1,21 @@
 package app.Utils;
 
 import app.bean.*;
+import app.bean.Color;
 import app.model.*;
 import org.apache.log4j.Logger;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -25,28 +33,10 @@ public class ObjectMapperUtils {
     private ObjectMapperUtils() {
     }
 
-    /**
-     * <p>Note: outClass object must have default constructor with no arguments</p>
-     *
-     * @param <D>      type of result object.
-     * @param <T>      type of source object to map from.
-     * @param entity   entity that needs to be mapped.
-     * @param outClass class of result object.
-     * @return new object of <code>outClass</code> type.
-     */
     public static <D, T> D map(final T entity, Class<D> outClass) {
         return modelMapper.map(entity, outClass);
     }
 
-    /**
-     * <p>Note: outClass object must have default constructor with no arguments</p>
-     *
-     * @param entityList list of entities that needs to be mapped
-     * @param outCLass   class of result list element
-     * @param <D>        type of objects in result list
-     * @param <T>        type of entity in <code>entityList</code>
-     * @return list of mapped object with <code><D></code> type.
-     */
     public static <D, T> List<D> mapAll(final Collection<T> entityList, Class<D> outCLass) {
 
         return entityList.stream()
@@ -54,17 +44,10 @@ public class ObjectMapperUtils {
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Maps {@code source} to {@code destination}.
-     *
-     * @param source      object to map from
-     * @param destination object to map to
-     */
     public static <S, D> D map(final S source, D destination) {
         modelMapper.map(source, destination);
         return destination;
     }
-
 
     public static Product productMap(ProductEntity ProductEntity) {
         Product productMap = map(ProductEntity, Product.class);
@@ -96,7 +79,7 @@ public class ObjectMapperUtils {
         orderDetail.setAmount(cart.getQuantity());
         orderDetail.setPrice(cart.getProductPrice());
         logger.info("OrderDetailMap" + orderDetail);
-            return orderDetail;
+        return orderDetail;
     }
 
     public static List<OrderDetail> orderDetailsMap(List<Cart> carts) {
@@ -129,7 +112,6 @@ public class ObjectMapperUtils {
         return orderEntity;
     }
 
-
     public static List<OrderDetailEntity> orderDetailsEntityMap(List<OrderDetail> orderDetails) {
         Stream<OrderDetailEntity> orderDetailEntityStream = orderDetails.stream().map(new Function<OrderDetail, OrderDetailEntity>() {
             @Override
@@ -143,17 +125,17 @@ public class ObjectMapperUtils {
 
     }
 
-    public static OrderDetail orderDetailMap(OrderDetailEntity orderDetailEntity){
+    public static OrderDetail orderDetailMap(OrderDetailEntity orderDetailEntity) {
         OrderDetail orderDetail = new OrderDetail();
         orderDetail.setPrice(orderDetailEntity.getPrice());
         orderDetail.setAmount(orderDetailEntity.getAmount());
         orderDetail.setProduct(productMap(orderDetailEntity.getOrderDetailEntityPK().getProductEntity()));
         orderDetail.setProductColor(Color.values()[orderDetailEntity.getOrderDetailEntityPK().getColor()]);
-        orderDetail.setOrder(map(orderDetailEntity.getOrderDetailEntityPK().getOrderEntity(),Order.class));
+        orderDetail.setOrder(map(orderDetailEntity.getOrderDetailEntityPK().getOrderEntity(), Order.class));
         return orderDetail;
     }
 
-    public static Order orderMap(OrderEntity orderEntity){
+    public static Order orderMap(OrderEntity orderEntity) {
         Order order = map(orderEntity, Order.class);
         List<OrderDetail> orderDetails = orderEntity.getOrderDetailEntities().stream().map(new Function<OrderDetailEntity, OrderDetail>() {
 
@@ -166,5 +148,4 @@ public class ObjectMapperUtils {
         order.setOrderDetails(orderDetails);
         return order;
     }
-
 }
