@@ -8,7 +8,7 @@ jQuery(document).ready(function () {
         var price = parent.attr('data-price');
 
         jQuery.ajax({
-            url: '/changequantity',
+            url: '/cart/update',
             type: 'post',
             data: {
                 productColor: color,
@@ -36,7 +36,7 @@ jQuery(document).ready(function () {
         var color = parent.attr('data-color');
 
         jQuery.ajax({
-            url: '/deletecart',
+            url: '/cart/delete',
             type: 'post',
             data: {
                 productId: id,
@@ -72,7 +72,8 @@ jQuery(document).ready(function () {
         console.log(color + ' ' + productId + ' ' + quantity + ' ' + urlImage + ' ' + productPrice + ' ' + productName);
 
         jQuery.ajax({
-            url: '/addcart',
+
+            url: '/cart',
             type: 'post',
             data: {
                 productColor: color,
@@ -105,7 +106,7 @@ jQuery(document).ready(function () {
         var productColor = elment.attr('data-color');
 
         jQuery.ajax({
-            url: '/deletecart',
+            url: '/cart/delete',
             type: 'post',
             data: {
                 productColor: productColor,
@@ -135,7 +136,7 @@ jQuery(document).ready(function () {
         var comments = jQuery('#order_comments').val();
 
         jQuery.ajax({
-            url: '/addorder',
+            url: '/order',
             type: 'post',
             data: {
                 customerName: name,
@@ -158,8 +159,8 @@ jQuery(document).ready(function () {
 
     function loadCart() {
         jQuery.ajax({
-            url: '/api/carts',
-            type: 'post',
+            url: '/cart',
+            type: 'get',
             success: function (data) {
                 jQuery('.mini_cart_item').remove();
                 if (data != null) {
@@ -182,8 +183,8 @@ jQuery(document).ready(function () {
 
     function loadSuppilers() {
         jQuery.ajax({
-            url: '/getsuppilers',
-            type: 'post',
+            url: '/suppiler',
+            type: 'get',
             success: function (data) {
                 if (data != null) {
                     for (var i = 0; i < data.length; i++) {

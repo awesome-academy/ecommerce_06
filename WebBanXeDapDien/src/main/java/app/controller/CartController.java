@@ -20,7 +20,7 @@ public class CartController {
 
     private static final Logger logger = Logger.getLogger(CartController.class);
 
-    @PostMapping(value = "/addcart", headers = {"Accept=text/xml, application/json"})
+    @PostMapping(value = "/cart", headers = {"Accept=text/xml, application/json"})
     @ResponseBody
     public List<Cart> addCart(Cart cart, HttpSession httpSession, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -42,18 +42,16 @@ public class CartController {
         return carts;
     }
 
-    @GetMapping(value = "/api/carts", headers = {"Accept=text/xml, application/json"})
+
+    @GetMapping(value = "/cart", headers = {"Accept=text/xml, application/json"})
     @ResponseBody
     public List<Cart> getCart(HttpSession httpSession) {
         List<Cart> carts = (List<Cart>) httpSession.getAttribute("cart");
-        if (carts == null) {
-            return null;
-        }
         return carts;
     }
 
 
-    @PostMapping(value = "/deletecart", headers = {"Accept=text/xml, application/json"})
+    @PostMapping(value = "/cart/delete", headers = {"Accept=text/xml, application/json"})
     @ResponseBody
     public boolean deleteCart(Cart cart, HttpSession httpSession, BindingResult bindingResult) {
 
@@ -80,13 +78,15 @@ public class CartController {
         return "cart";
     }
 
-    @PostMapping("/changequantity")
+
+    @PostMapping("/cart/update")
     @ResponseBody
     public boolean changeQuantity(Cart cart, HttpSession httpSession, BindingResult bindingResult) {
         List<Cart> carts = (List<Cart>) httpSession.getAttribute("cart");
         if (carts == null)
             return false;
         int index = carts.indexOf(cart);
+
         if (index != -1) {
             carts.get(index).setQuantity(cart.getQuantity());
             return true;

@@ -6,7 +6,7 @@ import app.service.SupplierService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -17,7 +17,7 @@ public class SupplierController {
     @Autowired
     SupplierService supplierService;
 
-    @PostMapping(value = "/getsuppilers", headers = {"Accept=text/xml, application/json"})
+    @GetMapping(value = "/suppiler", headers = {"Accept=text/xml, application/json"})
     @ResponseBody
     public List<Supplier> getsuppilers() {
         List<Supplier> suppliers = supplierService.findAll();
