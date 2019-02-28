@@ -35,7 +35,7 @@ public class FileUtils {
     public static List<Product> ReadFileProducts(File file) throws IOException {
         FileInputStream excelFile = null;
         Workbook workbook = null;
-
+        List<Product> products = new ArrayList<>();
         try {
             excelFile = new FileInputStream(file);
             workbook = new XSSFWorkbook(excelFile);
@@ -45,8 +45,6 @@ public class FileUtils {
             Row firstRow = iterator.next();
             Cell firstCell = firstRow.getCell(0);
             System.out.println(firstCell.getStringCellValue());
-            List<Product> products = new ArrayList<>();
-
             while (iterator.hasNext()) {
                 Row currentRow = iterator.next();
                 Product product = new Product();
@@ -58,20 +56,14 @@ public class FileUtils {
                 product.setSupplier(supplier);
                 products.add(product);
             }
-            return products;
         } catch (FileNotFoundException e) {
             logger.error(e);
         } catch (IOException e) {
             logger.error(e);
         } finally {
-            try {
-                workbook.close();
-            } catch (IOException e) {
-                logger.error(e);
-                throw e;
-            }
 
+            workbook.close();
         }
-        return null;
+        return products;
     }
 }

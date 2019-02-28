@@ -48,7 +48,9 @@
 
                 </thead>
                 <tbody>
+                <c:set var="total" value="${0}"/>
                 <c:forEach items="${order.orderDetails}" var="orderDetails" varStatus="varStatus">
+                    <c:set var="total" value="${total + orderDetails.price * orderDetails.amount}"/>
                     <tr>
                         <td>
                             <span>${varStatus.index}</span>
@@ -66,9 +68,9 @@
                             <span>${orderDetails.amount}</span>
                         </td>
                         <td>
-                            <span class="tien">${orderDetails.price}</span>
-                        </td>
+                            <span><fmt:formatNumber value="${orderDetails.price}" type="currency" pattern="###,###,### VND"/></span>
 
+                        </td>
                     </tr>
                 </c:forEach>
 
@@ -77,7 +79,7 @@
 
 
             </table>
-            <h3> Tổng Tiền <b id="tongTien"> 1000000 </b></h3>
+            <h3> Tổng Tiền <b> <fmt:formatNumber value="${total}" type="currency" pattern="###,###,### VND"/> </b></h3>
 
         </div>
     </div>

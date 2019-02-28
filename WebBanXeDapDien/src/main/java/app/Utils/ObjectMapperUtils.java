@@ -95,7 +95,6 @@ public class ObjectMapperUtils {
     public static OrderDetailEntity orderDetailEntityMap(OrderDetail orderDetail) {
         OrderDetailEntity orderDetailEntity = new OrderDetailEntity();
         OrderDetailEntityPK orderDetailEntityPK = new OrderDetailEntityPK();
-
         orderDetailEntityPK.setColor((short) orderDetail.getProductColor().ordinal());
         ProductEntity productEntity = new ProductEntity();
         productEntity.setId(orderDetail.getProduct().getId());
@@ -138,7 +137,6 @@ public class ObjectMapperUtils {
     public static Order orderMap(OrderEntity orderEntity) {
         Order order = map(orderEntity, Order.class);
         List<OrderDetail> orderDetails = orderEntity.getOrderDetailEntities().stream().map(new Function<OrderDetailEntity, OrderDetail>() {
-
             @Override
             public OrderDetail apply(OrderDetailEntity orderDetailEntity) {
                 OrderDetail orderDetail = orderDetailMap(orderDetailEntity);
