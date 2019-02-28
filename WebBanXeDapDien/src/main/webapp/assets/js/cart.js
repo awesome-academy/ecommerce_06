@@ -72,7 +72,7 @@ jQuery(document).ready(function () {
         console.log(color + ' ' + productId + ' ' + quantity + ' ' + urlImage + ' ' + productPrice + ' ' + productName);
 
         jQuery.ajax({
-            url: '/addtocart',
+            url: '/addcart',
             type: 'post',
             data: {
                 productColor: color,
@@ -139,14 +139,14 @@ jQuery(document).ready(function () {
             type: 'post',
             data: {
                 customerName: name,
-                customerAdress : adress,
-                customerPhoneNumber : phone,
-                customerNote : comments
+                customerAdress: adress,
+                customerPhoneNumber: phone,
+                customerNote: comments
             },
             success: function (data) {
-                if(data == true){
+                if (data == true) {
                     alert("Đã thêm hóa đơn thành công")
-                }else {
+                } else {
 
                     alert("Thêm hóa đơn thất bại ")
                 }
@@ -158,7 +158,7 @@ jQuery(document).ready(function () {
 
     function loadCart() {
         jQuery.ajax({
-            url: '/getCart',
+            url: '/api/carts',
             type: 'post',
             success: function (data) {
                 jQuery('.mini_cart_item').remove();
@@ -187,7 +187,7 @@ jQuery(document).ready(function () {
             success: function (data) {
                 if (data != null) {
                     for (var i = 0; i < data.length; i++) {
-                        jQuery('#product_cat').append('<option class="level-0" value="'+data[i].id+'">'+data[i].name+'</option>');
+                        jQuery('#product_cat').append('<option class="level-0" value="' + data[i].id + '">' + data[i].name + '</option>');
                     }
                 } else {
                     console.log("khong co supplier")
