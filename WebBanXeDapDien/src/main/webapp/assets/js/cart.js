@@ -136,7 +136,7 @@ jQuery(document).ready(function () {
         var comments = jQuery('#order_comments').val();
 
         jQuery.ajax({
-            url: '/order',
+            url: '/orders/create',
             type: 'post',
             data: {
                 customerName: name,

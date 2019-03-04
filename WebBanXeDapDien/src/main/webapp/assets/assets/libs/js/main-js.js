@@ -104,16 +104,15 @@ jQuery(document).ready(function ($) {
         var idOrder = $(this).attr('data-id');
         if (this.checked)
             ch = "xác nhận";
-        alert(ch);
         $.ajax({
-            url: '/changestatusorder',
+            url: '/admin/order/update',
             type: 'post',
             data: {
                 id: idOrder,
                 status: ch
             },
             success: function (data) {
-                alert(data);
+                alert("Đa update hóa đơn");
 
             },
             dataType: "json"
@@ -180,8 +179,32 @@ jQuery(document).ready(function ($) {
     });
 
     $('#mainPhoto').change(function () {
-        $('#mainImage').attr('src',$(this).val());
-    })
+        $('#mainImage').attr('src', $(this).val());
+    });
+
+    function loadRevenue() {
+
+        $.ajax({
+            url: '/admin/revenue',
+            type: 'get',
+            success: function (data) {
+                new Chartist.Line('#myChart', {
+                    labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
+                    series: [
+                        data
+                    ]
+                }, {
+                    fullWidth: true,
+                    chartPadding: {
+                        right: 40
+                    }
+                });
+            },
+            dataType: "json"
+        });
+    }
+
+    loadRevenue();
 
 });
 

@@ -208,20 +208,20 @@
         Menu
         </li>
         <li class="nav-item ">
-        <a class="nav-link " href="/admin/products" data-toggle="collapse" aria-expanded="false"
-        data-target="#submenu-1" aria-controls="submenu-1"><i
-        class="fa fa-fw fa-user-circle"></i><spring:message code="admin.product" text="default"/></a>
+        <a  href="/admin/products">
+        <spring:message code="admin.product" text="default"/>
+        </a>
         </li>
-            <li class="nav-item ">
-            <a class="nav-link " href="/admin/order" data-toggle="collapse" aria-expanded="false"
-            data-target="#submenu-1" aria-controls="submenu-1"><i
-            class="fa fa-fw fa-user-circle"></i><spring:message code="admin.order"/> </a>
-            </li>
-            <li class="nav-item ">
-            <a class="nav-link " href="#" data-toggle="collapse" aria-expanded="false"
-            data-target="#submenu-1" aria-controls="submenu-1"><i
-            class="fa fa-fw fa-user-circle"></i><spring:message code="admin.supplier" /> </a>
-            </li>
+        <li class="nav-item ">
+        <a  href="/admin/order">
+        <spring:message code="admin.order" text="default"/>
+        </a>
+        </li>
+        <li class="nav-item ">
+        <a  href="/admin/supplier"/>
+        <spring:message code="admin.supplier" text="default"/>
+        </a>
+        </li>
 
 
         </ul>
@@ -319,8 +319,7 @@
         <script src="${bootstrapjs}"></script>
         <!-- slimscroll js -->
         <script src="${slimscrolljs}"></script>
-        <!-- main js -->
-        <script src="${mainjs}"></script>
+
         <!-- chart chartist js -->
         <script src="${chartistjs}"></script>
         <script src="${sparklinejs}"></script>
@@ -332,6 +331,8 @@
         <script src="${d3js}"></script>
         <script src="${C3chartjs}"></script>
         <script src="${ecommercejs}"></script>
+        <!-- main js -->
+        <script src="${mainjs}"></script>
         </body>
 
         </html>

@@ -44,6 +44,7 @@
     <spring:url value="/assets/js/cart.js" var="cartjs"/>
     <spring:url value="/assets/images/fav-icon.png" var="favicon"/>
 
+
     <link rel="stylesheet" type="text/css" href="${bootstrapCss}" media="all"/>
     <link rel="stylesheet" type="text/css" href="${fontawesome}" media="all"/>
     <link rel="stylesheet" type="text/css" href="${animate}" media="all"/>
@@ -60,6 +61,8 @@
 </head>
 
 <body class="single-product full-width">
+<div id="fb-root"></div>
+<script async defer src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2"></script>
 <div id="page" class="hfeed site">
     <a class="skip-link screen-reader-text" href="#site-navigation">Skip to navigation</a>
     <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
@@ -244,7 +247,9 @@
                                         </div>
                                     </div>
                                 </form>
-
+                                <script src="https://apis.google.com/js/platform.js" async defer></script>
+                                <g:plus action="share"></g:plus>
+                                <div class="fb-share-button" data-href="https://localhost:8080/products/2" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Chia sẻ</a></div>
                             </div><!-- .summary -->
                         </div><!-- /.single-product-wrapper -->
 
