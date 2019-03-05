@@ -1,4 +1,4 @@
-package app.controller;
+package app.controller.admin;
 
 import app.service.OrderService;
 import app.service.ProductService;
@@ -8,15 +8,12 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
-
     private static final Logger logger = Logger.getLogger(AdminController.class);
 
     @Autowired
@@ -24,12 +21,12 @@ public class AdminController {
     @Autowired
     ProductService productService;
 
-    @GetMapping("/admin/dashboard")
+    @GetMapping("/dashboard")
     public String homeAdmin() {
         return "DashBoard";
     }
 
-    @GetMapping(value = "/admin/revenue", headers = {"Accept=text/xml, application/json"})
+    @GetMapping(value = "/revenue", headers = {"Accept=text/xml, application/json"})
     @ResponseBody
     public String revenue() {
         int[] revenue = orderService.getRevenue();
@@ -42,5 +39,4 @@ public class AdminController {
         }
         return json;
     }
-
 }

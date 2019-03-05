@@ -1,8 +1,6 @@
-package app.controller;
+package app.controller.client;
 
 import app.bean.Cart;
-import app.service.OrderDetailService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,12 +15,11 @@ import org.apache.log4j.Logger;
 
 @Controller
 public class CartController {
-
     private static final Logger logger = Logger.getLogger(CartController.class);
 
-    @PostMapping(value = "/cart", headers = {"Accept=text/xml, application/json"})
+    @PostMapping(value = "/cart/create", headers = {"Accept=text/xml, application/json"})
     @ResponseBody
-    public List<Cart> addCart(Cart cart, HttpSession httpSession, BindingResult bindingResult) {
+    public List<Cart> create(Cart cart, HttpSession httpSession, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             logger.error(bindingResult.getFieldError().getField());
         }
@@ -42,18 +39,16 @@ public class CartController {
         return carts;
     }
 
-
     @GetMapping(value = "/cart", headers = {"Accept=text/xml, application/json"})
     @ResponseBody
-    public List<Cart> getCart(HttpSession httpSession) {
+    public List<Cart> Cart(HttpSession httpSession) {
         List<Cart> carts = (List<Cart>) httpSession.getAttribute("cart");
         return carts;
     }
 
-
     @PostMapping(value = "/cart/delete", headers = {"Accept=text/xml, application/json"})
     @ResponseBody
-    public boolean deleteCart(Cart cart, HttpSession httpSession, BindingResult bindingResult) {
+    public boolean delete(Cart cart, HttpSession httpSession, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
             logger.info(bindingResult.getFieldError().getField());
@@ -78,10 +73,9 @@ public class CartController {
         return "cart";
     }
 
-
     @PostMapping("/cart/update")
     @ResponseBody
-    public boolean changeQuantity(Cart cart, HttpSession httpSession, BindingResult bindingResult) {
+    public boolean update(Cart cart, HttpSession httpSession, BindingResult bindingResult) {
         List<Cart> carts = (List<Cart>) httpSession.getAttribute("cart");
         if (carts == null)
             return false;
@@ -93,6 +87,4 @@ public class CartController {
         }
         return false;
     }
-
-
 }

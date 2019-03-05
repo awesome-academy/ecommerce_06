@@ -1,4 +1,4 @@
-package app.controller;
+package app.controller.client;
 
 import app.bean.Cart;
 

@@ -1,4 +1,4 @@
-package app.controller;
+package app.controller.client;
 
 import app.bean.Product;
 import app.service.ProductDetailsService;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -28,28 +27,13 @@ public class HomeController {
         return "redirect:/page/1";
     }
 
-    @PostMapping("/search")
-    public String search(String name, int suppiler, Model model) {
-        List<Product> products = productService.getProductByNameAndSuppilerId(name, suppiler);
-        model.addAttribute("products", products);
-        model.addAttribute("pageCount", 0);
-        return "home";
-    }
-
     @GetMapping("/page/{pageNumber}")
     public String pageNumber(@PathVariable int pageNumber, Model model) {
         List<Product> products = productService.getProductListByPage(pageNumber, 24);
         model.addAttribute("products", products);
         int count = productService.getPageCount();
-        int pageCount = count / 24;
-        if (count % 24 > 0)
-            model.addAttribute("pageCount", pageCount + 1);
-        else
-            model.addAttribute("pageCount", pageCount);
+        model.addAttribute("pageCount", count % 24 > 0 ? (count / 24 + 1) : (count / 24));
         model.addAttribute("pageNumber", pageNumber);
-
         return "home";
     }
-
-
 }

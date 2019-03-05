@@ -39,13 +39,10 @@ public class ProductDAOImpl extends GenericDAO<Integer, ProductEntity> implement
     public List<ProductEntity> getProductByNameAndSuppilerId(String name, int supplierId) {
         if (supplierId == 0) {
             return getSession().createQuery("From ProductEntity P WHERE P.name LIKE :name ").setParameter("name", "%" + name + "%").getResultList();
-
         } else {
             return getSession().createQuery("From ProductEntity P WHERE P.name LIKE :name AND P.supplierEntity.id = :supplierId").setParameter("name", "%" + name + "%").setParameter("supplierId", supplierId).getResultList();
-
         }
     }
-
 
     @Override
     public int getPageCount() {
@@ -61,6 +58,4 @@ public class ProductDAOImpl extends GenericDAO<Integer, ProductEntity> implement
         productsEntity.getOrderDetailEntities().removeIf(Objects::isNull);
         return productsEntity;
     }
-
-
 }

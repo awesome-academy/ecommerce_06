@@ -21,7 +21,7 @@
                         for(int i = 0; i < products.size(); i++) {
                           if(num == 1)
                               out.write("<tr>");%>
-                <td><a href="/admin/updateproduct/<%=products.get(i).getId()%>"><img
+                <td><a href="/admin/products/<%=products.get(i).getId()%>"><img
                         style="cursor: pointer; position: relative"
                         src="/assets/images/products/<%=products.get(i).getMainPhoto()%>"></a>
                     <div style="position: absolute; margin-top: -20px; margin-left: 30px; background-color: #a3d133; border: #0b2e13 solid 1px ">
